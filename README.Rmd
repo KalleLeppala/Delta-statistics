@@ -17,7 +17,7 @@ The article is joint work between Kalle Leppälä, Flavio Augusto da Silva Coelh
 
 ## Simulation
 
-+  [tools.md](tools.md) has the R functions and documentation used in all the coalescence simulations.
++  [tools.md](/blob/main/tools.md) has the R functions and documentation used in all the coalescence simulations.
 +  [S_big.md](S_big.md) is the simulation and documentation in tree $S$ using 1,000,000 allelic patterns.
 +  [S_medium.md](S_medium.md) is the simulation in tree $S$ using 100,000 allelic patterns.
 +  [S_small.md](S_small.md) is the simulation in tree $S$ using 10,000 allelic patterns.
