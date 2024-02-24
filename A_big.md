@@ -1,0 +1,503 @@
+Simulation in the asymmetric tree $A$
+================
+Kalle Leppälä
+
+## Simulating the 18 admixture scenarios in the asymmetric tree $A$
+
+We simulate 1,000,000 independent allelic patterns in 18 admixture
+graphs, see [tools.md](tools.md). The simulation uses the same
+parameters used in the symmetric tree $S$ simulation made in
+[S_big.md](S_big.md).
+
+The underlying species tree is $A = ((((1,2),3),4),5)$, where
+populations 1 and 2 merge at time point 0.75, populations 12 and 3 merge
+at time point 1.5, populations 123 and 4 merge at time point 2.25, and
+populations 1234 and 5 merge at time point 3. Gene flow between terminal
+branches (12 scenarios as we are only able to detect gene flow involving
+1 or 2 but not both) is modelled as an instantaneous event where a
+lineage has a chance of being transferred to another population at time
+point 0.375. Gene flow from 123, 1234 or 12345 to one of the branches 1
+or 2 (6 scenarios) obviously cannot be instantaneous and is mediated
+with a ghost population instead. The ghost population splits from the
+terminal branch at time point 0.375 and merges to population 123 at time
+point 1.875, to population 1234 at time point 2.625 and to population
+12345 at time point 3.5.
+
+``` r
+tables <- list()
+lambda <- 1
+mu <- 0.0001
+N <- 1000000
+
+# 1 -> 3
+LLL <- list(lambda = lambda, mu = mu, inhabitants = character(0), samples = list(P1 = 0), switches = list(LLR = c(0.75, 1)))
+LLR <- list(lambda = lambda, mu = mu, inhabitants = character(0), samples = list(P2 = 0), switches = list(LR = c(1.5, 1)))
+LR  <- list(lambda = lambda, mu = mu, inhabitants = character(0), samples = list(P3 = 0), switches = list(R = c(2.25, 1), LLL = c(0.375, 0.1)))
+R   <- list(lambda = lambda, mu = mu, inhabitants = character(0), samples = list(P4 = 0), switches = list(OG = c(3, 1)))
+OG  <- list(lambda = lambda, mu = mu, inhabitants = character(0), samples = list(P5 = 0), switches = list())
+graph <- list(LLL = LLL, LLR = LLR, LR = LR, R = R, OG = OG)
+abbababa <- character(0)
+for (k in seq(1, N)) {
+  abbababa[k] <- pattern(solve_tree(graph), Tmax = 0.0055)
+    while (is.na(abbababa[k]) == TRUE) {abbababa[k] <- pattern(solve_tree(graph), Tmax = 0.0055)}
+}
+table <- table(abbababa)
+tables[[length(tables) + 1]] <- table
+# 3 -> 1
+LLL <- list(lambda = lambda, mu = mu, inhabitants = character(0), samples = list(P1 = 0), switches = list(LLR = c(0.75, 1), LR = c(0.375, 0.1)))
+LLR <- list(lambda = lambda, mu = mu, inhabitants = character(0), samples = list(P2 = 0), switches = list(LR = c(1.5, 1)))
+LR  <- list(lambda = lambda, mu = mu, inhabitants = character(0), samples = list(P3 = 0), switches = list(R = c(2.25, 1)))
+R   <- list(lambda = lambda, mu = mu, inhabitants = character(0), samples = list(P4 = 0), switches = list(OG = c(3, 1)))
+OG  <- list(lambda = lambda, mu = mu, inhabitants = character(0), samples = list(P5 = 0), switches = list())
+graph <- list(LLL = LLL, LLR = LLR, LR = LR, R = R, OG = OG)
+abbababa <- character(0)
+for (k in seq(1, N)) {
+  abbababa[k] <- pattern(solve_tree(graph), Tmax = 0.0055)
+    while (is.na(abbababa[k]) == TRUE) {abbababa[k] <- pattern(solve_tree(graph), Tmax = 0.0055)}
+}
+table <- table(abbababa)
+tables[[length(tables) + 1]] <- table
+# 2 -> 3
+LLL <- list(lambda = lambda, mu = mu, inhabitants = character(0), samples = list(P1 = 0), switches = list(LLR = c(0.75, 1)))
+LLR <- list(lambda = lambda, mu = mu, inhabitants = character(0), samples = list(P2 = 0), switches = list(LR = c(1.5, 1)))
+LR  <- list(lambda = lambda, mu = mu, inhabitants = character(0), samples = list(P3 = 0), switches = list(R = c(2.25, 1), LLR = c(0.375, 0.1)))
+R   <- list(lambda = lambda, mu = mu, inhabitants = character(0), samples = list(P4 = 0), switches = list(OG = c(3, 1)))
+OG  <- list(lambda = lambda, mu = mu, inhabitants = character(0), samples = list(P5 = 0), switches = list())
+graph <- list(LLL = LLL, LLR = LLR, LR = LR, R = R, OG = OG)
+abbababa <- character(0)
+for (k in seq(1, N)) {
+  abbababa[k] <- pattern(solve_tree(graph), Tmax = 0.0055)
+    while (is.na(abbababa[k]) == TRUE) {abbababa[k] <- pattern(solve_tree(graph), Tmax = 0.0055)}
+}
+table <- table(abbababa)
+tables[[length(tables) + 1]] <- table
+# 3 -> 2
+LLL <- list(lambda = lambda, mu = mu, inhabitants = character(0), samples = list(P1 = 0), switches = list(LR = c(1.5, 1)))
+LLR <- list(lambda = lambda, mu = mu, inhabitants = character(0), samples = list(P2 = 0), switches = list(LLL = c(0.75, 1), LR = c(0.375, 0.1)))
+LR  <- list(lambda = lambda, mu = mu, inhabitants = character(0), samples = list(P3 = 0), switches = list(R = c(2.25, 1)))
+R   <- list(lambda = lambda, mu = mu, inhabitants = character(0), samples = list(P4 = 0), switches = list(OG = c(3, 1)))
+OG  <- list(lambda = lambda, mu = mu, inhabitants = character(0), samples = list(P5 = 0), switches = list())
+graph <- list(LLL = LLL, LLR = LLR, LR = LR, R = R, OG = OG)
+abbababa <- character(0)
+for (k in seq(1, N)) {
+  abbababa[k] <- pattern(solve_tree(graph), Tmax = 0.0055)
+    while (is.na(abbababa[k]) == TRUE) {abbababa[k] <- pattern(solve_tree(graph), Tmax = 0.0055)}
+}
+table <- table(abbababa)
+tables[[length(tables) + 1]] <- table
+# 1 -> 4
+LLL <- list(lambda = lambda, mu = mu, inhabitants = character(0), samples = list(P1 = 0), switches = list(LLR = c(0.75, 1)))
+LLR <- list(lambda = lambda, mu = mu, inhabitants = character(0), samples = list(P2 = 0), switches = list(LR = c(1.5, 1)))
+LR  <- list(lambda = lambda, mu = mu, inhabitants = character(0), samples = list(P3 = 0), switches = list(R = c(2.25, 1)))
+R   <- list(lambda = lambda, mu = mu, inhabitants = character(0), samples = list(P4 = 0), switches = list(OG = c(3, 1), LLL = c(0.375, 0.1)))
+OG  <- list(lambda = lambda, mu = mu, inhabitants = character(0), samples = list(P5 = 0), switches = list())
+graph <- list(LLL = LLL, LLR = LLR, LR = LR, R = R, OG = OG)
+abbababa <- character(0)
+for (k in seq(1, N)) {
+  abbababa[k] <- pattern(solve_tree(graph), Tmax = 0.0055)
+    while (is.na(abbababa[k]) == TRUE) {abbababa[k] <- pattern(solve_tree(graph), Tmax = 0.0055)}
+}
+table <- table(abbababa)
+tables[[length(tables) + 1]] <- table
+# 4 -> 1
+LLL <- list(lambda = lambda, mu = mu, inhabitants = character(0), samples = list(P1 = 0), switches = list(LLR = c(0.75, 1), R = c(0.375, 0.1)))
+LLR <- list(lambda = lambda, mu = mu, inhabitants = character(0), samples = list(P2 = 0), switches = list(LR = c(1.5, 1)))
+LR  <- list(lambda = lambda, mu = mu, inhabitants = character(0), samples = list(P3 = 0), switches = list(R = c(2.25, 1)))
+R   <- list(lambda = lambda, mu = mu, inhabitants = character(0), samples = list(P4 = 0), switches = list(OG = c(3, 1)))
+OG  <- list(lambda = lambda, mu = mu, inhabitants = character(0), samples = list(P5 = 0), switches = list())
+graph <- list(LLL = LLL, LLR = LLR, LR = LR, R = R, OG = OG)
+abbababa <- character(0)
+for (k in seq(1, N)) {
+  abbababa[k] <- pattern(solve_tree(graph), Tmax = 0.0055)
+    while (is.na(abbababa[k]) == TRUE) {abbababa[k] <- pattern(solve_tree(graph), Tmax = 0.0055)}
+}
+table <- table(abbababa)
+tables[[length(tables) + 1]] <- table
+# 2 -> 4
+LLL <- list(lambda = lambda, mu = mu, inhabitants = character(0), samples = list(P1 = 0), switches = list(LLR = c(0.75, 1)))
+LLR <- list(lambda = lambda, mu = mu, inhabitants = character(0), samples = list(P2 = 0), switches = list(LR = c(1.5, 1)))
+LR  <- list(lambda = lambda, mu = mu, inhabitants = character(0), samples = list(P3 = 0), switches = list(R = c(2.25, 1)))
+R   <- list(lambda = lambda, mu = mu, inhabitants = character(0), samples = list(P4 = 0), switches = list(OG = c(3, 1), LLR = c(0.375, 0.1)))
+OG  <- list(lambda = lambda, mu = mu, inhabitants = character(0), samples = list(P5 = 0), switches = list())
+graph <- list(LLL = LLL, LLR = LLR, LR = LR, R = R, OG = OG)
+abbababa <- character(0)
+for (k in seq(1, N)) {
+  abbababa[k] <- pattern(solve_tree(graph), Tmax = 0.0055)
+    while (is.na(abbababa[k]) == TRUE) {abbababa[k] <- pattern(solve_tree(graph), Tmax = 0.0055)}
+}
+table <- table(abbababa)
+tables[[length(tables) + 1]] <- table
+# 4 -> 2
+LLL <- list(lambda = lambda, mu = mu, inhabitants = character(0), samples = list(P1 = 0), switches = list(LLR = c(0.75, 1)))
+LLR <- list(lambda = lambda, mu = mu, inhabitants = character(0), samples = list(P2 = 0), switches = list(LR = c(1.5, 1), R = c(0.375, 0.1)))
+LR  <- list(lambda = lambda, mu = mu, inhabitants = character(0), samples = list(P3 = 0), switches = list(R = c(2.25, 1)))
+R   <- list(lambda = lambda, mu = mu, inhabitants = character(0), samples = list(P4 = 0), switches = list(OG = c(3, 1)))
+OG  <- list(lambda = lambda, mu = mu, inhabitants = character(0), samples = list(P5 = 0), switches = list())
+graph <- list(LLL = LLL, LLR = LLR, LR = LR, R = R, OG = OG)
+abbababa <- character(0)
+for (k in seq(1, N)) {
+  abbababa[k] <- pattern(solve_tree(graph), Tmax = 0.0055)
+    while (is.na(abbababa[k]) == TRUE) {abbababa[k] <- pattern(solve_tree(graph), Tmax = 0.0055)}
+}
+table <- table(abbababa)
+tables[[length(tables) + 1]] <- table
+# 1 -> 5
+LLL <- list(lambda = lambda, mu = mu, inhabitants = character(0), samples = list(P1 = 0), switches = list(LLR = c(0.75, 1)))
+LLR <- list(lambda = lambda, mu = mu, inhabitants = character(0), samples = list(P2 = 0), switches = list(LR = c(1.5, 1)))
+LR  <- list(lambda = lambda, mu = mu, inhabitants = character(0), samples = list(P3 = 0), switches = list(R = c(2.25, 1)))
+R   <- list(lambda = lambda, mu = mu, inhabitants = character(0), samples = list(P4 = 0), switches = list(OG = c(3, 1)))
+OG  <- list(lambda = lambda, mu = mu, inhabitants = character(0), samples = list(P5 = 0), switches = list(LLL = c(0.375, 0.1)))
+graph <- list(LLL = LLL, LLR = LLR, LR = LR, R = R, OG = OG)
+abbababa <- character(0)
+for (k in seq(1, N)) {
+  abbababa[k] <- pattern(solve_tree(graph), Tmax = 0.0055)
+    while (is.na(abbababa[k]) == TRUE) {abbababa[k] <- pattern(solve_tree(graph), Tmax = 0.0055)}
+}
+table <- table(abbababa)
+tables[[length(tables) + 1]] <- table
+# 5 -> 1
+LLL <- list(lambda = lambda, mu = mu, inhabitants = character(0), samples = list(P1 = 0), switches = list(LLR = c(0.75, 1), OG = c(0.375, 0.1)))
+LLR <- list(lambda = lambda, mu = mu, inhabitants = character(0), samples = list(P2 = 0), switches = list(LR = c(1.5, 1)))
+LR  <- list(lambda = lambda, mu = mu, inhabitants = character(0), samples = list(P3 = 0), switches = list(R = c(2.25, 1)))
+R   <- list(lambda = lambda, mu = mu, inhabitants = character(0), samples = list(P4 = 0), switches = list(OG = c(3, 1)))
+OG  <- list(lambda = lambda, mu = mu, inhabitants = character(0), samples = list(P5 = 0), switches = list())
+graph <- list(LLL = LLL, LLR = LLR, LR = LR, R = R, OG = OG)
+abbababa <- character(0)
+for (k in seq(1, N)) {
+  abbababa[k] <- pattern(solve_tree(graph), Tmax = 0.0055)
+    while (is.na(abbababa[k]) == TRUE) {abbababa[k] <- pattern(solve_tree(graph), Tmax = 0.0055)}
+}
+table <- table(abbababa)
+tables[[length(tables) + 1]] <- table
+# 2 -> 5
+LLL <- list(lambda = lambda, mu = mu, inhabitants = character(0), samples = list(P1 = 0), switches = list(LLR = c(0.75, 1)))
+LLR <- list(lambda = lambda, mu = mu, inhabitants = character(0), samples = list(P2 = 0), switches = list(LR = c(1.5, 1)))
+LR  <- list(lambda = lambda, mu = mu, inhabitants = character(0), samples = list(P3 = 0), switches = list(R = c(2.25, 1)))
+R   <- list(lambda = lambda, mu = mu, inhabitants = character(0), samples = list(P4 = 0), switches = list(OG = c(3, 1)))
+OG  <- list(lambda = lambda, mu = mu, inhabitants = character(0), samples = list(P5 = 0), switches = list(LLR = c(0.375, 0.1)))
+graph <- list(LLL = LLL, LLR = LLR, LR = LR, R = R, OG = OG)
+abbababa <- character(0)
+for (k in seq(1, N)) {
+  abbababa[k] <- pattern(solve_tree(graph), Tmax = 0.0055)
+    while (is.na(abbababa[k]) == TRUE) {abbababa[k] <- pattern(solve_tree(graph), Tmax = 0.0055)}
+}
+table <- table(abbababa)
+tables[[length(tables) + 1]] <- table
+# 5 -> 2
+LLL <- list(lambda = lambda, mu = mu, inhabitants = character(0), samples = list(P1 = 0), switches = list(LLR = c(0.75, 1)))
+LLR <- list(lambda = lambda, mu = mu, inhabitants = character(0), samples = list(P2 = 0), switches = list(LR = c(1.5, 1), OG = c(0.375, 0.1)))
+LR  <- list(lambda = lambda, mu = mu, inhabitants = character(0), samples = list(P3 = 0), switches = list(R = c(2.25, 1)))
+R   <- list(lambda = lambda, mu = mu, inhabitants = character(0), samples = list(P4 = 0), switches = list(OG = c(3, 1)))
+OG  <- list(lambda = lambda, mu = mu, inhabitants = character(0), samples = list(P5 = 0), switches = list())
+graph <- list(LLL = LLL, LLR = LLR, LR = LR, R = R, OG = OG)
+abbababa <- character(0)
+for (k in seq(1, N)) {
+  abbababa[k] <- pattern(solve_tree(graph), Tmax = 0.0055)
+    while (is.na(abbababa[k]) == TRUE) {abbababa[k] <- pattern(solve_tree(graph), Tmax = 0.0055)}
+}
+table <- table(abbababa)
+tables[[length(tables) + 1]] <- table
+# 123 -> 1
+LLL <- list(lambda = lambda, mu = mu, inhabitants = character(0), samples = list(P1 = 0), switches = list(LLR = c(0.75, 1), GH = c(0.375, 0.1)))
+LLR <- list(lambda = lambda, mu = mu, inhabitants = character(0), samples = list(P2 = 0), switches = list(LR = c(1.5, 1)))
+LR  <- list(lambda = lambda, mu = mu, inhabitants = character(0), samples = list(P3 = 0), switches = list(R = c(2.25, 1)))
+R   <- list(lambda = lambda, mu = mu, inhabitants = character(0), samples = list(P4 = 0), switches = list(OG = c(3, 1)))
+OG  <- list(lambda = lambda, mu = mu, inhabitants = character(0), samples = list(P5 = 0), switches = list())
+GH  <- list(lambda = lambda, mu = mu, inhabitants = character(0), samples = list(), switches = list(LR = c(1.875, 1)))
+graph <- list(LLL = LLL, LLR = LLR, LR = LR, R = R, OG = OG, GH = GH)
+abbababa <- character(0)
+for (k in seq(1, N)) {
+  abbababa[k] <- pattern(solve_tree(graph), Tmax = 0.0055)
+    while (is.na(abbababa[k]) == TRUE) {abbababa[k] <- pattern(solve_tree(graph), Tmax = 0.0055)}
+}
+table <- table(abbababa)
+tables[[length(tables) + 1]] <- table
+# 123 -> 2
+LLL <- list(lambda = lambda, mu = mu, inhabitants = character(0), samples = list(P1 = 0), switches = list(LLR = c(0.75, 1)))
+LLR <- list(lambda = lambda, mu = mu, inhabitants = character(0), samples = list(P2 = 0), switches = list(LR = c(1.5, 1), GH = c(0.375, 0.1)))
+LR  <- list(lambda = lambda, mu = mu, inhabitants = character(0), samples = list(P3 = 0), switches = list(R = c(2.25, 1)))
+R   <- list(lambda = lambda, mu = mu, inhabitants = character(0), samples = list(P4 = 0), switches = list(OG = c(3, 1)))
+OG  <- list(lambda = lambda, mu = mu, inhabitants = character(0), samples = list(P5 = 0), switches = list())
+GH  <- list(lambda = lambda, mu = mu, inhabitants = character(0), samples = list(), switches = list(LR = c(1.875, 1)))
+graph <- list(LLL = LLL, LLR = LLR, LR = LR, R = R, OG = OG, GH = GH)
+abbababa <- character(0)
+for (k in seq(1, N)) {
+  abbababa[k] <- pattern(solve_tree(graph), Tmax = 0.0055)
+    while (is.na(abbababa[k]) == TRUE) {abbababa[k] <- pattern(solve_tree(graph), Tmax = 0.0055)}
+}
+table <- table(abbababa)
+tables[[length(tables) + 1]] <- table
+# 1234 -> 1
+LLL <- list(lambda = lambda, mu = mu, inhabitants = character(0), samples = list(P1 = 0), switches = list(LLR = c(0.75, 1), GH = c(0.375, 0.1)))
+LLR <- list(lambda = lambda, mu = mu, inhabitants = character(0), samples = list(P2 = 0), switches = list(LR = c(1.5, 1)))
+LR  <- list(lambda = lambda, mu = mu, inhabitants = character(0), samples = list(P3 = 0), switches = list(R = c(2.25, 1)))
+R   <- list(lambda = lambda, mu = mu, inhabitants = character(0), samples = list(P4 = 0), switches = list(OG = c(3, 1)))
+OG  <- list(lambda = lambda, mu = mu, inhabitants = character(0), samples = list(P5 = 0), switches = list())
+GH  <- list(lambda = lambda, mu = mu, inhabitants = character(0), samples = list(), switches = list(R = c(2.625, 1)))
+graph <- list(LLL = LLL, LLR = LLR, LR = LR, R = R, OG = OG, GH = GH)
+abbababa <- character(0)
+for (k in seq(1, N)) {
+  abbababa[k] <- pattern(solve_tree(graph), Tmax = 0.0055)
+    while (is.na(abbababa[k]) == TRUE) {abbababa[k] <- pattern(solve_tree(graph), Tmax = 0.0055)}
+}
+table <- table(abbababa)
+tables[[length(tables) + 1]] <- table
+# 1234 -> 2
+LLL <- list(lambda = lambda, mu = mu, inhabitants = character(0), samples = list(P1 = 0), switches = list(LLR = c(0.75, 1)))
+LLR <- list(lambda = lambda, mu = mu, inhabitants = character(0), samples = list(P2 = 0), switches = list(LR = c(1.5, 1), GH = c(0.375, 0.1)))
+LR  <- list(lambda = lambda, mu = mu, inhabitants = character(0), samples = list(P3 = 0), switches = list(R = c(2.25, 1)))
+R   <- list(lambda = lambda, mu = mu, inhabitants = character(0), samples = list(P4 = 0), switches = list(OG = c(3, 1)))
+OG  <- list(lambda = lambda, mu = mu, inhabitants = character(0), samples = list(P5 = 0), switches = list())
+GH  <- list(lambda = lambda, mu = mu, inhabitants = character(0), samples = list(), switches = list(R = c(2.625, 1)))
+graph <- list(LLL = LLL, LLR = LLR, LR = LR, R = R, OG = OG, GH = GH)
+abbababa <- character(0)
+for (k in seq(1, N)) {
+  abbababa[k] <- pattern(solve_tree(graph), Tmax = 0.0055)
+    while (is.na(abbababa[k]) == TRUE) {abbababa[k] <- pattern(solve_tree(graph), Tmax = 0.0055)}
+}
+table <- table(abbababa)
+tables[[length(tables) + 1]] <- table
+# 12345 -> 1
+LLL <- list(lambda = lambda, mu = mu, inhabitants = character(0), samples = list(P1 = 0), switches = list(LLR = c(0.75, 1), GH = c(0.375, 0.1)))
+LLR <- list(lambda = lambda, mu = mu, inhabitants = character(0), samples = list(P2 = 0), switches = list(LR = c(1.5, 1)))
+LR  <- list(lambda = lambda, mu = mu, inhabitants = character(0), samples = list(P3 = 0), switches = list(R = c(2.25, 1)))
+R   <- list(lambda = lambda, mu = mu, inhabitants = character(0), samples = list(P4 = 0), switches = list(OG = c(3, 1)))
+OG  <- list(lambda = lambda, mu = mu, inhabitants = character(0), samples = list(P5 = 0), switches = list())
+GH  <- list(lambda = lambda, mu = mu, inhabitants = character(0), samples = list(), switches = list(OG = c(3.5, 1)))
+graph <- list(LLL = LLL, LLR = LLR, LR = LR, R = R, OG = OG, GH = GH)
+abbababa <- character(0)
+for (k in seq(1, N)) {
+  abbababa[k] <- pattern(solve_tree(graph), Tmax = 0.0055)
+    while (is.na(abbababa[k]) == TRUE) {abbababa[k] <- pattern(solve_tree(graph), Tmax = 0.0055)}
+}
+table <- table(abbababa)
+tables[[length(tables) + 1]] <- table
+# 12345 -> 2
+LLL <- list(lambda = lambda, mu = mu, inhabitants = character(0), samples = list(P1 = 0), switches = list(LLR = c(0.75, 1)))
+LLR <- list(lambda = lambda, mu = mu, inhabitants = character(0), samples = list(P2 = 0), switches = list(LR = c(1.5, 1), GH = c(0.375, 0.1)))
+LR  <- list(lambda = lambda, mu = mu, inhabitants = character(0), samples = list(P3 = 0), switches = list(R = c(2.25, 1)))
+R   <- list(lambda = lambda, mu = mu, inhabitants = character(0), samples = list(P4 = 0), switches = list(OG = c(3, 1)))
+OG  <- list(lambda = lambda, mu = mu, inhabitants = character(0), samples = list(P5 = 0), switches = list())
+GH  <- list(lambda = lambda, mu = mu, inhabitants = character(0), samples = list(), switches = list(OG = c(3.5, 1)))
+graph <- list(LLL = LLL, LLR = LLR, LR = LR, R = R, OG = OG, GH = GH)
+abbababa <- character(0)
+for (k in seq(1, N)) {
+  abbababa[k] <- pattern(solve_tree(graph), Tmax = 0.0055)
+    while (is.na(abbababa[k]) == TRUE) {abbababa[k] <- pattern(solve_tree(graph), Tmax = 0.0055)}
+}
+table <- table(abbababa)
+tables[[length(tables) + 1]] <- table
+
+save(tables, file = "A_big.RData")
+```
+
+## Computing the $\Delta$-statistics
+
+From the simulated tables of allelic patterns we calculate a data frame
+of the four preferred $\Delta$-statistics on tree $A$ under the 18
+admixture scenarios.
+
+``` r
+load(file = "A_big.RData")
+event <- character(0)
+statistic <- character(0)
+value <- numeric(0)
+zvalue <- numeric(0)
+sign <- numeric(0)
+
+# 1 -> 3
+table <- tables[[1]]
+event <- c(event, rep("1 \u2794 3", 4))
+statistic <- c(statistic, "DA12", "DA13", "DA23", "DA1234")
+value <- c(value, DA12(table)[[1]], DA13(table)[[1]], DA23(table)[[1]], DA1234(table)[[1]])
+zvalue <- c(zvalue, DA12(table)[[2]], DA13(table)[[2]], DA23(table)[[2]], DA1234(table)[[2]])
+sign <- c(sign, DA12(table)[[3]], DA13(table)[[3]], DA23(table)[[3]], DA1234(table)[[3]])
+# 3 -> 1
+table <- tables[[2]]
+event <- c(event, rep("3 \u2794 1", 4))
+statistic <- c(statistic, "DA12", "DA13", "DA23", "DA1234")
+value <- c(value, DA12(table)[[1]], DA13(table)[[1]], DA23(table)[[1]], DA1234(table)[[1]])
+zvalue <- c(zvalue, DA12(table)[[2]], DA13(table)[[2]], DA23(table)[[2]], DA1234(table)[[2]])
+sign <- c(sign, DA12(table)[[3]], DA13(table)[[3]], DA23(table)[[3]], DA1234(table)[[3]])
+# 2 -> 3
+table <- tables[[3]]
+event <- c(event, rep("2 \u2794 3", 4))
+statistic <- c(statistic, "DA12", "DA13", "DA23", "DA1234")
+value <- c(value, DA12(table)[[1]], DA13(table)[[1]], DA23(table)[[1]], DA1234(table)[[1]])
+zvalue <- c(zvalue, DA12(table)[[2]], DA13(table)[[2]], DA23(table)[[2]], DA1234(table)[[2]])
+sign <- c(sign, DA12(table)[[3]], DA13(table)[[3]], DA23(table)[[3]], DA1234(table)[[3]])
+# 3 -> 2
+table <- tables[[4]]
+event <- c(event, rep("3 \u2794 2", 4))
+statistic <- c(statistic, "DA12", "DA13", "DA23", "DA1234")
+value <- c(value, DA12(table)[[1]], DA13(table)[[1]], DA23(table)[[1]], DA1234(table)[[1]])
+zvalue <- c(zvalue, DA12(table)[[2]], DA13(table)[[2]], DA23(table)[[2]], DA1234(table)[[2]])
+sign <- c(sign, DA12(table)[[3]], DA13(table)[[3]], DA23(table)[[3]], DA1234(table)[[3]])
+# 1 -> 4
+table <- tables[[5]]
+event <- c(event, rep("1 \u2794 4", 4))
+statistic <- c(statistic, "DA12", "DA13", "DA23", "DA1234")
+value <- c(value, DA12(table)[[1]], DA13(table)[[1]], DA23(table)[[1]], DA1234(table)[[1]])
+zvalue <- c(zvalue, DA12(table)[[2]], DA13(table)[[2]], DA23(table)[[2]], DA1234(table)[[2]])
+sign <- c(sign, DA12(table)[[3]], DA13(table)[[3]], DA23(table)[[3]], DA1234(table)[[3]])
+# 4 -> 1
+table <- tables[[6]]
+event <- c(event, rep("4 \u2794 1", 4))
+statistic <- c(statistic, "DA12", "DA13", "DA23", "DA1234")
+value <- c(value, DA12(table)[[1]], DA13(table)[[1]], DA23(table)[[1]], DA1234(table)[[1]])
+zvalue <- c(zvalue, DA12(table)[[2]], DA13(table)[[2]], DA23(table)[[2]], DA1234(table)[[2]])
+sign <- c(sign, DA12(table)[[3]], DA13(table)[[3]], DA23(table)[[3]], DA1234(table)[[3]])
+# 2 -> 4
+table <- tables[[7]]
+event <- c(event, rep("2 \u2794 4", 4))
+statistic <- c(statistic, "DA12", "DA13", "DA23", "DA1234")
+value <- c(value, DA12(table)[[1]], DA13(table)[[1]], DA23(table)[[1]], DA1234(table)[[1]])
+zvalue <- c(zvalue, DA12(table)[[2]], DA13(table)[[2]], DA23(table)[[2]], DA1234(table)[[2]])
+sign <- c(sign, DA12(table)[[3]], DA13(table)[[3]], DA23(table)[[3]], DA1234(table)[[3]])
+# 4 -> 2
+table <- tables[[8]]
+event <- c(event, rep("4 \u2794 2", 4))
+statistic <- c(statistic, "DA12", "DA13", "DA23", "DA1234")
+value <- c(value, DA12(table)[[1]], DA13(table)[[1]], DA23(table)[[1]], DA1234(table)[[1]])
+zvalue <- c(zvalue, DA12(table)[[2]], DA13(table)[[2]], DA23(table)[[2]], DA1234(table)[[2]])
+sign <- c(sign, DA12(table)[[3]], DA13(table)[[3]], DA23(table)[[3]], DA1234(table)[[3]])
+# 1 -> 5
+table <- tables[[9]]
+event <- c(event, rep("1 \u2794 5", 4))
+statistic <- c(statistic, "DA12", "DA13", "DA23", "DA1234")
+value <- c(value, DA12(table)[[1]], DA13(table)[[1]], DA23(table)[[1]], DA1234(table)[[1]])
+zvalue <- c(zvalue, DA12(table)[[2]], DA13(table)[[2]], DA23(table)[[2]], DA1234(table)[[2]])
+sign <- c(sign, DA12(table)[[3]], DA13(table)[[3]], DA23(table)[[3]], DA1234(table)[[3]])
+# 5 -> 1
+table <- tables[[10]]
+event <- c(event, rep("5 \u2794 1", 4))
+statistic <- c(statistic, "DA12", "DA13", "DA23", "DA1234")
+value <- c(value, DA12(table)[[1]], DA13(table)[[1]], DA23(table)[[1]], DA1234(table)[[1]])
+zvalue <- c(zvalue, DA12(table)[[2]], DA13(table)[[2]], DA23(table)[[2]], DA1234(table)[[2]])
+sign <- c(sign, DA12(table)[[3]], DA13(table)[[3]], DA23(table)[[3]], DA1234(table)[[3]])
+# 2 -> 5
+table <- tables[[11]]
+event <- c(event, rep("2 \u2794 5", 4))
+statistic <- c(statistic, "DA12", "DA13", "DA23", "DA1234")
+value <- c(value, DA12(table)[[1]], DA13(table)[[1]], DA23(table)[[1]], DA1234(table)[[1]])
+zvalue <- c(zvalue, DA12(table)[[2]], DA13(table)[[2]], DA23(table)[[2]], DA1234(table)[[2]])
+sign <- c(sign, DA12(table)[[3]], DA13(table)[[3]], DA23(table)[[3]], DA1234(table)[[3]])
+# 5 -> 2
+table <- tables[[12]]
+event <- c(event, rep("5 \u2794 2", 4))
+statistic <- c(statistic, "DA12", "DA13", "DA23", "DA1234")
+value <- c(value, DA12(table)[[1]], DA13(table)[[1]], DA23(table)[[1]], DA1234(table)[[1]])
+zvalue <- c(zvalue, DA12(table)[[2]], DA13(table)[[2]], DA23(table)[[2]], DA1234(table)[[2]])
+sign <- c(sign, DA12(table)[[3]], DA13(table)[[3]], DA23(table)[[3]], DA1234(table)[[3]])
+# 123 -> 1
+table <- tables[[13]]
+event <- c(event, rep("123 \u2794 1", 4))
+statistic <- c(statistic, "DA12", "DA13", "DA23", "DA1234")
+value <- c(value, DA12(table)[[1]], DA13(table)[[1]], DA23(table)[[1]], DA1234(table)[[1]])
+zvalue <- c(zvalue, DA12(table)[[2]], DA13(table)[[2]], DA23(table)[[2]], DA1234(table)[[2]])
+sign <- c(sign, DA12(table)[[3]], DA13(table)[[3]], DA23(table)[[3]], DA1234(table)[[3]])
+# 123 -> 2
+table <- tables[[14]]
+event <- c(event, rep("123 \u2794 2", 4))
+statistic <- c(statistic, "DA12", "DA13", "DA23", "DA1234")
+value <- c(value, DA12(table)[[1]], DA13(table)[[1]], DA23(table)[[1]], DA1234(table)[[1]])
+zvalue <- c(zvalue, DA12(table)[[2]], DA13(table)[[2]], DA23(table)[[2]], DA1234(table)[[2]])
+sign <- c(sign, DA12(table)[[3]], DA13(table)[[3]], DA23(table)[[3]], DA1234(table)[[3]])
+# 1234 -> 1
+table <- tables[[15]]
+event <- c(event, rep("1234 \u2794 1", 4))
+statistic <- c(statistic, "DA12", "DA13", "DA23", "DA1234")
+value <- c(value, DA12(table)[[1]], DA13(table)[[1]], DA23(table)[[1]], DA1234(table)[[1]])
+zvalue <- c(zvalue, DA12(table)[[2]], DA13(table)[[2]], DA23(table)[[2]], DA1234(table)[[2]])
+sign <- c(sign, DA12(table)[[3]], DA13(table)[[3]], DA23(table)[[3]], DA1234(table)[[3]])
+# 1234 -> 2
+table <- tables[[16]]
+event <- c(event, rep("1234 \u2794 2", 4))
+statistic <- c(statistic, "DA12", "DA13", "DA23", "DA1234")
+value <- c(value, DA12(table)[[1]], DA13(table)[[1]], DA23(table)[[1]], DA1234(table)[[1]])
+zvalue <- c(zvalue, DA12(table)[[2]], DA13(table)[[2]], DA23(table)[[2]], DA1234(table)[[2]])
+sign <- c(sign, DA12(table)[[3]], DA13(table)[[3]], DA23(table)[[3]], DA1234(table)[[3]])
+# 12345 -> 1
+table <- tables[[17]]
+event <- c(event, rep("12345 \u2794 1", 4))
+statistic <- c(statistic, "DA12", "DA13", "DA23", "DA1234")
+value <- c(value, DA12(table)[[1]], DA13(table)[[1]], DA23(table)[[1]], DA1234(table)[[1]])
+zvalue <- c(zvalue, DA12(table)[[2]], DA13(table)[[2]], DA23(table)[[2]], DA1234(table)[[2]])
+sign <- c(sign, DA12(table)[[3]], DA13(table)[[3]], DA23(table)[[3]], DA1234(table)[[3]])
+# 12345 -> 2
+table <- tables[[18]]
+event <- c(event, rep("12345 \u2794 2", 4))
+statistic <- c(statistic, "DA12", "DA13", "DA23", "DA1234")
+value <- c(value, DA12(table)[[1]], DA13(table)[[1]], DA23(table)[[1]], DA1234(table)[[1]])
+zvalue <- c(zvalue, DA12(table)[[2]], DA13(table)[[2]], DA23(table)[[2]], DA1234(table)[[2]])
+sign <- c(sign, DA12(table)[[3]], DA13(table)[[3]], DA23(table)[[3]], DA1234(table)[[3]])
+
+asymmetric <- data.frame(event = event, statistic = statistic, value = value, zvalue = zvalue, sign = sign)
+asymmetric$statistic <- factor(asymmetric$statistic, levels <- c("DA12", "DA13", "DA23", "DA1234"))
+asymmetric$sign <- sub("-", "\u2212", asymmetric$sign) # A hyphen is not a minus sign.
+save(asymmetric, file = "A_big_stats.RData")
+```
+
+## Plotting the results
+
+Here we plot the figure.
+
+``` r
+load(file = "A_big_stats.RData")
+blues <- c(alpha("#08519C", 1),
+           alpha("#08519C", 0.8),
+           alpha("#08519C", 0.6),
+           alpha("#08519C", 0.4))
+labels <- c(expression(paste(""[italic(A)],Delta,"*"[1-2])),
+            expression(paste(""[italic(A)],Delta,"*"[1-3])),
+            expression(paste(""[italic(A)],Delta,"*"[2-3])),
+            expression(paste(""[italic(A)],Delta,"*"[1+2-3+4])))
+
+events <- c("1 \u2794 3", "3 \u2794 1", "1 \u2794 4", "4 \u2794 1", "1 \u2794 5", "5 \u2794 1")
+temp <- asymmetric[asymmetric$event %in% events, ]
+temp$event <- factor(temp$event, levels <- events)
+plot1 <- ggplot(temp, aes(fill = statistic, y = value, x = event)) +
+  theme_classic(base_size = 10) +
+  theme(axis.title.x = element_blank(), axis.title.y = element_blank()) + 
+  theme(legend.text.align = 0, legend.key.size = unit(0.22, 'cm')) +
+  scale_y_continuous(limits = c(-0.8, 0.8), breaks = c(-0.5, 0, 0.5), labels = c("\u22120.5", "0.0", "0.5")) +
+  scale_fill_manual(values = blues, name = "", labels = labels) +
+  geom_hline(yintercept = 0) +
+    geom_bar(width = 0.4, position = position_dodge(0.4), stat = "identity") +
+    geom_text(position = position_dodge(0.4), aes(y = 0.2, label = sign, hjust = 0.5), size = 2.8)
+leg <- as_ggplot(get_legend(plot1))
+plot1 <- plot1 + theme(legend.position = "none")
+
+events <- c("2 \u2794 3", "3 \u2794 2", "2 \u2794 4", "4 \u2794 2", "2 \u2794 5", "5 \u2794 2")
+temp <- asymmetric[asymmetric$event %in% events, ]
+temp$event <- factor(temp$event, levels <- events)
+plot2 <- ggplot(temp, aes(fill = statistic, y = value, x = event)) +
+  theme_classic(base_size = 10) +
+  theme(axis.title.x = element_blank(), axis.title.y = element_blank()) +
+  theme(legend.position = "none") +
+  scale_y_continuous(limits = c(-0.8, 0.8), breaks = c(-0.5, 0, 0.5), labels = c("\u22120.5", "0.0", "0.5")) +
+  scale_fill_manual(values = blues, name = "", labels = labels) +
+  geom_hline(yintercept = 0) +
+    geom_bar(width = 0.4, position = position_dodge(0.4), stat = "identity") +
+    geom_text(position = position_dodge(0.4), aes(y = 0.2, label = sign, hjust = 0.5), size = 2.8)
+
+events <- c("123 \u2794 1", "123 \u2794 2", "1234 \u2794 1", "1234 \u2794 2", "12345 \u2794 1", "12345 \u2794 2")
+temp <- asymmetric[asymmetric$event %in% events, ]
+temp$event <- factor(temp$event, levels <- events)
+plot3 <- ggplot(temp, aes(fill = statistic, y = value, x = event)) +
+  theme_classic(base_size = 10) +
+  theme(axis.title.x = element_blank(), axis.title.y = element_blank()) +
+  theme(legend.position = "none") +
+  scale_y_continuous(limits = c(-0.8, 0.8), breaks = c(-0.5, 0, 0.5), labels = c("\u22120.5", "0.0", "0.5")) +
+  scale_fill_manual(values = blues, name = "", labels = labels) +
+  geom_hline(yintercept = 0) +
+    geom_bar(width = 0.4, position = position_dodge(0.4), stat = "identity") +
+    geom_text(position = position_dodge(0.4), aes(y = 0.2, label = sign, hjust = 0.5), size = 2.8)
+
+figure <- ggarrange(plot1, plot2, plot3, nrow = 3, ncol = 1)
+figure <- ggarrange(figure, leg, nrow = 1, ncol = 2, widths = c(5.368, 1))
+ggsave("A_big.png", plot = figure, width = 127.36, height = 60, units = "mm")
+print(figure)
+```
+
+![](A_big_files/figure-gfm/plots-1.png)<!-- -->
