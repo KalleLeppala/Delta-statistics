@@ -9,8 +9,8 @@ Coelho, Michaela Richter, Victor A. Albert and Charlotte Lindqvist.
 
 ## Simulation
 
-- [tools.md](/blob/main/tools.md) has the R functions and documentation
-  used in all the coalescence simulations.
+- [tools.md](/tools.md) has the R functions and documentation used in
+  all the coalescence simulations.
 - [S_big.md](S_big.md) is the simulation and documentation in tree $S$
   using 1,000,000 allelic patterns.
 - [S_medium.md](S_medium.md) is the simulation in tree $S$ using 100,000
