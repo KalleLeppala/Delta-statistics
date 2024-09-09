@@ -482,6 +482,7 @@ statistic <- character(0)
 value <- numeric(0)
 zvalue <- numeric(0)
 sign <- numeric(0)
+ci <- numeric(0)
 
 # 1 -> 3
 table <- tables[[1]]
@@ -493,6 +494,8 @@ zvalue <- c(zvalue, DS16(table)[[2]], DS26(table)[[2]], DS35(table)[[2]], DS45(t
                       DS57(table)[[2]], DS68(table)[[2]], DS3457(table)[[2]], DS1268(table)[[2]])
 sign <- c(sign, DS16(table)[[3]], DS26(table)[[3]], DS35(table)[[3]], DS45(table)[[3]],
                   DS57(table)[[3]], DS68(table)[[3]], DS3457(table)[[3]], DS1268(table)[[3]])
+ci <- c(ci, DS16(table)[[4]], DS26(table)[[4]], DS35(table)[[4]], DS45(table)[[4]],
+              DS57(table)[[4]], DS68(table)[[4]], DS3457(table)[[4]], DS1268(table)[[4]])
 # 3 -> 1
 table <- tables[[2]]
 event <- c(event, rep("3 \u2794 1", 8))
@@ -503,6 +506,8 @@ zvalue <- c(zvalue, DS16(table)[[2]], DS26(table)[[2]], DS35(table)[[2]], DS45(t
                       DS57(table)[[2]], DS68(table)[[2]], DS3457(table)[[2]], DS1268(table)[[2]])
 sign <- c(sign, DS16(table)[[3]], DS26(table)[[3]], DS35(table)[[3]], DS45(table)[[3]],
                   DS57(table)[[3]], DS68(table)[[3]], DS3457(table)[[3]], DS1268(table)[[3]])
+ci <- c(ci, DS16(table)[[4]], DS26(table)[[4]], DS35(table)[[4]], DS45(table)[[4]],
+              DS57(table)[[4]], DS68(table)[[4]], DS3457(table)[[4]], DS1268(table)[[4]])
 # 1 -> 4
 table <- tables[[3]]
 event <- c(event, rep("1 \u2794 4", 8))
@@ -513,6 +518,8 @@ zvalue <- c(zvalue, DS16(table)[[2]], DS26(table)[[2]], DS35(table)[[2]], DS45(t
                       DS57(table)[[2]], DS68(table)[[2]], DS3457(table)[[2]], DS1268(table)[[2]])
 sign <- c(sign, DS16(table)[[3]], DS26(table)[[3]], DS35(table)[[3]], DS45(table)[[3]],
                   DS57(table)[[3]], DS68(table)[[3]], DS3457(table)[[3]], DS1268(table)[[3]])
+ci <- c(ci, DS16(table)[[4]], DS26(table)[[4]], DS35(table)[[4]], DS45(table)[[4]],
+              DS57(table)[[4]], DS68(table)[[4]], DS3457(table)[[4]], DS1268(table)[[4]])
 # 4 -> 1
 table <- tables[[4]]
 event <- c(event, rep("4 \u2794 1", 8))
@@ -523,6 +530,8 @@ zvalue <- c(zvalue, DS16(table)[[2]], DS26(table)[[2]], DS35(table)[[2]], DS45(t
                       DS57(table)[[2]], DS68(table)[[2]], DS3457(table)[[2]], DS1268(table)[[2]])
 sign <- c(sign, DS16(table)[[3]], DS26(table)[[3]], DS35(table)[[3]], DS45(table)[[3]],
                   DS57(table)[[3]], DS68(table)[[3]], DS3457(table)[[3]], DS1268(table)[[3]])
+ci <- c(ci, DS16(table)[[4]], DS26(table)[[4]], DS35(table)[[4]], DS45(table)[[4]],
+              DS57(table)[[4]], DS68(table)[[4]], DS3457(table)[[4]], DS1268(table)[[4]])
 # 2 -> 3
 table <- tables[[5]]
 event <- c(event, rep("2 \u2794 3", 8))
@@ -533,6 +542,8 @@ zvalue <- c(zvalue, DS16(table)[[2]], DS26(table)[[2]], DS35(table)[[2]], DS45(t
                       DS57(table)[[2]], DS68(table)[[2]], DS3457(table)[[2]], DS1268(table)[[2]])
 sign <- c(sign, DS16(table)[[3]], DS26(table)[[3]], DS35(table)[[3]], DS45(table)[[3]],
                   DS57(table)[[3]], DS68(table)[[3]], DS3457(table)[[3]], DS1268(table)[[3]])
+ci <- c(ci, DS16(table)[[4]], DS26(table)[[4]], DS35(table)[[4]], DS45(table)[[4]],
+              DS57(table)[[4]], DS68(table)[[4]], DS3457(table)[[4]], DS1268(table)[[4]])
 # 3 -> 2
 table <- tables[[6]]
 event <- c(event, rep("3 \u2794 2", 8))
@@ -543,6 +554,8 @@ zvalue <- c(zvalue, DS16(table)[[2]], DS26(table)[[2]], DS35(table)[[2]], DS45(t
                       DS57(table)[[2]], DS68(table)[[2]], DS3457(table)[[2]], DS1268(table)[[2]])
 sign <- c(sign, DS16(table)[[3]], DS26(table)[[3]], DS35(table)[[3]], DS45(table)[[3]],
                   DS57(table)[[3]], DS68(table)[[3]], DS3457(table)[[3]], DS1268(table)[[3]])
+ci <- c(ci, DS16(table)[[4]], DS26(table)[[4]], DS35(table)[[4]], DS45(table)[[4]],
+              DS57(table)[[4]], DS68(table)[[4]], DS3457(table)[[4]], DS1268(table)[[4]])
 # 2 -> 4
 table <- tables[[7]]
 event <- c(event, rep("2 \u2794 4", 8))
@@ -553,6 +566,8 @@ zvalue <- c(zvalue, DS16(table)[[2]], DS26(table)[[2]], DS35(table)[[2]], DS45(t
                       DS57(table)[[2]], DS68(table)[[2]], DS3457(table)[[2]], DS1268(table)[[2]])
 sign <- c(sign, DS16(table)[[3]], DS26(table)[[3]], DS35(table)[[3]], DS45(table)[[3]],
                   DS57(table)[[3]], DS68(table)[[3]], DS3457(table)[[3]], DS1268(table)[[3]])
+ci <- c(ci, DS16(table)[[4]], DS26(table)[[4]], DS35(table)[[4]], DS45(table)[[4]],
+              DS57(table)[[4]], DS68(table)[[4]], DS3457(table)[[4]], DS1268(table)[[4]])
 # 4 -> 2
 table <- tables[[8]]
 event <- c(event, rep("4 \u2794 2", 8))
@@ -563,6 +578,8 @@ zvalue <- c(zvalue, DS16(table)[[2]], DS26(table)[[2]], DS35(table)[[2]], DS45(t
                       DS57(table)[[2]], DS68(table)[[2]], DS3457(table)[[2]], DS1268(table)[[2]])
 sign <- c(sign, DS16(table)[[3]], DS26(table)[[3]], DS35(table)[[3]], DS45(table)[[3]],
                   DS57(table)[[3]], DS68(table)[[3]], DS3457(table)[[3]], DS1268(table)[[3]])
+ci <- c(ci, DS16(table)[[4]], DS26(table)[[4]], DS35(table)[[4]], DS45(table)[[4]],
+              DS57(table)[[4]], DS68(table)[[4]], DS3457(table)[[4]], DS1268(table)[[4]])
 # 12 -> 3
 table <- tables[[9]]
 event <- c(event, rep("12 \u2794 3", 8))
@@ -573,6 +590,8 @@ zvalue <- c(zvalue, DS16(table)[[2]], DS26(table)[[2]], DS35(table)[[2]], DS45(t
                       DS57(table)[[2]], DS68(table)[[2]], DS3457(table)[[2]], DS1268(table)[[2]])
 sign <- c(sign, DS16(table)[[3]], DS26(table)[[3]], DS35(table)[[3]], DS45(table)[[3]],
                   DS57(table)[[3]], DS68(table)[[3]], DS3457(table)[[3]], DS1268(table)[[3]])
+ci <- c(ci, DS16(table)[[4]], DS26(table)[[4]], DS35(table)[[4]], DS45(table)[[4]],
+              DS57(table)[[4]], DS68(table)[[4]], DS3457(table)[[4]], DS1268(table)[[4]])
 # 3 -> 12
 table <- tables[[10]]
 event <- c(event, rep("3 \u2794 12", 8))
@@ -583,6 +602,8 @@ zvalue <- c(zvalue, DS16(table)[[2]], DS26(table)[[2]], DS35(table)[[2]], DS45(t
                       DS57(table)[[2]], DS68(table)[[2]], DS3457(table)[[2]], DS1268(table)[[2]])
 sign <- c(sign, DS16(table)[[3]], DS26(table)[[3]], DS35(table)[[3]], DS45(table)[[3]],
                   DS57(table)[[3]], DS68(table)[[3]], DS3457(table)[[3]], DS1268(table)[[3]])
+ci <- c(ci, DS16(table)[[4]], DS26(table)[[4]], DS35(table)[[4]], DS45(table)[[4]],
+              DS57(table)[[4]], DS68(table)[[4]], DS3457(table)[[4]], DS1268(table)[[4]])
 # 12 -> 4
 table <- tables[[11]]
 event <- c(event, rep("12 \u2794 4", 8))
@@ -593,6 +614,8 @@ zvalue <- c(zvalue, DS16(table)[[2]], DS26(table)[[2]], DS35(table)[[2]], DS45(t
                       DS57(table)[[2]], DS68(table)[[2]], DS3457(table)[[2]], DS1268(table)[[2]])
 sign <- c(sign, DS16(table)[[3]], DS26(table)[[3]], DS35(table)[[3]], DS45(table)[[3]],
                   DS57(table)[[3]], DS68(table)[[3]], DS3457(table)[[3]], DS1268(table)[[3]])
+ci <- c(ci, DS16(table)[[4]], DS26(table)[[4]], DS35(table)[[4]], DS45(table)[[4]],
+              DS57(table)[[4]], DS68(table)[[4]], DS3457(table)[[4]], DS1268(table)[[4]])
 # 4 -> 12
 table <- tables[[12]]
 event <- c(event, rep("4 \u2794 12", 8))
@@ -603,6 +626,8 @@ zvalue <- c(zvalue, DS16(table)[[2]], DS26(table)[[2]], DS35(table)[[2]], DS45(t
                       DS57(table)[[2]], DS68(table)[[2]], DS3457(table)[[2]], DS1268(table)[[2]])
 sign <- c(sign, DS16(table)[[3]], DS26(table)[[3]], DS35(table)[[3]], DS45(table)[[3]],
                   DS57(table)[[3]], DS68(table)[[3]], DS3457(table)[[3]], DS1268(table)[[3]])
+ci <- c(ci, DS16(table)[[4]], DS26(table)[[4]], DS35(table)[[4]], DS45(table)[[4]],
+              DS57(table)[[4]], DS68(table)[[4]], DS3457(table)[[4]], DS1268(table)[[4]])
 # 34 -> 1
 table <- tables[[13]]
 event <- c(event, rep("34 \u2794 1", 8))
@@ -613,6 +638,8 @@ zvalue <- c(zvalue, DS16(table)[[2]], DS26(table)[[2]], DS35(table)[[2]], DS45(t
                       DS57(table)[[2]], DS68(table)[[2]], DS3457(table)[[2]], DS1268(table)[[2]])
 sign <- c(sign, DS16(table)[[3]], DS26(table)[[3]], DS35(table)[[3]], DS45(table)[[3]],
                   DS57(table)[[3]], DS68(table)[[3]], DS3457(table)[[3]], DS1268(table)[[3]])
+ci <- c(ci, DS16(table)[[4]], DS26(table)[[4]], DS35(table)[[4]], DS45(table)[[4]],
+              DS57(table)[[4]], DS68(table)[[4]], DS3457(table)[[4]], DS1268(table)[[4]])
 # 1 -> 34
 table <- tables[[14]]
 event <- c(event, rep("1 \u2794 34", 8))
@@ -623,6 +650,8 @@ zvalue <- c(zvalue, DS16(table)[[2]], DS26(table)[[2]], DS35(table)[[2]], DS45(t
                       DS57(table)[[2]], DS68(table)[[2]], DS3457(table)[[2]], DS1268(table)[[2]])
 sign <- c(sign, DS16(table)[[3]], DS26(table)[[3]], DS35(table)[[3]], DS45(table)[[3]],
                   DS57(table)[[3]], DS68(table)[[3]], DS3457(table)[[3]], DS1268(table)[[3]])
+ci <- c(ci, DS16(table)[[4]], DS26(table)[[4]], DS35(table)[[4]], DS45(table)[[4]],
+              DS57(table)[[4]], DS68(table)[[4]], DS3457(table)[[4]], DS1268(table)[[4]])
 # 34 -> 2
 table <- tables[[15]]
 event <- c(event, rep("34 \u2794 2", 8))
@@ -633,6 +662,8 @@ zvalue <- c(zvalue, DS16(table)[[2]], DS26(table)[[2]], DS35(table)[[2]], DS45(t
                       DS57(table)[[2]], DS68(table)[[2]], DS3457(table)[[2]], DS1268(table)[[2]])
 sign <- c(sign, DS16(table)[[3]], DS26(table)[[3]], DS35(table)[[3]], DS45(table)[[3]],
                   DS57(table)[[3]], DS68(table)[[3]], DS3457(table)[[3]], DS1268(table)[[3]])
+ci <- c(ci, DS16(table)[[4]], DS26(table)[[4]], DS35(table)[[4]], DS45(table)[[4]],
+              DS57(table)[[4]], DS68(table)[[4]], DS3457(table)[[4]], DS1268(table)[[4]])
 # 2 -> 34
 table <- tables[[16]]
 event <- c(event, rep("2 \u2794 34", 8))
@@ -643,6 +674,8 @@ zvalue <- c(zvalue, DS16(table)[[2]], DS26(table)[[2]], DS35(table)[[2]], DS45(t
                       DS57(table)[[2]], DS68(table)[[2]], DS3457(table)[[2]], DS1268(table)[[2]])
 sign <- c(sign, DS16(table)[[3]], DS26(table)[[3]], DS35(table)[[3]], DS45(table)[[3]],
                   DS57(table)[[3]], DS68(table)[[3]], DS3457(table)[[3]], DS1268(table)[[3]])
+ci <- c(ci, DS16(table)[[4]], DS26(table)[[4]], DS35(table)[[4]], DS45(table)[[4]],
+              DS57(table)[[4]], DS68(table)[[4]], DS3457(table)[[4]], DS1268(table)[[4]])
 # 1 -> 5
 table <- tables[[17]]
 event <- c(event, rep("1 \u2794 5", 8))
@@ -653,6 +686,8 @@ zvalue <- c(zvalue, DS16(table)[[2]], DS26(table)[[2]], DS35(table)[[2]], DS45(t
                       DS57(table)[[2]], DS68(table)[[2]], DS3457(table)[[2]], DS1268(table)[[2]])
 sign <- c(sign, DS16(table)[[3]], DS26(table)[[3]], DS35(table)[[3]], DS45(table)[[3]],
                   DS57(table)[[3]], DS68(table)[[3]], DS3457(table)[[3]], DS1268(table)[[3]])
+ci <- c(ci, DS16(table)[[4]], DS26(table)[[4]], DS35(table)[[4]], DS45(table)[[4]],
+              DS57(table)[[4]], DS68(table)[[4]], DS3457(table)[[4]], DS1268(table)[[4]])
 # 5 -> 1
 table <- tables[[18]]
 event <- c(event, rep("5 \u2794 1", 8))
@@ -663,6 +698,8 @@ zvalue <- c(zvalue, DS16(table)[[2]], DS26(table)[[2]], DS35(table)[[2]], DS45(t
                       DS57(table)[[2]], DS68(table)[[2]], DS3457(table)[[2]], DS1268(table)[[2]])
 sign <- c(sign, DS16(table)[[3]], DS26(table)[[3]], DS35(table)[[3]], DS45(table)[[3]],
                   DS57(table)[[3]], DS68(table)[[3]], DS3457(table)[[3]], DS1268(table)[[3]])
+ci <- c(ci, DS16(table)[[4]], DS26(table)[[4]], DS35(table)[[4]], DS45(table)[[4]],
+              DS57(table)[[4]], DS68(table)[[4]], DS3457(table)[[4]], DS1268(table)[[4]])
 # 2 -> 5
 table <- tables[[19]]
 event <- c(event, rep("2 \u2794 5", 8))
@@ -673,6 +710,8 @@ zvalue <- c(zvalue, DS16(table)[[2]], DS26(table)[[2]], DS35(table)[[2]], DS45(t
                       DS57(table)[[2]], DS68(table)[[2]], DS3457(table)[[2]], DS1268(table)[[2]])
 sign <- c(sign, DS16(table)[[3]], DS26(table)[[3]], DS35(table)[[3]], DS45(table)[[3]],
                   DS57(table)[[3]], DS68(table)[[3]], DS3457(table)[[3]], DS1268(table)[[3]])
+ci <- c(ci, DS16(table)[[4]], DS26(table)[[4]], DS35(table)[[4]], DS45(table)[[4]],
+              DS57(table)[[4]], DS68(table)[[4]], DS3457(table)[[4]], DS1268(table)[[4]])
 # 5 -> 2
 table <- tables[[20]]
 event <- c(event, rep("5 \u2794 2", 8))
@@ -683,6 +722,8 @@ zvalue <- c(zvalue, DS16(table)[[2]], DS26(table)[[2]], DS35(table)[[2]], DS45(t
                       DS57(table)[[2]], DS68(table)[[2]], DS3457(table)[[2]], DS1268(table)[[2]])
 sign <- c(sign, DS16(table)[[3]], DS26(table)[[3]], DS35(table)[[3]], DS45(table)[[3]],
                   DS57(table)[[3]], DS68(table)[[3]], DS3457(table)[[3]], DS1268(table)[[3]])
+ci <- c(ci, DS16(table)[[4]], DS26(table)[[4]], DS35(table)[[4]], DS45(table)[[4]],
+              DS57(table)[[4]], DS68(table)[[4]], DS3457(table)[[4]], DS1268(table)[[4]])
 # 3 -> 5
 table <- tables[[21]]
 event <- c(event, rep("3 \u2794 5", 8))
@@ -693,6 +734,8 @@ zvalue <- c(zvalue, DS16(table)[[2]], DS26(table)[[2]], DS35(table)[[2]], DS45(t
                       DS57(table)[[2]], DS68(table)[[2]], DS3457(table)[[2]], DS1268(table)[[2]])
 sign <- c(sign, DS16(table)[[3]], DS26(table)[[3]], DS35(table)[[3]], DS45(table)[[3]],
                   DS57(table)[[3]], DS68(table)[[3]], DS3457(table)[[3]], DS1268(table)[[3]])
+ci <- c(ci, DS16(table)[[4]], DS26(table)[[4]], DS35(table)[[4]], DS45(table)[[4]],
+              DS57(table)[[4]], DS68(table)[[4]], DS3457(table)[[4]], DS1268(table)[[4]])
 # 5 -> 3
 table <- tables[[22]]
 event <- c(event, rep("5 \u2794 3", 8))
@@ -703,6 +746,8 @@ zvalue <- c(zvalue, DS16(table)[[2]], DS26(table)[[2]], DS35(table)[[2]], DS45(t
                       DS57(table)[[2]], DS68(table)[[2]], DS3457(table)[[2]], DS1268(table)[[2]])
 sign <- c(sign, DS16(table)[[3]], DS26(table)[[3]], DS35(table)[[3]], DS45(table)[[3]],
                   DS57(table)[[3]], DS68(table)[[3]], DS3457(table)[[3]], DS1268(table)[[3]])
+ci <- c(ci, DS16(table)[[4]], DS26(table)[[4]], DS35(table)[[4]], DS45(table)[[4]],
+              DS57(table)[[4]], DS68(table)[[4]], DS3457(table)[[4]], DS1268(table)[[4]])
 # 4 -> 5
 table <- tables[[23]]
 event <- c(event, rep("4 \u2794 5", 8))
@@ -713,6 +758,8 @@ zvalue <- c(zvalue, DS16(table)[[2]], DS26(table)[[2]], DS35(table)[[2]], DS45(t
                       DS57(table)[[2]], DS68(table)[[2]], DS3457(table)[[2]], DS1268(table)[[2]])
 sign <- c(sign, DS16(table)[[3]], DS26(table)[[3]], DS35(table)[[3]], DS45(table)[[3]],
                   DS57(table)[[3]], DS68(table)[[3]], DS3457(table)[[3]], DS1268(table)[[3]])
+ci <- c(ci, DS16(table)[[4]], DS26(table)[[4]], DS35(table)[[4]], DS45(table)[[4]],
+              DS57(table)[[4]], DS68(table)[[4]], DS3457(table)[[4]], DS1268(table)[[4]])
 # 5 -> 4
 table <- tables[[24]]
 event <- c(event, rep("5 \u2794 4", 8))
@@ -723,7 +770,9 @@ zvalue <- c(zvalue, DS16(table)[[2]], DS26(table)[[2]], DS35(table)[[2]], DS45(t
                       DS57(table)[[2]], DS68(table)[[2]], DS3457(table)[[2]], DS1268(table)[[2]])
 sign <- c(sign, DS16(table)[[3]], DS26(table)[[3]], DS35(table)[[3]], DS45(table)[[3]],
                   DS57(table)[[3]], DS68(table)[[3]], DS3457(table)[[3]], DS1268(table)[[3]])
-# 12 -> 5
+ci <- c(ci, DS16(table)[[4]], DS26(table)[[4]], DS35(table)[[4]], DS45(table)[[4]],
+              DS57(table)[[4]], DS68(table)[[4]], DS3457(table)[[4]], DS1268(table)[[4]])
+# 12345 -> 1
 table <- tables[[25]]
 event <- c(event, rep("12345 \u2794 1", 8))
 statistic <- c(statistic, "DS16", "DS26", "DS35", "DS45", "DS57", "DS68", "DS3457", "DS1268")
@@ -733,7 +782,9 @@ zvalue <- c(zvalue, DS16(table)[[2]], DS26(table)[[2]], DS35(table)[[2]], DS45(t
                       DS57(table)[[2]], DS68(table)[[2]], DS3457(table)[[2]], DS1268(table)[[2]])
 sign <- c(sign, DS16(table)[[3]], DS26(table)[[3]], DS35(table)[[3]], DS45(table)[[3]],
                   DS57(table)[[3]], DS68(table)[[3]], DS3457(table)[[3]], DS1268(table)[[3]])
-# 5 -> 12
+ci <- c(ci, DS16(table)[[4]], DS26(table)[[4]], DS35(table)[[4]], DS45(table)[[4]],
+              DS57(table)[[4]], DS68(table)[[4]], DS3457(table)[[4]], DS1268(table)[[4]])
+# 12345 -> 2
 table <- tables[[26]]
 event <- c(event, rep("12345 \u2794 2", 8))
 statistic <- c(statistic, "DS16", "DS26", "DS35", "DS45", "DS57", "DS68", "DS3457", "DS1268")
@@ -743,7 +794,9 @@ zvalue <- c(zvalue, DS16(table)[[2]], DS26(table)[[2]], DS35(table)[[2]], DS45(t
                       DS57(table)[[2]], DS68(table)[[2]], DS3457(table)[[2]], DS1268(table)[[2]])
 sign <- c(sign, DS16(table)[[3]], DS26(table)[[3]], DS35(table)[[3]], DS45(table)[[3]],
                   DS57(table)[[3]], DS68(table)[[3]], DS3457(table)[[3]], DS1268(table)[[3]])
-# 34 -> 5
+ci <- c(ci, DS16(table)[[4]], DS26(table)[[4]], DS35(table)[[4]], DS45(table)[[4]],
+              DS57(table)[[4]], DS68(table)[[4]], DS3457(table)[[4]], DS1268(table)[[4]])
+# 12345 -> 3
 table <- tables[[27]]
 event <- c(event, rep("12345 \u2794 3", 8))
 statistic <- c(statistic, "DS16", "DS26", "DS35", "DS45", "DS57", "DS68", "DS3457", "DS1268")
@@ -753,7 +806,9 @@ zvalue <- c(zvalue, DS16(table)[[2]], DS26(table)[[2]], DS35(table)[[2]], DS45(t
                       DS57(table)[[2]], DS68(table)[[2]], DS3457(table)[[2]], DS1268(table)[[2]])
 sign <- c(sign, DS16(table)[[3]], DS26(table)[[3]], DS35(table)[[3]], DS45(table)[[3]],
                   DS57(table)[[3]], DS68(table)[[3]], DS3457(table)[[3]], DS1268(table)[[3]])
-# 5 -> 34
+ci <- c(ci, DS16(table)[[4]], DS26(table)[[4]], DS35(table)[[4]], DS45(table)[[4]],
+              DS57(table)[[4]], DS68(table)[[4]], DS3457(table)[[4]], DS1268(table)[[4]])
+# 12345 -> 4
 table <- tables[[28]]
 event <- c(event, rep("12345 \u2794 4", 8))
 statistic <- c(statistic, "DS16", "DS26", "DS35", "DS45", "DS57", "DS68", "DS3457", "DS1268")
@@ -763,6 +818,8 @@ zvalue <- c(zvalue, DS16(table)[[2]], DS26(table)[[2]], DS35(table)[[2]], DS45(t
                       DS57(table)[[2]], DS68(table)[[2]], DS3457(table)[[2]], DS1268(table)[[2]])
 sign <- c(sign, DS16(table)[[3]], DS26(table)[[3]], DS35(table)[[3]], DS45(table)[[3]],
                   DS57(table)[[3]], DS68(table)[[3]], DS3457(table)[[3]], DS1268(table)[[3]])
+ci <- c(ci, DS16(table)[[4]], DS26(table)[[4]], DS35(table)[[4]], DS45(table)[[4]],
+              DS57(table)[[4]], DS68(table)[[4]], DS3457(table)[[4]], DS1268(table)[[4]])
 # 1234 -> 1
 table <- tables[[29]]
 event <- c(event, rep("1234 \u2794 1", 8))
@@ -773,6 +830,8 @@ zvalue <- c(zvalue, DS16(table)[[2]], DS26(table)[[2]], DS35(table)[[2]], DS45(t
                       DS57(table)[[2]], DS68(table)[[2]], DS3457(table)[[2]], DS1268(table)[[2]])
 sign <- c(sign, DS16(table)[[3]], DS26(table)[[3]], DS35(table)[[3]], DS45(table)[[3]],
                   DS57(table)[[3]], DS68(table)[[3]], DS3457(table)[[3]], DS1268(table)[[3]])
+ci <- c(ci, DS16(table)[[4]], DS26(table)[[4]], DS35(table)[[4]], DS45(table)[[4]],
+              DS57(table)[[4]], DS68(table)[[4]], DS3457(table)[[4]], DS1268(table)[[4]])
 # 1234 -> 2
 table <- tables[[30]]
 event <- c(event, rep("1234 \u2794 2", 8))
@@ -783,6 +842,8 @@ zvalue <- c(zvalue, DS16(table)[[2]], DS26(table)[[2]], DS35(table)[[2]], DS45(t
                       DS57(table)[[2]], DS68(table)[[2]], DS3457(table)[[2]], DS1268(table)[[2]])
 sign <- c(sign, DS16(table)[[3]], DS26(table)[[3]], DS35(table)[[3]], DS45(table)[[3]],
                   DS57(table)[[3]], DS68(table)[[3]], DS3457(table)[[3]], DS1268(table)[[3]])
+ci <- c(ci, DS16(table)[[4]], DS26(table)[[4]], DS35(table)[[4]], DS45(table)[[4]],
+              DS57(table)[[4]], DS68(table)[[4]], DS3457(table)[[4]], DS1268(table)[[4]])
 # 1234 -> 3
 table <- tables[[31]]
 event <- c(event, rep("1234 \u2794 3", 8))
@@ -793,6 +854,8 @@ zvalue <- c(zvalue, DS16(table)[[2]], DS26(table)[[2]], DS35(table)[[2]], DS45(t
                       DS57(table)[[2]], DS68(table)[[2]], DS3457(table)[[2]], DS1268(table)[[2]])
 sign <- c(sign, DS16(table)[[3]], DS26(table)[[3]], DS35(table)[[3]], DS45(table)[[3]],
                   DS57(table)[[3]], DS68(table)[[3]], DS3457(table)[[3]], DS1268(table)[[3]])
+ci <- c(ci, DS16(table)[[4]], DS26(table)[[4]], DS35(table)[[4]], DS45(table)[[4]],
+              DS57(table)[[4]], DS68(table)[[4]], DS3457(table)[[4]], DS1268(table)[[4]])
 # 1234 -> 4
 table <- tables[[32]]
 event <- c(event, rep("1234 \u2794 4", 8))
@@ -803,8 +866,10 @@ zvalue <- c(zvalue, DS16(table)[[2]], DS26(table)[[2]], DS35(table)[[2]], DS45(t
                       DS57(table)[[2]], DS68(table)[[2]], DS3457(table)[[2]], DS1268(table)[[2]])
 sign <- c(sign, DS16(table)[[3]], DS26(table)[[3]], DS35(table)[[3]], DS45(table)[[3]],
                   DS57(table)[[3]], DS68(table)[[3]], DS3457(table)[[3]], DS1268(table)[[3]])
+ci <- c(ci, DS16(table)[[4]], DS26(table)[[4]], DS35(table)[[4]], DS45(table)[[4]],
+              DS57(table)[[4]], DS68(table)[[4]], DS3457(table)[[4]], DS1268(table)[[4]])
 
-symmetric <- data.frame(event = event, statistic = statistic, value = value, zvalue = zvalue, sign = sign)
+symmetric <- data.frame(event = event, statistic = statistic, value = value, zvalue = zvalue, sign = sign, ci = ci)
 symmetric$statistic <- factor(symmetric$statistic, levels <- c("DS16", "DS26", "DS35", "DS45", "DS57", "DS68", "DS3457", "DS1268"))
 symmetric$sign <- sub("-", "\u2212", symmetric$sign) # A hyphen is not a minus sign.
 save(symmetric, file = "S_medium_stats.RData")
@@ -844,6 +909,16 @@ plot1 <- ggplot(temp, aes(fill = statistic, y = value, x = event)) +
   geom_hline(yintercept = 0) +
     geom_bar(width = 0.8, position = position_dodge(0.8), stat = "identity") +
     geom_text(position = position_dodge(0.8), aes(y = 0.2, label = sign, hjust = 0.5), size = 2.8)
+```
+
+    ## Warning: The `legend.text.align` argument of `theme()` is deprecated as of ggplot2
+    ## 3.5.0.
+    ## ℹ Please use theme(legend.text = element_text(hjust)) instead.
+    ## This warning is displayed once every 8 hours.
+    ## Call `lifecycle::last_lifecycle_warnings()` to see where this warning was
+    ## generated.
+
+``` r
 leg <- as_ggplot(get_legend(plot1))
 plot1 <- plot1 + theme(legend.position = "none")
 

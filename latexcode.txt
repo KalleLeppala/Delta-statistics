@@ -1,0 +1,192 @@
+$1KENOVIIVAra3$
+& KENOVIIVAtiny{$\!\phantom{-}\! 0.341 \pm 0.015\!$} \linebreak KENOVIIVAtiny{$\!\phantom{-}\! 56.03: +\!$}
+& KENOVIIVAtiny{$\!\phantom{-}\! 0.097 \pm 0.016\!$} \linebreak KENOVIIVAtiny{$\!\phantom{-}\! 15.98: +\!$}
+& KENOVIIVAtiny{$\!\phantom{-}\! 0.166 \pm 0.018\!$} \linebreak KENOVIIVAtiny{$\!\phantom{-}\! 24.43: +\!$}
+& KENOVIIVAtiny{$\!-\! 0.139 \pm 0.018\!$} \linebreak KENOVIIVAtiny{$\!-\! 20.45: -\!$}
+KENOVIIVAKENOVIIVA
+$3KENOVIIVAra1$
+& KENOVIIVAtiny{$\!\phantom{-}\! 0.171 \pm 0.018\!$} \linebreak KENOVIIVAtiny{$\!\phantom{-}\! 25.15: +\!$}
+& KENOVIIVAtiny{$\!-\! 0.144 \pm 0.018\!$} \linebreak KENOVIIVAtiny{$\!-\! 21.15: -\!$}
+& KENOVIIVAtiny{$\!\phantom{-}\! 0.339 \pm 0.015\!$} \linebreak KENOVIIVAtiny{$\!\phantom{-}\! 55.76: +\!$}
+& KENOVIIVAtiny{$\!\phantom{-}\! 0.087 \pm 0.016\!$} \linebreak KENOVIIVAtiny{$\!\phantom{-}\! 14.36: +\!$}
+KENOVIIVAKENOVIIVA
+$1KENOVIIVAra4$
+& KENOVIIVAtiny{$\!-\! 0.335 \pm 0.015\!$} \linebreak KENOVIIVAtiny{$\!-\! 55.17: -\!$}
+& KENOVIIVAtiny{$\!-\! 0.093 \pm 0.016\!$} \linebreak KENOVIIVAtiny{$\!-\! 15.23: -\!$}
+& KENOVIIVAtiny{$\!-\! 0.125 \pm 0.018\!$} \linebreak KENOVIIVAtiny{$\!-\! 18.34: -\!$}
+& KENOVIIVAtiny{$\!\phantom{-}\! 0.180 \pm 0.018\!$} \linebreak KENOVIIVAtiny{$\!\phantom{-}\! 26.45: +\!$}
+KENOVIIVAKENOVIIVA
+$4KENOVIIVAra1$
+& KENOVIIVAtiny{$\!-\! 0.162 \pm 0.018\!$} \linebreak KENOVIIVAtiny{$\!-\! 23.84: -\!$}
+& KENOVIIVAtiny{$\!\phantom{-}\! 0.140 \pm 0.018\!$} \linebreak KENOVIIVAtiny{$\!\phantom{-}\! 20.67: +\!$}
+& KENOVIIVAtiny{$\!\phantom{-}\! 0.092 \pm 0.016\!$} \linebreak KENOVIIVAtiny{$\!\phantom{-}\! 15.11: +\!$}
+& KENOVIIVAtiny{$\!\phantom{-}\! 0.333 \pm 0.015\!$} \linebreak KENOVIIVAtiny{$\!\phantom{-}\! 54.88: +\!$}
+KENOVIIVAKENOVIIVA
+$2KENOVIIVAra3$
+& KENOVIIVAtiny{$\!\phantom{-}\! 0.090 \pm 0.016\!$} \linebreak KENOVIIVAtiny{$\!\phantom{-}\! 14.88: +\!$}
+& KENOVIIVAtiny{$\!\phantom{-}\! 0.331 \pm 0.015\!$} \linebreak KENOVIIVAtiny{$\!\phantom{-}\! 54.77: +\!$}
+& KENOVIIVAtiny{$\!-\! 0.154 \pm 0.018\!$} \linebreak KENOVIIVAtiny{$\!-\! 22.62: -\!$}
+& KENOVIIVAtiny{$\!\phantom{-}\! 0.151 \pm 0.018\!$} \linebreak KENOVIIVAtiny{$\!\phantom{-}\! 22.18: +\!$}
+KENOVIIVAKENOVIIVA
+$3KENOVIIVAra2$
+& KENOVIIVAtiny{$\!-\! 0.142 \pm 0.018\!$} \linebreak KENOVIIVAtiny{$\!-\! 20.89: -\!$}
+& KENOVIIVAtiny{$\!\phantom{-}\! 0.177 \pm 0.018\!$} \linebreak KENOVIIVAtiny{$\!\phantom{-}\! 26.03: +\!$}
+& KENOVIIVAtiny{$\!-\! 0.338 \pm 0.015\!$} \linebreak KENOVIIVAtiny{$\!-\! 55.70: -\!$}
+& KENOVIIVAtiny{$\!-\! 0.084 \pm 0.016\!$} \linebreak KENOVIIVAtiny{$\!-\! 13.92: -\!$}
+KENOVIIVAKENOVIIVA
+$2KENOVIIVAra4$
+& KENOVIIVAtiny{$\!-\! 0.093 \pm 0.016\!$} \linebreak KENOVIIVAtiny{$\!-\! 15.42: -\!$}
+& KENOVIIVAtiny{$\!-\! 0.342 \pm 0.015\!$} \linebreak KENOVIIVAtiny{$\!-\! 56.51: -\!$}
+& KENOVIIVAtiny{$\!\phantom{-}\! 0.143 \pm 0.018\!$} \linebreak KENOVIIVAtiny{$\!\phantom{-}\! 21.11: +\!$}
+& KENOVIIVAtiny{$\!-\! 0.168 \pm 0.018\!$} \linebreak KENOVIIVAtiny{$\!-\! 24.85: -\!$}
+KENOVIIVAKENOVIIVA
+$4KENOVIIVAra2$
+& KENOVIIVAtiny{$\!\phantom{-}\! 0.141 \pm 0.018\!$} \linebreak KENOVIIVAtiny{$\!\phantom{-}\! 20.74: +\!$}
+& KENOVIIVAtiny{$\!-\! 0.170 \pm 0.018\!$} \linebreak KENOVIIVAtiny{$\!-\! 25.07: -\!$}
+& KENOVIIVAtiny{$\!-\! 0.088 \pm 0.016\!$} \linebreak KENOVIIVAtiny{$\!-\! 14.51: -\!$}
+& KENOVIIVAtiny{$\!-\! 0.336 \pm 0.015\!$} \linebreak KENOVIIVAtiny{$\!-\! 55.39: -\!$}
+KENOVIIVAKENOVIIVA
+$12KENOVIIVAra3$
+& KENOVIIVAtiny{$\!\phantom{-}\! 0.218 \pm 0.016\!$} \linebreak KENOVIIVAtiny{$\!\phantom{-}\! 35.05: +\!$}
+& KENOVIIVAtiny{$\!\phantom{-}\! 0.218 \pm 0.016\!$} \linebreak KENOVIIVAtiny{$\!\phantom{-}\! 35.01: +\!$}
+& KENOVIIVAtiny{$\!\phantom{-}\! 0.005 \pm 0.024\!$} \linebreak KENOVIIVAtiny{$\!\phantom{-}\! 0.502: 0\!$}
+& KENOVIIVAtiny{$\!\phantom{-}\! 0.004 \pm 0.024\!$} \linebreak KENOVIIVAtiny{$\!\phantom{-}\! 0.447: 0\!$}
+KENOVIIVAKENOVIIVA
+$3KENOVIIVAra12$
+& KENOVIIVAtiny{$\!\phantom{-}\! 0.049 \pm 0.017\!$} \linebreak KENOVIIVAtiny{$\!\phantom{-}\! 7.684: +\!$}
+& KENOVIIVAtiny{$\!\phantom{-}\! 0.049 \pm 0.017\!$} \linebreak KENOVIIVAtiny{$\!\phantom{-}\! 7.672: +\!$}
+& KENOVIIVAtiny{$\!-\! 0.002 \pm 0.019\!$} \linebreak KENOVIIVAtiny{$\!-\! 0.303: 0\!$}
+& KENOVIIVAtiny{$\!-\! 0.002 \pm 0.019\!$} \linebreak KENOVIIVAtiny{$\!-\! 0.317: 0\!$}
+KENOVIIVAKENOVIIVA
+$12KENOVIIVAra4$
+& KENOVIIVAtiny{$\!-\! 0.225 \pm 0.016\!$} \linebreak KENOVIIVAtiny{$\!-\! 36.21: -\!$}
+& KENOVIIVAtiny{$\!-\! 0.221 \pm 0.016\!$} \linebreak KENOVIIVAtiny{$\!-\! 35.47: -\!$}
+& KENOVIIVAtiny{$\!-\! 0.003 \pm 0.024\!$} \linebreak KENOVIIVAtiny{$\!-\! 0.331: 0\!$}
+& KENOVIIVAtiny{$\!\phantom{-}\! 0.007 \pm 0.024\!$} \linebreak KENOVIIVAtiny{$\!\phantom{-}\! 0.771: 0\!$}
+KENOVIIVAKENOVIIVA
+$4KENOVIIVAra12$
+& KENOVIIVAtiny{$\!-\! 0.042 \pm 0.017\!$} \linebreak KENOVIIVAtiny{$\!-\! 6.641: -\!$}
+& KENOVIIVAtiny{$\!-\! 0.051 \pm 0.017\!$} \linebreak KENOVIIVAtiny{$\!-\! 7.981: -\!$}
+& KENOVIIVAtiny{$\!\phantom{-}\! 0.007 \pm 0.019\!$} \linebreak KENOVIIVAtiny{$\!\phantom{-}\! 0.993: 0\!$}
+& KENOVIIVAtiny{$\!-\! 0.004 \pm 0.019\!$} \linebreak KENOVIIVAtiny{$\!-\! 0.497: 0\!$}
+KENOVIIVAKENOVIIVA
+$34KENOVIIVAra1$
+& KENOVIIVAtiny{$\!\phantom{-}\! 0.009 \pm 0.024\!$} \linebreak KENOVIIVAtiny{$\!\phantom{-}\! 1.022: 0\!$}
+& KENOVIIVAtiny{$\!\phantom{-}\! 0.001 \pm 0.024\!$} \linebreak KENOVIIVAtiny{$\!\phantom{-}\! 0.110: 0\!$}
+& KENOVIIVAtiny{$\!\phantom{-}\! 0.216 \pm 0.016\!$} \linebreak KENOVIIVAtiny{$\!\phantom{-}\! 34.53: +\!$}
+& KENOVIIVAtiny{$\!\phantom{-}\! 0.212 \pm 0.016\!$} \linebreak KENOVIIVAtiny{$\!\phantom{-}\! 33.91: +\!$}
+KENOVIIVAKENOVIIVA
+$1KENOVIIVAra34$
+& KENOVIIVAtiny{$\!-\! 0.001 \pm 0.019\!$} \linebreak KENOVIIVAtiny{$\!-\! 0.155: 0\!$}
+& KENOVIIVAtiny{$\!\phantom{-}\! 0.004 \pm 0.019\!$} \linebreak KENOVIIVAtiny{$\!\phantom{-}\! 0.605: 0\!$}
+& KENOVIIVAtiny{$\!\phantom{-}\! 0.058 \pm 0.017\!$} \linebreak KENOVIIVAtiny{$\!\phantom{-}\! 9.155: +\!$}
+& KENOVIIVAtiny{$\!\phantom{-}\! 0.063 \pm 0.017\!$} \linebreak KENOVIIVAtiny{$\!\phantom{-}\! 9.844: +\!$}
+KENOVIIVAKENOVIIVA
+$34KENOVIIVAra2$
+& KENOVIIVAtiny{$\!\phantom{-}\! 0.008 \pm 0.024\!$} \linebreak KENOVIIVAtiny{$\!\phantom{-}\! 0.823: 0\!$}
+& KENOVIIVAtiny{$\!-\! 0.003 \pm 0.024\!$} \linebreak KENOVIIVAtiny{$\!-\! 0.329: 0\!$}
+& KENOVIIVAtiny{$\!-\! 0.218 \pm 0.016\!$} \linebreak KENOVIIVAtiny{$\!-\! 35.04: -\!$}
+& KENOVIIVAtiny{$\!-\! 0.223 \pm 0.016\!$} \linebreak KENOVIIVAtiny{$\!-\! 35.83: -\!$}
+KENOVIIVAKENOVIIVA
+$2KENOVIIVAra34$
+& KENOVIIVAtiny{$\!\phantom{-}\! 0.016 \pm 0.019\!$} \linebreak KENOVIIVAtiny{$\!\phantom{-}\! 2.235: 0\!$}
+& KENOVIIVAtiny{$\!\phantom{-}\! 0.008 \pm 0.019\!$} \linebreak KENOVIIVAtiny{$\!\phantom{-}\! 1.118: 0\!$}
+& KENOVIIVAtiny{$\!-\! 0.039 \pm 0.017\!$} \linebreak KENOVIIVAtiny{$\!-\! 6.100: -\!$}
+& KENOVIIVAtiny{$\!-\! 0.045 \pm 0.017\!$} \linebreak KENOVIIVAtiny{$\!-\! 7.109: -\!$}
+KENOVIIVAKENOVIIVA
+$1KENOVIIVAra5$
+& KENOVIIVAtiny{$\!\phantom{-}\! 0.004 \pm 0.021\!$} \linebreak KENOVIIVAtiny{$\!\phantom{-}\! 0.479: 0\!$}
+& KENOVIIVAtiny{$\!\phantom{-}\! 0.001 \pm 0.021\!$} \linebreak KENOVIIVAtiny{$\!\phantom{-}\! 0.128: 0\!$}
+& KENOVIIVAtiny{$\!-\! 0.015 \pm 0.021\!$} \linebreak KENOVIIVAtiny{$\!-\! 1.848: 0\!$}
+& KENOVIIVAtiny{$\!-\! 0.017 \pm 0.021\!$} \linebreak KENOVIIVAtiny{$\!-\! 2.195: 0\!$}
+KENOVIIVAKENOVIIVA
+$5KENOVIIVAra1$
+& KENOVIIVAtiny{$\!\phantom{-}\! 0.013 \pm 0.021\!$} \linebreak KENOVIIVAtiny{$\!\phantom{-}\! 1.704: 0\!$}
+& KENOVIIVAtiny{$\!\phantom{-}\! 0.011 \pm 0.021\!$} \linebreak KENOVIIVAtiny{$\!\phantom{-}\! 1.455: 0\!$}
+& KENOVIIVAtiny{$\!-\! 0.297 \pm 0.017\!$} \linebreak KENOVIIVAtiny{$\!-\! 45.31: -\!$}
+& KENOVIIVAtiny{$\!-\! 0.299 \pm 0.017\!$} \linebreak KENOVIIVAtiny{$\!-\! 45.52: -\!$}
+KENOVIIVAKENOVIIVA
+$2KENOVIIVAra5$
+& KENOVIIVAtiny{$\!\phantom{-}\! 0.010 \pm 0.021\!$} \linebreak KENOVIIVAtiny{$\!\phantom{-}\! 1.228: 0\!$}
+& KENOVIIVAtiny{$\!-\! 0.004 \pm 0.021\!$} \linebreak KENOVIIVAtiny{$\!-\! 0.494: 0\!$}
+& KENOVIIVAtiny{$\!\phantom{-}\! 0.021 \pm 0.021\!$} \linebreak KENOVIIVAtiny{$\!\phantom{-}\! 2.688: +\!$}
+& KENOVIIVAtiny{$\!\phantom{-}\! 0.008 \pm 0.021\!$} \linebreak KENOVIIVAtiny{$\!\phantom{-}\! 0.995: 0\!$}
+KENOVIIVAKENOVIIVA
+$5KENOVIIVAra2$
+& KENOVIIVAtiny{$\!\phantom{-}\! 0.002 \pm 0.021\!$} \linebreak KENOVIIVAtiny{$\!\phantom{-}\! 0.235: 0\!$}
+& KENOVIIVAtiny{$\!-\! 0.001 \pm 0.021\!$} \linebreak KENOVIIVAtiny{$\!-\! 0.156: 0\!$}
+& KENOVIIVAtiny{$\!\phantom{-}\! 0.300 \pm 0.017\!$} \linebreak KENOVIIVAtiny{$\!\phantom{-}\! 46.04: +\!$}
+& KENOVIIVAtiny{$\!\phantom{-}\! 0.298 \pm 0.017\!$} \linebreak KENOVIIVAtiny{$\!\phantom{-}\! 45.72: +\!$}
+KENOVIIVAKENOVIIVA
+$3KENOVIIVAra5$
+& KENOVIIVAtiny{$\!-\! 0.010 \pm 0.020\!$} \linebreak KENOVIIVAtiny{$\!-\! 1.242: 0\!$}
+& KENOVIIVAtiny{$\!-\! 0.008 \pm 0.020\!$} \linebreak KENOVIIVAtiny{$\!-\! 0.978: 0\!$}
+& KENOVIIVAtiny{$\!-\! 0.001 \pm 0.021\!$} \linebreak KENOVIIVAtiny{$\!-\! 0.127: 0\!$}
+& KENOVIIVAtiny{$\!\phantom{-}\! 0.001 \pm 0.021\!$} \linebreak KENOVIIVAtiny{$\!\phantom{-}\! 0.143: 0\!$}
+KENOVIIVAKENOVIIVA
+$5KENOVIIVAra3$
+& KENOVIIVAtiny{$\!-\! 0.303 \pm 0.017\!$} \linebreak KENOVIIVAtiny{$\!-\! 46.19: -\!$}
+& KENOVIIVAtiny{$\!-\! 0.296 \pm 0.017\!$} \linebreak KENOVIIVAtiny{$\!-\! 45.12: -\!$}
+& KENOVIIVAtiny{$\!-\! 0.011 \pm 0.021\!$} \linebreak KENOVIIVAtiny{$\!-\! 1.376: 0\!$}
+& KENOVIIVAtiny{$\!-\! 0.001 \pm 0.021\!$} \linebreak KENOVIIVAtiny{$\!-\! 0.101: 0\!$}
+KENOVIIVAKENOVIIVA
+$4KENOVIIVAra5$
+& KENOVIIVAtiny{$\!\phantom{-}\! 0.020 \pm 0.021\!$} \linebreak KENOVIIVAtiny{$\!\phantom{-}\! 2.521: 0\!$}
+& KENOVIIVAtiny{$\!\phantom{-}\! 0.027 \pm 0.021\!$} \linebreak KENOVIIVAtiny{$\!\phantom{-}\! 3.411: +\!$}
+& KENOVIIVAtiny{$\!\phantom{-}\! 0.002 \pm 0.021\!$} \linebreak KENOVIIVAtiny{$\!\phantom{-}\! 0.239: 0\!$}
+& KENOVIIVAtiny{$\!\phantom{-}\! 0.009 \pm 0.021\!$} \linebreak KENOVIIVAtiny{$\!\phantom{-}\! 1.148: 0\!$}
+KENOVIIVAKENOVIIVA
+$5KENOVIIVAra4$
+& KENOVIIVAtiny{$\!\phantom{-}\! 0.305 \pm 0.017\!$} \linebreak KENOVIIVAtiny{$\!\phantom{-}\! 46.49: +\!$}
+& KENOVIIVAtiny{$\!\phantom{-}\! 0.300 \pm 0.017\!$} \linebreak KENOVIIVAtiny{$\!\phantom{-}\! 45.84: +\!$}
+& KENOVIIVAtiny{$\!\phantom{-}\! 0.002 \pm 0.021\!$} \linebreak KENOVIIVAtiny{$\!\phantom{-}\! 0.265: 0\!$}
+& KENOVIIVAtiny{$\!-\! 0.004 \pm 0.021\!$} \linebreak KENOVIIVAtiny{$\!-\! 0.500: 0\!$}
+KENOVIIVAKENOVIIVA
+$12345KENOVIIVAra1$
+& KENOVIIVAtiny{$\!\phantom{-}\! 0.003 \pm 0.021\!$} \linebreak KENOVIIVAtiny{$\!\phantom{-}\! 0.406: 0\!$}
+& KENOVIIVAtiny{$\!-\! 0.000 \pm 0.021\!$} \linebreak KENOVIIVAtiny{$\!-\! 0.031: 0\!$}
+& KENOVIIVAtiny{$\!-\! 0.263 \pm 0.017\!$} \linebreak KENOVIIVAtiny{$\!-\! 39.10: -\!$}
+& KENOVIIVAtiny{$\!-\! 0.265 \pm 0.017\!$} \linebreak KENOVIIVAtiny{$\!-\! 39.47: -\!$}
+KENOVIIVAKENOVIIVA
+$12345KENOVIIVAra2$
+& KENOVIIVAtiny{$\!-\! 0.011 \pm 0.021\!$} \linebreak KENOVIIVAtiny{$\!-\! 1.337: 0\!$}
+& KENOVIIVAtiny{$\!-\! 0.005 \pm 0.021\!$} \linebreak KENOVIIVAtiny{$\!-\! 0.613: 0\!$}
+& KENOVIIVAtiny{$\!\phantom{-}\! 0.255 \pm 0.017\!$} \linebreak KENOVIIVAtiny{$\!\phantom{-}\! 37.98: +\!$}
+& KENOVIIVAtiny{$\!\phantom{-}\! 0.259 \pm 0.017\!$} \linebreak KENOVIIVAtiny{$\!\phantom{-}\! 38.59: +\!$}
+KENOVIIVAKENOVIIVA
+$12345KENOVIIVAra3$
+& KENOVIIVAtiny{$\!-\! 0.256 \pm 0.017\!$} \linebreak KENOVIIVAtiny{$\!-\! 37.83: -\!$}
+& KENOVIIVAtiny{$\!-\! 0.247 \pm 0.017\!$} \linebreak KENOVIIVAtiny{$\!-\! 36.52: -\!$}
+& KENOVIIVAtiny{$\!-\! 0.002 \pm 0.021\!$} \linebreak KENOVIIVAtiny{$\!-\! 0.262: 0\!$}
+& KENOVIIVAtiny{$\!\phantom{-}\! 0.010 \pm 0.021\!$} \linebreak KENOVIIVAtiny{$\!\phantom{-}\! 1.280: 0\!$}
+KENOVIIVAKENOVIIVA
+$12345KENOVIIVAra4$
+& KENOVIIVAtiny{$\!\phantom{-}\! 0.264 \pm 0.017\!$} \linebreak KENOVIIVAtiny{$\!\phantom{-}\! 39.33: +\!$}
+& KENOVIIVAtiny{$\!\phantom{-}\! 0.252 \pm 0.017\!$} \linebreak KENOVIIVAtiny{$\!\phantom{-}\! 37.51: +\!$}
+& KENOVIIVAtiny{$\!\phantom{-}\! 0.017 \pm 0.021\!$} \linebreak KENOVIIVAtiny{$\!\phantom{-}\! 2.129: 0\!$}
+& KENOVIIVAtiny{$\!-\! 0.000 \pm 0.021\!$} \linebreak KENOVIIVAtiny{$\!-\! 0.016: 0\!$}
+KENOVIIVAKENOVIIVA
+$1234KENOVIIVAra1$
+& KENOVIIVAtiny{$\!-\! 0.004 \pm 0.020\!$} \linebreak KENOVIIVAtiny{$\!-\! 0.543: 0\!$}
+& KENOVIIVAtiny{$\!-\! 0.006 \pm 0.020\!$} \linebreak KENOVIIVAtiny{$\!-\! 0.760: 0\!$}
+& KENOVIIVAtiny{$\!-\! 0.128 \pm 0.018\!$} \linebreak KENOVIIVAtiny{$\!-\! 18.16: -\!$}
+& KENOVIIVAtiny{$\!-\! 0.129 \pm 0.018\!$} \linebreak KENOVIIVAtiny{$\!-\! 18.36: -\!$}
+KENOVIIVAKENOVIIVA
+$1234KENOVIIVAra2$
+& KENOVIIVAtiny{$\!-\! 0.001 \pm 0.021\!$} \linebreak KENOVIIVAtiny{$\!-\! 0.157: 0\!$}
+& KENOVIIVAtiny{$\!-\! 0.000 \pm 0.021\!$} \linebreak KENOVIIVAtiny{$\!-\! 0.000: 0\!$}
+& KENOVIIVAtiny{$\!\phantom{-}\! 0.112 \pm 0.019\!$} \linebreak KENOVIIVAtiny{$\!\phantom{-}\! 15.93: +\!$}
+& KENOVIIVAtiny{$\!\phantom{-}\! 0.113 \pm 0.019\!$} \linebreak KENOVIIVAtiny{$\!\phantom{-}\! 16.07: +\!$}
+KENOVIIVAKENOVIIVA
+$1234KENOVIIVAra3$
+& KENOVIIVAtiny{$\!-\! 0.118 \pm 0.018\!$} \linebreak KENOVIIVAtiny{$\!-\! 16.78: -\!$}
+& KENOVIIVAtiny{$\!-\! 0.125 \pm 0.018\!$} \linebreak KENOVIIVAtiny{$\!-\! 17.83: -\!$}
+& KENOVIIVAtiny{$\!\phantom{-}\! 0.002 \pm 0.021\!$} \linebreak KENOVIIVAtiny{$\!\phantom{-}\! 0.225: 0\!$}
+& KENOVIIVAtiny{$\!-\! 0.007 \pm 0.021\!$} \linebreak KENOVIIVAtiny{$\!-\! 0.940: 0\!$}
+KENOVIIVAKENOVIIVA
+$1234KENOVIIVAra4$
+& KENOVIIVAtiny{$\!\phantom{-}\! 0.140 \pm 0.018\!$} \linebreak KENOVIIVAtiny{$\!\phantom{-}\! 20.08: +\!$}
+& KENOVIIVAtiny{$\!\phantom{-}\! 0.114 \pm 0.018\!$} \linebreak KENOVIIVAtiny{$\!\phantom{-}\! 16.36: +\!$}
+& KENOVIIVAtiny{$\!\phantom{-}\! 0.013 \pm 0.021\!$} \linebreak KENOVIIVAtiny{$\!\phantom{-}\! 1.614: 0\!$}
+& KENOVIIVAtiny{$\!-\! 0.020 \pm 0.021\!$} \linebreak KENOVIIVAtiny{$\!-\! 2.535: 0\!$}
+KENOVIIVAKENOVIIVA

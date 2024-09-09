@@ -534,6 +534,7 @@ statistic <- character(0)
 value <- numeric(0)
 zvalue <- numeric(0)
 sign <- numeric(0)
+ci <- numeric(0)
 
 # 1 -> 4
 table <- tables[[1]]
@@ -545,6 +546,8 @@ zvalue <- c(zvalue, DQ16(table)[[2]], DQ26(table)[[2]], DQ35(table)[[2]], DQ45(t
   	                DQ57(table)[[2]], DQ68(table)[[2]], DQ3457(table)[[2]], DQ1268(table)[[2]])
 sign <- c(sign, DQ16(table)[[3]], DQ26(table)[[3]], DQ35(table)[[3]], DQ45(table)[[3]],
 	              DQ57(table)[[3]], DQ68(table)[[3]], DQ3457(table)[[3]], DQ1268(table)[[3]])
+ci <- c(ci, DQ16(table)[[4]], DQ26(table)[[4]], DQ35(table)[[4]], DQ45(table)[[4]],
+            DQ57(table)[[4]], DQ68(table)[[4]], DQ3457(table)[[4]], DQ1268(table)[[4]])
 # 4 -> 1
 table <- tables[[2]]
 event <- c(event, rep("4 \u2794 1", 8))
@@ -555,6 +558,8 @@ zvalue <- c(zvalue, DQ16(table)[[2]], DQ26(table)[[2]], DQ35(table)[[2]], DQ45(t
   	                DQ57(table)[[2]], DQ68(table)[[2]], DQ3457(table)[[2]], DQ1268(table)[[2]])
 sign <- c(sign, DQ16(table)[[3]], DQ26(table)[[3]], DQ35(table)[[3]], DQ45(table)[[3]],
 	              DQ57(table)[[3]], DQ68(table)[[3]], DQ3457(table)[[3]], DQ1268(table)[[3]])
+ci <- c(ci, DQ16(table)[[4]], DQ26(table)[[4]], DQ35(table)[[4]], DQ45(table)[[4]],
+            DQ57(table)[[4]], DQ68(table)[[4]], DQ3457(table)[[4]], DQ1268(table)[[4]])
 # 1 -> 5
 table <- tables[[3]]
 event <- c(event, rep("1 \u2794 5", 8))
@@ -565,6 +570,8 @@ zvalue <- c(zvalue, DQ16(table)[[2]], DQ26(table)[[2]], DQ35(table)[[2]], DQ45(t
   	                DQ57(table)[[2]], DQ68(table)[[2]], DQ3457(table)[[2]], DQ1268(table)[[2]])
 sign <- c(sign, DQ16(table)[[3]], DQ26(table)[[3]], DQ35(table)[[3]], DQ45(table)[[3]],
 	              DQ57(table)[[3]], DQ68(table)[[3]], DQ3457(table)[[3]], DQ1268(table)[[3]])
+ci <- c(ci, DQ16(table)[[4]], DQ26(table)[[4]], DQ35(table)[[4]], DQ45(table)[[4]],
+            DQ57(table)[[4]], DQ68(table)[[4]], DQ3457(table)[[4]], DQ1268(table)[[4]])
 # 5 -> 1
 table <- tables[[4]]
 event <- c(event, rep("5 \u2794 1", 8))
@@ -575,6 +582,8 @@ zvalue <- c(zvalue, DQ16(table)[[2]], DQ26(table)[[2]], DQ35(table)[[2]], DQ45(t
   	                DQ57(table)[[2]], DQ68(table)[[2]], DQ3457(table)[[2]], DQ1268(table)[[2]])
 sign <- c(sign, DQ16(table)[[3]], DQ26(table)[[3]], DQ35(table)[[3]], DQ45(table)[[3]],
 	              DQ57(table)[[3]], DQ68(table)[[3]], DQ3457(table)[[3]], DQ1268(table)[[3]])
+ci <- c(ci, DQ16(table)[[4]], DQ26(table)[[4]], DQ35(table)[[4]], DQ45(table)[[4]],
+            DQ57(table)[[4]], DQ68(table)[[4]], DQ3457(table)[[4]], DQ1268(table)[[4]])
 # 2 -> 4
 table <- tables[[5]]
 event <- c(event, rep("2 \u2794 4", 8))
@@ -585,6 +594,8 @@ zvalue <- c(zvalue, DQ16(table)[[2]], DQ26(table)[[2]], DQ35(table)[[2]], DQ45(t
   	                DQ57(table)[[2]], DQ68(table)[[2]], DQ3457(table)[[2]], DQ1268(table)[[2]])
 sign <- c(sign, DQ16(table)[[3]], DQ26(table)[[3]], DQ35(table)[[3]], DQ45(table)[[3]],
 	              DQ57(table)[[3]], DQ68(table)[[3]], DQ3457(table)[[3]], DQ1268(table)[[3]])
+ci <- c(ci, DQ16(table)[[4]], DQ26(table)[[4]], DQ35(table)[[4]], DQ45(table)[[4]],
+            DQ57(table)[[4]], DQ68(table)[[4]], DQ3457(table)[[4]], DQ1268(table)[[4]])
 # 4 -> 2
 table <- tables[[6]]
 event <- c(event, rep("4 \u2794 2", 8))
@@ -595,6 +606,8 @@ zvalue <- c(zvalue, DQ16(table)[[2]], DQ26(table)[[2]], DQ35(table)[[2]], DQ45(t
   	                DQ57(table)[[2]], DQ68(table)[[2]], DQ3457(table)[[2]], DQ1268(table)[[2]])
 sign <- c(sign, DQ16(table)[[3]], DQ26(table)[[3]], DQ35(table)[[3]], DQ45(table)[[3]],
 	              DQ57(table)[[3]], DQ68(table)[[3]], DQ3457(table)[[3]], DQ1268(table)[[3]])
+ci <- c(ci, DQ16(table)[[4]], DQ26(table)[[4]], DQ35(table)[[4]], DQ45(table)[[4]],
+            DQ57(table)[[4]], DQ68(table)[[4]], DQ3457(table)[[4]], DQ1268(table)[[4]])
 # 2 -> 5
 table <- tables[[7]]
 event <- c(event, rep("2 \u2794 5", 8))
@@ -605,6 +618,8 @@ zvalue <- c(zvalue, DQ16(table)[[2]], DQ26(table)[[2]], DQ35(table)[[2]], DQ45(t
   	                DQ57(table)[[2]], DQ68(table)[[2]], DQ3457(table)[[2]], DQ1268(table)[[2]])
 sign <- c(sign, DQ16(table)[[3]], DQ26(table)[[3]], DQ35(table)[[3]], DQ45(table)[[3]],
 	              DQ57(table)[[3]], DQ68(table)[[3]], DQ3457(table)[[3]], DQ1268(table)[[3]])
+ci <- c(ci, DQ16(table)[[4]], DQ26(table)[[4]], DQ35(table)[[4]], DQ45(table)[[4]],
+            DQ57(table)[[4]], DQ68(table)[[4]], DQ3457(table)[[4]], DQ1268(table)[[4]])
 # 5 -> 2
 table <- tables[[8]]
 event <- c(event, rep("5 \u2794 2", 8))
@@ -615,6 +630,8 @@ zvalue <- c(zvalue, DQ16(table)[[2]], DQ26(table)[[2]], DQ35(table)[[2]], DQ45(t
   	                DQ57(table)[[2]], DQ68(table)[[2]], DQ3457(table)[[2]], DQ1268(table)[[2]])
 sign <- c(sign, DQ16(table)[[3]], DQ26(table)[[3]], DQ35(table)[[3]], DQ45(table)[[3]],
 	              DQ57(table)[[3]], DQ68(table)[[3]], DQ3457(table)[[3]], DQ1268(table)[[3]])
+ci <- c(ci, DQ16(table)[[4]], DQ26(table)[[4]], DQ35(table)[[4]], DQ45(table)[[4]],
+            DQ57(table)[[4]], DQ68(table)[[4]], DQ3457(table)[[4]], DQ1268(table)[[4]])
 # 1 -> 3
 table <- tables[[9]]
 event <- c(event, rep("1 \u2794 3", 8))
@@ -625,6 +642,8 @@ zvalue <- c(zvalue, DQ16(table)[[2]], DQ26(table)[[2]], DQ35(table)[[2]], DQ45(t
   	                DQ57(table)[[2]], DQ68(table)[[2]], DQ3457(table)[[2]], DQ1268(table)[[2]])
 sign <- c(sign, DQ16(table)[[3]], DQ26(table)[[3]], DQ35(table)[[3]], DQ45(table)[[3]],
 	              DQ57(table)[[3]], DQ68(table)[[3]], DQ3457(table)[[3]], DQ1268(table)[[3]])
+ci <- c(ci, DQ16(table)[[4]], DQ26(table)[[4]], DQ35(table)[[4]], DQ45(table)[[4]],
+            DQ57(table)[[4]], DQ68(table)[[4]], DQ3457(table)[[4]], DQ1268(table)[[4]])
 # 3 -> 1
 table <- tables[[10]]
 event <- c(event, rep("3 \u2794 1", 8))
@@ -635,6 +654,8 @@ zvalue <- c(zvalue, DQ16(table)[[2]], DQ26(table)[[2]], DQ35(table)[[2]], DQ45(t
   	                DQ57(table)[[2]], DQ68(table)[[2]], DQ3457(table)[[2]], DQ1268(table)[[2]])
 sign <- c(sign, DQ16(table)[[3]], DQ26(table)[[3]], DQ35(table)[[3]], DQ45(table)[[3]],
 	              DQ57(table)[[3]], DQ68(table)[[3]], DQ3457(table)[[3]], DQ1268(table)[[3]])
+ci <- c(ci, DQ16(table)[[4]], DQ26(table)[[4]], DQ35(table)[[4]], DQ45(table)[[4]],
+            DQ57(table)[[4]], DQ68(table)[[4]], DQ3457(table)[[4]], DQ1268(table)[[4]])
 # 2 -> 3
 table <- tables[[11]]
 event <- c(event, rep("2 \u2794 3", 8))
@@ -645,6 +666,8 @@ zvalue <- c(zvalue, DQ16(table)[[2]], DQ26(table)[[2]], DQ35(table)[[2]], DQ45(t
   	                DQ57(table)[[2]], DQ68(table)[[2]], DQ3457(table)[[2]], DQ1268(table)[[2]])
 sign <- c(sign, DQ16(table)[[3]], DQ26(table)[[3]], DQ35(table)[[3]], DQ45(table)[[3]],
 	              DQ57(table)[[3]], DQ68(table)[[3]], DQ3457(table)[[3]], DQ1268(table)[[3]])
+ci <- c(ci, DQ16(table)[[4]], DQ26(table)[[4]], DQ35(table)[[4]], DQ45(table)[[4]],
+            DQ57(table)[[4]], DQ68(table)[[4]], DQ3457(table)[[4]], DQ1268(table)[[4]])
 # 3 -> 2
 table <- tables[[12]]
 event <- c(event, rep("3 \u2794 2", 8))
@@ -655,6 +678,8 @@ zvalue <- c(zvalue, DQ16(table)[[2]], DQ26(table)[[2]], DQ35(table)[[2]], DQ45(t
   	                DQ57(table)[[2]], DQ68(table)[[2]], DQ3457(table)[[2]], DQ1268(table)[[2]])
 sign <- c(sign, DQ16(table)[[3]], DQ26(table)[[3]], DQ35(table)[[3]], DQ45(table)[[3]],
 	              DQ57(table)[[3]], DQ68(table)[[3]], DQ3457(table)[[3]], DQ1268(table)[[3]])
+ci <- c(ci, DQ16(table)[[4]], DQ26(table)[[4]], DQ35(table)[[4]], DQ45(table)[[4]],
+            DQ57(table)[[4]], DQ68(table)[[4]], DQ3457(table)[[4]], DQ1268(table)[[4]])
 # 4 -> 3
 table <- tables[[13]]
 event <- c(event, rep("4 \u2794 3", 8))
@@ -665,6 +690,8 @@ zvalue <- c(zvalue, DQ16(table)[[2]], DQ26(table)[[2]], DQ35(table)[[2]], DQ45(t
   	                DQ57(table)[[2]], DQ68(table)[[2]], DQ3457(table)[[2]], DQ1268(table)[[2]])
 sign <- c(sign, DQ16(table)[[3]], DQ26(table)[[3]], DQ35(table)[[3]], DQ45(table)[[3]],
 	              DQ57(table)[[3]], DQ68(table)[[3]], DQ3457(table)[[3]], DQ1268(table)[[3]])
+ci <- c(ci, DQ16(table)[[4]], DQ26(table)[[4]], DQ35(table)[[4]], DQ45(table)[[4]],
+            DQ57(table)[[4]], DQ68(table)[[4]], DQ3457(table)[[4]], DQ1268(table)[[4]])
 # 3 -> 4
 table <- tables[[14]]
 event <- c(event, rep("3 \u2794 4", 8))
@@ -675,6 +702,8 @@ zvalue <- c(zvalue, DQ16(table)[[2]], DQ26(table)[[2]], DQ35(table)[[2]], DQ45(t
   	                DQ57(table)[[2]], DQ68(table)[[2]], DQ3457(table)[[2]], DQ1268(table)[[2]])
 sign <- c(sign, DQ16(table)[[3]], DQ26(table)[[3]], DQ35(table)[[3]], DQ45(table)[[3]],
 	              DQ57(table)[[3]], DQ68(table)[[3]], DQ3457(table)[[3]], DQ1268(table)[[3]])
+ci <- c(ci, DQ16(table)[[4]], DQ26(table)[[4]], DQ35(table)[[4]], DQ45(table)[[4]],
+            DQ57(table)[[4]], DQ68(table)[[4]], DQ3457(table)[[4]], DQ1268(table)[[4]])
 # 5 -> 3
 table <- tables[[15]]
 event <- c(event, rep("5 \u2794 3", 8))
@@ -685,6 +714,8 @@ zvalue <- c(zvalue, DQ16(table)[[2]], DQ26(table)[[2]], DQ35(table)[[2]], DQ45(t
   	                DQ57(table)[[2]], DQ68(table)[[2]], DQ3457(table)[[2]], DQ1268(table)[[2]])
 sign <- c(sign, DQ16(table)[[3]], DQ26(table)[[3]], DQ35(table)[[3]], DQ45(table)[[3]],
 	              DQ57(table)[[3]], DQ68(table)[[3]], DQ3457(table)[[3]], DQ1268(table)[[3]])
+ci <- c(ci, DQ16(table)[[4]], DQ26(table)[[4]], DQ35(table)[[4]], DQ45(table)[[4]],
+            DQ57(table)[[4]], DQ68(table)[[4]], DQ3457(table)[[4]], DQ1268(table)[[4]])
 # 3 -> 5
 table <- tables[[16]]
 event <- c(event, rep("3 \u2794 5", 8))
@@ -695,6 +726,8 @@ zvalue <- c(zvalue, DQ16(table)[[2]], DQ26(table)[[2]], DQ35(table)[[2]], DQ45(t
   	                DQ57(table)[[2]], DQ68(table)[[2]], DQ3457(table)[[2]], DQ1268(table)[[2]])
 sign <- c(sign, DQ16(table)[[3]], DQ26(table)[[3]], DQ35(table)[[3]], DQ45(table)[[3]],
 	              DQ57(table)[[3]], DQ68(table)[[3]], DQ3457(table)[[3]], DQ1268(table)[[3]])
+ci <- c(ci, DQ16(table)[[4]], DQ26(table)[[4]], DQ35(table)[[4]], DQ45(table)[[4]],
+            DQ57(table)[[4]], DQ68(table)[[4]], DQ3457(table)[[4]], DQ1268(table)[[4]])
 # 12 -> 4
 table <- tables[[17]]
 event <- c(event, rep("12 \u2794 4", 8))
@@ -705,6 +738,8 @@ zvalue <- c(zvalue, DQ16(table)[[2]], DQ26(table)[[2]], DQ35(table)[[2]], DQ45(t
   	                DQ57(table)[[2]], DQ68(table)[[2]], DQ3457(table)[[2]], DQ1268(table)[[2]])
 sign <- c(sign, DQ16(table)[[3]], DQ26(table)[[3]], DQ35(table)[[3]], DQ45(table)[[3]],
 	              DQ57(table)[[3]], DQ68(table)[[3]], DQ3457(table)[[3]], DQ1268(table)[[3]])
+ci <- c(ci, DQ16(table)[[4]], DQ26(table)[[4]], DQ35(table)[[4]], DQ45(table)[[4]],
+            DQ57(table)[[4]], DQ68(table)[[4]], DQ3457(table)[[4]], DQ1268(table)[[4]])
 # 4 -> 12
 table <- tables[[18]]
 event <- c(event, rep("4 \u2794 12", 8))
@@ -715,6 +750,8 @@ zvalue <- c(zvalue, DQ16(table)[[2]], DQ26(table)[[2]], DQ35(table)[[2]], DQ45(t
   	                DQ57(table)[[2]], DQ68(table)[[2]], DQ3457(table)[[2]], DQ1268(table)[[2]])
 sign <- c(sign, DQ16(table)[[3]], DQ26(table)[[3]], DQ35(table)[[3]], DQ45(table)[[3]],
 	              DQ57(table)[[3]], DQ68(table)[[3]], DQ3457(table)[[3]], DQ1268(table)[[3]])
+ci <- c(ci, DQ16(table)[[4]], DQ26(table)[[4]], DQ35(table)[[4]], DQ45(table)[[4]],
+            DQ57(table)[[4]], DQ68(table)[[4]], DQ3457(table)[[4]], DQ1268(table)[[4]])
 # 12 -> 5
 table <- tables[[19]]
 event <- c(event, rep("12 \u2794 5", 8))
@@ -725,6 +762,8 @@ zvalue <- c(zvalue, DQ16(table)[[2]], DQ26(table)[[2]], DQ35(table)[[2]], DQ45(t
   	                DQ57(table)[[2]], DQ68(table)[[2]], DQ3457(table)[[2]], DQ1268(table)[[2]])
 sign <- c(sign, DQ16(table)[[3]], DQ26(table)[[3]], DQ35(table)[[3]], DQ45(table)[[3]],
 	              DQ57(table)[[3]], DQ68(table)[[3]], DQ3457(table)[[3]], DQ1268(table)[[3]])
+ci <- c(ci, DQ16(table)[[4]], DQ26(table)[[4]], DQ35(table)[[4]], DQ45(table)[[4]],
+            DQ57(table)[[4]], DQ68(table)[[4]], DQ3457(table)[[4]], DQ1268(table)[[4]])
 # 5 -> 12
 table <- tables[[20]]
 event <- c(event, rep("5 \u2794 12", 8))
@@ -735,6 +774,8 @@ zvalue <- c(zvalue, DQ16(table)[[2]], DQ26(table)[[2]], DQ35(table)[[2]], DQ45(t
   	                DQ57(table)[[2]], DQ68(table)[[2]], DQ3457(table)[[2]], DQ1268(table)[[2]])
 sign <- c(sign, DQ16(table)[[3]], DQ26(table)[[3]], DQ35(table)[[3]], DQ45(table)[[3]],
 	              DQ57(table)[[3]], DQ68(table)[[3]], DQ3457(table)[[3]], DQ1268(table)[[3]])
+ci <- c(ci, DQ16(table)[[4]], DQ26(table)[[4]], DQ35(table)[[4]], DQ45(table)[[4]],
+            DQ57(table)[[4]], DQ68(table)[[4]], DQ3457(table)[[4]], DQ1268(table)[[4]])
 # 123 -> 4
 table <- tables[[21]]
 event <- c(event, rep("123 \u2794 4", 8))
@@ -745,6 +786,8 @@ zvalue <- c(zvalue, DQ16(table)[[2]], DQ26(table)[[2]], DQ35(table)[[2]], DQ45(t
   	                DQ57(table)[[2]], DQ68(table)[[2]], DQ3457(table)[[2]], DQ1268(table)[[2]])
 sign <- c(sign, DQ16(table)[[3]], DQ26(table)[[3]], DQ35(table)[[3]], DQ45(table)[[3]],
 	              DQ57(table)[[3]], DQ68(table)[[3]], DQ3457(table)[[3]], DQ1268(table)[[3]])
+ci <- c(ci, DQ16(table)[[4]], DQ26(table)[[4]], DQ35(table)[[4]], DQ45(table)[[4]],
+            DQ57(table)[[4]], DQ68(table)[[4]], DQ3457(table)[[4]], DQ1268(table)[[4]])
 # 4 -> 123
 table <- tables[[22]]
 event <- c(event, rep("4 \u2794 123", 8))
@@ -755,6 +798,8 @@ zvalue <- c(zvalue, DQ16(table)[[2]], DQ26(table)[[2]], DQ35(table)[[2]], DQ45(t
   	                DQ57(table)[[2]], DQ68(table)[[2]], DQ3457(table)[[2]], DQ1268(table)[[2]])
 sign <- c(sign, DQ16(table)[[3]], DQ26(table)[[3]], DQ35(table)[[3]], DQ45(table)[[3]],
 	              DQ57(table)[[3]], DQ68(table)[[3]], DQ3457(table)[[3]], DQ1268(table)[[3]])
+ci <- c(ci, DQ16(table)[[4]], DQ26(table)[[4]], DQ35(table)[[4]], DQ45(table)[[4]],
+            DQ57(table)[[4]], DQ68(table)[[4]], DQ3457(table)[[4]], DQ1268(table)[[4]])
 # 123 -> 5
 table <- tables[[23]]
 event <- c(event, rep("123 \u2794 5", 8))
@@ -765,6 +810,8 @@ zvalue <- c(zvalue, DQ16(table)[[2]], DQ26(table)[[2]], DQ35(table)[[2]], DQ45(t
   	                DQ57(table)[[2]], DQ68(table)[[2]], DQ3457(table)[[2]], DQ1268(table)[[2]])
 sign <- c(sign, DQ16(table)[[3]], DQ26(table)[[3]], DQ35(table)[[3]], DQ45(table)[[3]],
 	              DQ57(table)[[3]], DQ68(table)[[3]], DQ3457(table)[[3]], DQ1268(table)[[3]])
+ci <- c(ci, DQ16(table)[[4]], DQ26(table)[[4]], DQ35(table)[[4]], DQ45(table)[[4]],
+            DQ57(table)[[4]], DQ68(table)[[4]], DQ3457(table)[[4]], DQ1268(table)[[4]])
 # 5 -> 123
 table <- tables[[24]]
 event <- c(event, rep("5 \u2794 123", 8))
@@ -775,6 +822,8 @@ zvalue <- c(zvalue, DQ16(table)[[2]], DQ26(table)[[2]], DQ35(table)[[2]], DQ45(t
   	                DQ57(table)[[2]], DQ68(table)[[2]], DQ3457(table)[[2]], DQ1268(table)[[2]])
 sign <- c(sign, DQ16(table)[[3]], DQ26(table)[[3]], DQ35(table)[[3]], DQ45(table)[[3]],
 	              DQ57(table)[[3]], DQ68(table)[[3]], DQ3457(table)[[3]], DQ1268(table)[[3]])
+ci <- c(ci, DQ16(table)[[4]], DQ26(table)[[4]], DQ35(table)[[4]], DQ45(table)[[4]],
+            DQ57(table)[[4]], DQ68(table)[[4]], DQ3457(table)[[4]], DQ1268(table)[[4]])
 # 1 -> 45
 table <- tables[[25]]
 event <- c(event, rep("1 \u2794 45", 8))
@@ -785,6 +834,8 @@ zvalue <- c(zvalue, DQ16(table)[[2]], DQ26(table)[[2]], DQ35(table)[[2]], DQ45(t
   	                DQ57(table)[[2]], DQ68(table)[[2]], DQ3457(table)[[2]], DQ1268(table)[[2]])
 sign <- c(sign, DQ16(table)[[3]], DQ26(table)[[3]], DQ35(table)[[3]], DQ45(table)[[3]],
 	              DQ57(table)[[3]], DQ68(table)[[3]], DQ3457(table)[[3]], DQ1268(table)[[3]])
+ci <- c(ci, DQ16(table)[[4]], DQ26(table)[[4]], DQ35(table)[[4]], DQ45(table)[[4]],
+            DQ57(table)[[4]], DQ68(table)[[4]], DQ3457(table)[[4]], DQ1268(table)[[4]])
 # 45 -> 1
 table <- tables[[26]]
 event <- c(event, rep("45 \u2794 1", 8))
@@ -795,6 +846,8 @@ zvalue <- c(zvalue, DQ16(table)[[2]], DQ26(table)[[2]], DQ35(table)[[2]], DQ45(t
   	                DQ57(table)[[2]], DQ68(table)[[2]], DQ3457(table)[[2]], DQ1268(table)[[2]])
 sign <- c(sign, DQ16(table)[[3]], DQ26(table)[[3]], DQ35(table)[[3]], DQ45(table)[[3]],
 	              DQ57(table)[[3]], DQ68(table)[[3]], DQ3457(table)[[3]], DQ1268(table)[[3]])
+ci <- c(ci, DQ16(table)[[4]], DQ26(table)[[4]], DQ35(table)[[4]], DQ45(table)[[4]],
+            DQ57(table)[[4]], DQ68(table)[[4]], DQ3457(table)[[4]], DQ1268(table)[[4]])
 # 2 -> 45
 table <- tables[[27]]
 event <- c(event, rep("2 \u2794 45", 8))
@@ -805,6 +858,8 @@ zvalue <- c(zvalue, DQ16(table)[[2]], DQ26(table)[[2]], DQ35(table)[[2]], DQ45(t
   	                DQ57(table)[[2]], DQ68(table)[[2]], DQ3457(table)[[2]], DQ1268(table)[[2]])
 sign <- c(sign, DQ16(table)[[3]], DQ26(table)[[3]], DQ35(table)[[3]], DQ45(table)[[3]],
 	              DQ57(table)[[3]], DQ68(table)[[3]], DQ3457(table)[[3]], DQ1268(table)[[3]])
+ci <- c(ci, DQ16(table)[[4]], DQ26(table)[[4]], DQ35(table)[[4]], DQ45(table)[[4]],
+            DQ57(table)[[4]], DQ68(table)[[4]], DQ3457(table)[[4]], DQ1268(table)[[4]])
 # 45 -> 2
 table <- tables[[28]]
 event <- c(event, rep("45 \u2794 2", 8))
@@ -815,6 +870,8 @@ zvalue <- c(zvalue, DQ16(table)[[2]], DQ26(table)[[2]], DQ35(table)[[2]], DQ45(t
   	                DQ57(table)[[2]], DQ68(table)[[2]], DQ3457(table)[[2]], DQ1268(table)[[2]])
 sign <- c(sign, DQ16(table)[[3]], DQ26(table)[[3]], DQ35(table)[[3]], DQ45(table)[[3]],
 	              DQ57(table)[[3]], DQ68(table)[[3]], DQ3457(table)[[3]], DQ1268(table)[[3]])
+ci <- c(ci, DQ16(table)[[4]], DQ26(table)[[4]], DQ35(table)[[4]], DQ45(table)[[4]],
+            DQ57(table)[[4]], DQ68(table)[[4]], DQ3457(table)[[4]], DQ1268(table)[[4]])
 # 123 -> 1
 table <- tables[[29]]
 event <- c(event, rep("123 \u2794 1", 8))
@@ -825,6 +882,8 @@ zvalue <- c(zvalue, DQ16(table)[[2]], DQ26(table)[[2]], DQ35(table)[[2]], DQ45(t
   	                DQ57(table)[[2]], DQ68(table)[[2]], DQ3457(table)[[2]], DQ1268(table)[[2]])
 sign <- c(sign, DQ16(table)[[3]], DQ26(table)[[3]], DQ35(table)[[3]], DQ45(table)[[3]],
 	              DQ57(table)[[3]], DQ68(table)[[3]], DQ3457(table)[[3]], DQ1268(table)[[3]])
+ci <- c(ci, DQ16(table)[[4]], DQ26(table)[[4]], DQ35(table)[[4]], DQ45(table)[[4]],
+            DQ57(table)[[4]], DQ68(table)[[4]], DQ3457(table)[[4]], DQ1268(table)[[4]])
 # 123 -> 2
 table <- tables[[30]]
 event <- c(event, rep("123 \u2794 2", 8))
@@ -835,6 +894,8 @@ zvalue <- c(zvalue, DQ16(table)[[2]], DQ26(table)[[2]], DQ35(table)[[2]], DQ45(t
   	                DQ57(table)[[2]], DQ68(table)[[2]], DQ3457(table)[[2]], DQ1268(table)[[2]])
 sign <- c(sign, DQ16(table)[[3]], DQ26(table)[[3]], DQ35(table)[[3]], DQ45(table)[[3]],
 	              DQ57(table)[[3]], DQ68(table)[[3]], DQ3457(table)[[3]], DQ1268(table)[[3]])
+ci <- c(ci, DQ16(table)[[4]], DQ26(table)[[4]], DQ35(table)[[4]], DQ45(table)[[4]],
+            DQ57(table)[[4]], DQ68(table)[[4]], DQ3457(table)[[4]], DQ1268(table)[[4]])
 # 12345 -> 1
 table <- tables[[31]]
 event <- c(event, rep("12345 \u2794 1", 8))
@@ -845,6 +906,8 @@ zvalue <- c(zvalue, DQ16(table)[[2]], DQ26(table)[[2]], DQ35(table)[[2]], DQ45(t
   	                DQ57(table)[[2]], DQ68(table)[[2]], DQ3457(table)[[2]], DQ1268(table)[[2]])
 sign <- c(sign, DQ16(table)[[3]], DQ26(table)[[3]], DQ35(table)[[3]], DQ45(table)[[3]],
 	              DQ57(table)[[3]], DQ68(table)[[3]], DQ3457(table)[[3]], DQ1268(table)[[3]])
+ci <- c(ci, DQ16(table)[[4]], DQ26(table)[[4]], DQ35(table)[[4]], DQ45(table)[[4]],
+            DQ57(table)[[4]], DQ68(table)[[4]], DQ3457(table)[[4]], DQ1268(table)[[4]])
 # 12345 -> 2
 table <- tables[[32]]
 event <- c(event, rep("12345 \u2794 2", 8))
@@ -855,6 +918,8 @@ zvalue <- c(zvalue, DQ16(table)[[2]], DQ26(table)[[2]], DQ35(table)[[2]], DQ45(t
   	                DQ57(table)[[2]], DQ68(table)[[2]], DQ3457(table)[[2]], DQ1268(table)[[2]])
 sign <- c(sign, DQ16(table)[[3]], DQ26(table)[[3]], DQ35(table)[[3]], DQ45(table)[[3]],
 	              DQ57(table)[[3]], DQ68(table)[[3]], DQ3457(table)[[3]], DQ1268(table)[[3]])
+ci <- c(ci, DQ16(table)[[4]], DQ26(table)[[4]], DQ35(table)[[4]], DQ45(table)[[4]],
+            DQ57(table)[[4]], DQ68(table)[[4]], DQ3457(table)[[4]], DQ1268(table)[[4]])
 # 12345 -> 4
 table <- tables[[33]]
 event <- c(event, rep("12345 \u2794 4", 8))
@@ -865,6 +930,8 @@ zvalue <- c(zvalue, DQ16(table)[[2]], DQ26(table)[[2]], DQ35(table)[[2]], DQ45(t
   	                DQ57(table)[[2]], DQ68(table)[[2]], DQ3457(table)[[2]], DQ1268(table)[[2]])
 sign <- c(sign, DQ16(table)[[3]], DQ26(table)[[3]], DQ35(table)[[3]], DQ45(table)[[3]],
 	              DQ57(table)[[3]], DQ68(table)[[3]], DQ3457(table)[[3]], DQ1268(table)[[3]])
+ci <- c(ci, DQ16(table)[[4]], DQ26(table)[[4]], DQ35(table)[[4]], DQ45(table)[[4]],
+            DQ57(table)[[4]], DQ68(table)[[4]], DQ3457(table)[[4]], DQ1268(table)[[4]])
 # 12345 -> 5
 table <- tables[[34]]
 event <- c(event, rep("12345 \u2794 5", 8))
@@ -875,9 +942,11 @@ zvalue <- c(zvalue, DQ16(table)[[2]], DQ26(table)[[2]], DQ35(table)[[2]], DQ45(t
   	                DQ57(table)[[2]], DQ68(table)[[2]], DQ3457(table)[[2]], DQ1268(table)[[2]])
 sign <- c(sign, DQ16(table)[[3]], DQ26(table)[[3]], DQ35(table)[[3]], DQ45(table)[[3]],
 	              DQ57(table)[[3]], DQ68(table)[[3]], DQ3457(table)[[3]], DQ1268(table)[[3]])
+ci <- c(ci, DQ16(table)[[4]], DQ26(table)[[4]], DQ35(table)[[4]], DQ45(table)[[4]],
+            DQ57(table)[[4]], DQ68(table)[[4]], DQ3457(table)[[4]], DQ1268(table)[[4]])
 
 
-quasisymmetric <- data.frame(event = event, statistic = statistic, value = value, zvalue = zvalue, sign = sign)
+quasisymmetric <- data.frame(event = event, statistic = statistic, value = value, zvalue = zvalue, sign = sign, ci = ci)
 quasisymmetric$statistic <- factor(quasisymmetric$statistic, levels <- c("DQ16", "DQ26", "DQ35", "DQ45", "DQ57", "DQ68", "DQ3457", "DQ1268"))
 quasisymmetric$sign <- sub("-", "\u2212", quasisymmetric$sign) # A hyphen is not a minus sign.
 save(quasisymmetric, file = "Q_big_stats.RData")

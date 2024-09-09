@@ -146,6 +146,7 @@ DPA <- function(X, alpha = 0.0027) { # The classic D-statistic.
 	R <- n(X, "ABBA") + n(X, "BAAB")
 	value <- as.numeric((L - R)/(L + R))
 	zvalue <- (L - R)/sqrt(L + R)
+	ci <- qnorm(1 - 0.5*alpha)*sqrt(4*L*R/(L + R)**3)
 	pvalue <- 2*as.numeric(1 - pnorm(abs(zvalue)))
 	if (is.numeric(pvalue) == TRUE && is.nan(pvalue) == FALSE) {
 		if (pvalue > alpha) {
@@ -155,7 +156,7 @@ DPA <- function(X, alpha = 0.0027) { # The classic D-statistic.
 	    if (value < 0) {sign <- "-"}		  	
 		}
 	} else {sign <- "?"}
-	return(list(value, zvalue, sign))
+	return(list(value, zvalue, sign, ci))
 }
 
 DFO <- function(X, alpha = 0.01) { # D_FO of Pease & Hahn.
@@ -163,6 +164,7 @@ DFO <- function(X, alpha = 0.01) { # D_FO of Pease & Hahn.
 	R <- n(X, "BAABA") + n(X, "ABBAB") + n(X, "BBABA") + n(X, "AABAB") + n(X, "ABBAA") + n(X, "BAABB") + n(X, "AABAA") + n(X, "BBABB")
 	value <- as.numeric((L - R)/(L + R))
 	zvalue <- (L - R)/sqrt(L + R)
+	ci <- qnorm(1 - 0.5*alpha)*sqrt(4*L*R/(L + R)**3)
 	pvalue <- 2*as.numeric(1 - pnorm(abs(zvalue)))
 	if (is.numeric(pvalue) == TRUE && is.nan(pvalue) == FALSE) {
 		if (pvalue > alpha) {
@@ -172,7 +174,7 @@ DFO <- function(X, alpha = 0.01) { # D_FO of Pease & Hahn.
 	    if (value < 0) {sign <- "-"}		  	
 		}
 	} else {sign <- "?"}
-	return(list(value, zvalue, sign))
+	return(list(value, zvalue, sign, ci))
 }
 
 DIL <- function(X, alpha = 0.01) { # D_IL of Pease & Hahn.
@@ -180,6 +182,7 @@ DIL <- function(X, alpha = 0.01) { # D_IL of Pease & Hahn.
 	R <- n(X, "ABABA") + n(X, "BABAB") + n(X, "BBABA") + n(X, "AABAB") + n(X, "BABAA") + n(X, "ABABB") + n(X, "AABAA") + n(X, "BBABB")
 	value <- as.numeric((L - R)/(L + R))
 	zvalue <- (L - R)/sqrt(L + R)
+	ci <- qnorm(1 - 0.5*alpha)*sqrt(4*L*R/(L + R)**3)
 	pvalue <- 2*as.numeric(1 - pnorm(abs(zvalue)))
 	if (is.numeric(pvalue) == TRUE && is.nan(pvalue) == FALSE) {
 		if (pvalue > alpha) {
@@ -189,7 +192,7 @@ DIL <- function(X, alpha = 0.01) { # D_IL of Pease & Hahn.
 	    if (value < 0) {sign <- "-"}		  	
 		}
 	} else {sign <- "?"}
-	return(list(value, zvalue, sign))
+	return(list(value, zvalue, sign, ci))
 }
 
 DFI <- function(X, alpha = 0.01) { # D_FI of Pease & Hahn.
@@ -197,6 +200,7 @@ DFI <- function(X, alpha = 0.01) { # D_FI of Pease & Hahn.
 	R <- n(X, "ABBAA") + n(X, "BAABB") + n(X, "ABBBA") + n(X, "BAAAB") + n(X, "BAABA") + n(X, "ABBAB") + n(X, "BAAAA") + n(X, "ABBBB")
 	value <- as.numeric((L - R)/(L + R))
 	zvalue <- (L - R)/sqrt(L + R)
+	ci <- qnorm(1 - 0.5*alpha)*sqrt(4*L*R/(L + R)**3)
 	pvalue <- 2*as.numeric(1 - pnorm(abs(zvalue)))
 	if (is.numeric(pvalue) == TRUE && is.nan(pvalue) == FALSE) {
 		if (pvalue > alpha) {
@@ -206,7 +210,7 @@ DFI <- function(X, alpha = 0.01) { # D_FI of Pease & Hahn.
 	    if (value < 0) {sign <- "-"}		  	
 		}
 	} else {sign <- "?"}
-	return(list(value, zvalue, sign))
+	return(list(value, zvalue, sign, ci))
 }
 
 DOL <- function(X, alpha = 0.01) { # D_OL of Pease and Hahn.
@@ -214,6 +218,7 @@ DOL <- function(X, alpha = 0.01) { # D_OL of Pease and Hahn.
 	R <- n(X, "ABABA") + n(X, "BABAB") + n(X, "ABBBA") + n(X, "BAAAB") + n(X, "BABAA") + n(X, "ABABB") + n(X, "BAAAA") + n(X, "ABBBB")
 	value <- as.numeric((L - R)/(L + R))
 	zvalue <- (L - R)/sqrt(L + R)
+	ci <- qnorm(1 - 0.5*alpha)*sqrt(4*L*R/(L + R)**3)
 	pvalue <- 2*as.numeric(1 - pnorm(abs(zvalue)))
 	if (is.numeric(pvalue) == TRUE && is.nan(pvalue) == FALSE) {
 		if (pvalue > alpha) {
@@ -223,7 +228,7 @@ DOL <- function(X, alpha = 0.01) { # D_OL of Pease and Hahn.
 	    if (value < 0) {sign <- "-"}		  	
 		}
 	} else {sign <- "?"}
-	return(list(value, zvalue, sign))
+	return(list(value, zvalue, sign, ci))
 }
 
 D1 <- function(X, alpha = 0.00333) { # D_1 of Eaton & Ree.
@@ -231,6 +236,7 @@ D1 <- function(X, alpha = 0.00333) { # D_1 of Eaton & Ree.
 	R <- n(X, "BABAA") + n(X, "ABABB")
 	value <- as.numeric((L - R)/(L + R))
 	zvalue <- (L - R)/sqrt(L + R)
+	ci <- qnorm(1 - 0.5*alpha)*sqrt(4*L*R/(L + R)**3)
 	pvalue <- 2*as.numeric(1 - pnorm(abs(zvalue)))
 	if (is.numeric(pvalue) == TRUE && is.nan(pvalue) == FALSE) {
 		if (pvalue > alpha) {
@@ -240,7 +246,7 @@ D1 <- function(X, alpha = 0.00333) { # D_1 of Eaton & Ree.
 	    if (value < 0) {sign <- "-"}		  	
 		}
 	} else {sign <- "?"}
-	return(list(value, zvalue, sign))
+	return(list(value, zvalue, sign, ci))
 }
 
 D2 <- function(X, alpha = 0.00333) { # D_2 of Eaton & Ree.
@@ -248,6 +254,7 @@ D2 <- function(X, alpha = 0.00333) { # D_2 of Eaton & Ree.
 	R <- n(X, "BAABA") + n(X, "ABBAB")
 	value <- as.numeric((L - R)/(L + R))
 	zvalue <- (L - R)/sqrt(L + R)
+	ci <- qnorm(1 - 0.5*alpha)*sqrt(4*L*R/(L + R)**3)
 	pvalue <- 2*as.numeric(1 - pnorm(abs(zvalue)))
 	if (is.numeric(pvalue) == TRUE && is.nan(pvalue) == FALSE) {
 		if (pvalue > alpha) {
@@ -257,7 +264,7 @@ D2 <- function(X, alpha = 0.00333) { # D_2 of Eaton & Ree.
 	    if (value < 0) {sign <- "-"}		  	
 		}
 	} else {sign <- "?"}
-	return(list(value, zvalue, sign))
+	return(list(value, zvalue, sign, ci))
 }
 
 D12 <- function(X, alpha = 0.00333) { # D_12 of Eaton & Ree.
@@ -265,6 +272,7 @@ D12 <- function(X, alpha = 0.00333) { # D_12 of Eaton & Ree.
 	R <- n(X, "ABAAB") + n(X, "BABBA")
 	value <- as.numeric((L - R)/(L + R))
 	zvalue <- (L - R)/sqrt(L + R)
+	ci <- qnorm(1 - 0.5*alpha)*sqrt(4*L*R/(L + R)**3)
 	pvalue <- 2*as.numeric(1 - pnorm(abs(zvalue)))
 	if (is.numeric(pvalue) == TRUE && is.nan(pvalue) == FALSE) {
 		if (pvalue > alpha) {
@@ -274,7 +282,7 @@ D12 <- function(X, alpha = 0.00333) { # D_12 of Eaton & Ree.
 	    if (value < 0) {sign <- "-"}		  	
 		}
 	} else {sign <- "?"}
-	return(list(value, zvalue, sign))
+	return(list(value, zvalue, sign, ci))
 }
 
 
@@ -290,6 +298,7 @@ DS1 <- function(X, alpha = 0.01) {
 	R <- n(X, "BAABA") + n(X, "ABBAB")
 	value <- as.numeric((L - R)/(L + R))
 	zvalue <- (L - R)/sqrt(L + R)
+	ci <- qnorm(1 - 0.5*alpha)*sqrt(4*L*R/(L + R)**3)
 	pvalue <- 2*as.numeric(1 - pnorm(abs(zvalue)))
 	if (is.numeric(pvalue) == TRUE && is.nan(pvalue) == FALSE) {
 		if (pvalue > alpha) {
@@ -299,7 +308,7 @@ DS1 <- function(X, alpha = 0.01) {
 	    if (value < 0) {sign <- "-"}		  	
 		}
 	} else {sign <- "?"}
-	return(list(value, zvalue, sign))
+	return(list(value, zvalue, sign, ci))
 }
 
 DS2 <- function(X, alpha = 0.01) {
@@ -307,6 +316,7 @@ DS2 <- function(X, alpha = 0.01) {
 	R <- n(X, "ABABA") + n(X, "BABAB")
 	value <- as.numeric((L - R)/(L + R))
 	zvalue <- (L - R)/sqrt(L + R)
+	ci <- qnorm(1 - 0.5*alpha)*sqrt(4*L*R/(L + R)**3)
 	pvalue <- 2*as.numeric(1 - pnorm(abs(zvalue)))
 	if (is.numeric(pvalue) == TRUE && is.nan(pvalue) == FALSE) {
 		if (pvalue > alpha) {
@@ -316,7 +326,7 @@ DS2 <- function(X, alpha = 0.01) {
 	    if (value < 0) {sign <- "-"}		  	
 		}
 	} else {sign <- "?"}
-	return(list(value, zvalue, sign))
+	return(list(value, zvalue, sign, ci))
 }
 
 DS3 <- function(X, alpha = 0.01) {
@@ -324,6 +334,7 @@ DS3 <- function(X, alpha = 0.01) {
 	R <- n(X, "ABBAA") + n(X, "BAABB")
 	value <- as.numeric((L - R)/(L + R))
 	zvalue <- (L - R)/sqrt(L + R)
+	ci <- qnorm(1 - 0.5*alpha)*sqrt(4*L*R/(L + R)**3)
 	pvalue <- 2*as.numeric(1 - pnorm(abs(zvalue)))
 	if (is.numeric(pvalue) == TRUE && is.nan(pvalue) == FALSE) {
 		if (pvalue > alpha) {
@@ -333,7 +344,7 @@ DS3 <- function(X, alpha = 0.01) {
 	    if (value < 0) {sign <- "-"}		  	
 		}
 	} else {sign <- "?"}
-	return(list(value, zvalue, sign))
+	return(list(value, zvalue, sign, ci))
 }
 
 DS4 <- function(X, alpha = 0.01) {
@@ -341,6 +352,7 @@ DS4 <- function(X, alpha = 0.01) {
 	R <- n(X, "ABABA") + n(X, "BABAB")
 	value <- as.numeric((L - R)/(L + R))
 	zvalue <- (L - R)/sqrt(L + R)
+	ci <- qnorm(1 - 0.5*alpha)*sqrt(4*L*R/(L + R)**3)
 	pvalue <- 2*as.numeric(1 - pnorm(abs(zvalue)))
 	if (is.numeric(pvalue) == TRUE && is.nan(pvalue) == FALSE) {
 		if (pvalue > alpha) {
@@ -350,7 +362,7 @@ DS4 <- function(X, alpha = 0.01) {
 	    if (value < 0) {sign <- "-"}		  	
 		}
 	} else {sign <- "?"}
-	return(list(value, zvalue, sign))
+	return(list(value, zvalue, sign, ci))
 }
 
 DS5 <- function(X, alpha = 0.01) {
@@ -358,6 +370,7 @@ DS5 <- function(X, alpha = 0.01) {
 	R <- n(X, "BABBA") + n(X, "ABAAB")
 	value <- as.numeric((L - R)/(L + R))
 	zvalue <- (L - R)/sqrt(L + R)
+	ci <- qnorm(1 - 0.5*alpha)*sqrt(4*L*R/(L + R)**3)
 	pvalue <- 2*as.numeric(1 - pnorm(abs(zvalue)))
 	if (is.numeric(pvalue) == TRUE && is.nan(pvalue) == FALSE) {
 		if (pvalue > alpha) {
@@ -367,7 +380,7 @@ DS5 <- function(X, alpha = 0.01) {
 	    if (value < 0) {sign <- "-"}		  	
 		}
 	} else {sign <- "?"}
-	return(list(value, zvalue, sign))
+	return(list(value, zvalue, sign, ci))
 }
 
 DS6 <- function(X, alpha = 0.01) {
@@ -375,6 +388,7 @@ DS6 <- function(X, alpha = 0.01) {
 	R <- n(X, "BBBAA") + n(X, "AAABB")
 	value <- as.numeric((L - R)/(L + R))
 	zvalue <- (L - R)/sqrt(L + R)
+	ci <- qnorm(1 - 0.5*alpha)*sqrt(4*L*R/(L + R)**3)
 	pvalue <- 2*as.numeric(1 - pnorm(abs(zvalue)))
 	if (is.numeric(pvalue) == TRUE && is.nan(pvalue) == FALSE) {
 		if (pvalue > alpha) {
@@ -384,7 +398,7 @@ DS6 <- function(X, alpha = 0.01) {
 	    if (value < 0) {sign <- "-"}		  	
 		}
 	} else {sign <- "?"}
-	return(list(value, zvalue, sign))
+	return(list(value, zvalue, sign, ci))
 }
 
 DS7 <- function(X, alpha = 0.01) {
@@ -392,6 +406,7 @@ DS7 <- function(X, alpha = 0.01) {
 	R <- n(X, "ABAAA") + n(X, "BABBB")
 	value <- as.numeric((L - R)/(L + R))
 	zvalue <- (L - R)/sqrt(L + R)
+	ci <- qnorm(1 - 0.5*alpha)*sqrt(4*L*R/(L + R)**3)
 	pvalue <- 2*as.numeric(1 - pnorm(abs(zvalue)))
 	if (is.numeric(pvalue) == TRUE && is.nan(pvalue) == FALSE) {
 		if (pvalue > alpha) {
@@ -401,7 +416,7 @@ DS7 <- function(X, alpha = 0.01) {
 	    if (value < 0) {sign <- "-"}		  	
 		}
 	} else {sign <- "?"}
-	return(list(value, zvalue, sign))
+	return(list(value, zvalue, sign, ci))
 }
 
 DS8 <- function(X, alpha = 0.01) {
@@ -409,6 +424,7 @@ DS8 <- function(X, alpha = 0.01) {
 	R <- n(X, "AAABA") + n(X, "BBBAB")
 	value <- as.numeric((L - R)/(L + R))
 	zvalue <- (L - R)/sqrt(L + R)
+	ci <- qnorm(1 - 0.5*alpha)*sqrt(4*L*R/(L + R)**3)
 	pvalue <- 2*as.numeric(1 - pnorm(abs(zvalue)))
 	if (is.numeric(pvalue) == TRUE && is.nan(pvalue) == FALSE) {
 		if (pvalue > alpha) {
@@ -418,7 +434,7 @@ DS8 <- function(X, alpha = 0.01) {
 	    if (value < 0) {sign <- "-"}		  	
 		}
 	} else {sign <- "?"}
-	return(list(value, zvalue, sign))
+	return(list(value, zvalue, sign, ci))
 }
 
 DA1 <- function(X, alpha = 0.01) {
@@ -426,6 +442,7 @@ DA1 <- function(X, alpha = 0.01) {
 	R <- n(X, "ABBAA") + n(X, "BAABB")
 	value <- as.numeric((L - R)/(L + R))
 	zvalue <- (L - R)/sqrt(L + R)
+	ci <- qnorm(1 - 0.5*alpha)*sqrt(4*L*R/(L + R)**3)
 	pvalue <- 2*as.numeric(1 - pnorm(abs(zvalue)))
 	if (is.numeric(pvalue) == TRUE && is.nan(pvalue) == FALSE) {
 		if (pvalue > alpha) {
@@ -435,7 +452,7 @@ DA1 <- function(X, alpha = 0.01) {
 	    if (value < 0) {sign <- "-"}		  	
 		}
 	} else {sign <- "?"}
-	return(list(value, zvalue, sign))
+	return(list(value, zvalue, sign, ci))
 }
 
 DA2 <- function(X, alpha = 0.01) {
@@ -443,6 +460,7 @@ DA2 <- function(X, alpha = 0.01) {
 	R <- n(X, "ABABA") + n(X, "BABAB")
 	value <- as.numeric((L - R)/(L + R))
 	zvalue <- (L - R)/sqrt(L + R)
+	ci <- qnorm(1 - 0.5*alpha)*sqrt(4*L*R/(L + R)**3)
 	pvalue <- 2*as.numeric(1 - pnorm(abs(zvalue)))
 	if (is.numeric(pvalue) == TRUE && is.nan(pvalue) == FALSE) {
 		if (pvalue > alpha) {
@@ -452,7 +470,7 @@ DA2 <- function(X, alpha = 0.01) {
 	    if (value < 0) {sign <- "-"}		  	
 		}
 	} else {sign <- "?"}
-	return(list(value, zvalue, sign))
+	return(list(value, zvalue, sign, ci))
 }
 
 DA3 <- function(X, alpha = 0.01) {
@@ -460,6 +478,7 @@ DA3 <- function(X, alpha = 0.01) {
 	R <- n(X, "BABBA") + n(X, "ABAAB")
 	value <- as.numeric((L - R)/(L + R))
 	zvalue <- (L - R)/sqrt(L + R)
+	ci <- qnorm(1 - 0.5*alpha)*sqrt(4*L*R/(L + R)**3)
 	pvalue <- 2*as.numeric(1 - pnorm(abs(zvalue)))
 	if (is.numeric(pvalue) == TRUE && is.nan(pvalue) == FALSE) {
 		if (pvalue > alpha) {
@@ -469,7 +488,7 @@ DA3 <- function(X, alpha = 0.01) {
 	    if (value < 0) {sign <- "-"}		  	
 		}
 	} else {sign <- "?"}
-	return(list(value, zvalue, sign))
+	return(list(value, zvalue, sign, ci))
 }
 
 DA4 <- function(X, alpha = 0.01) {
@@ -477,6 +496,7 @@ DA4 <- function(X, alpha = 0.01) {
 	R <- n(X, "ABAAA") + n(X, "BABBB")
 	value <- as.numeric((L - R)/(L + R))
 	zvalue <- (L - R)/sqrt(L + R)
+	ci <- qnorm(1 - 0.5*alpha)*sqrt(4*L*R/(L + R)**3)
 	pvalue <- 2*as.numeric(1 - pnorm(abs(zvalue)))
 	if (is.numeric(pvalue) == TRUE && is.nan(pvalue) == FALSE) {
 		if (pvalue > alpha) {
@@ -486,7 +506,7 @@ DA4 <- function(X, alpha = 0.01) {
 	    if (value < 0) {sign <- "-"}		  	
 		}
 	} else {sign <- "?"}
-	return(list(value, zvalue, sign))
+	return(list(value, zvalue, sign, ci))
 }
 
 DQ1 <- function(X, alpha = 0.01) {
@@ -494,6 +514,7 @@ DQ1 <- function(X, alpha = 0.01) {
 	R <- n(X, "BAAAB") + n(X, "ABBBA")
 	value <- as.numeric((L - R)/(L + R))
 	zvalue <- (L - R)/sqrt(L + R)
+	ci <- qnorm(1 - 0.5*alpha)*sqrt(4*L*R/(L + R)**3)
 	pvalue <- 2*as.numeric(1 - pnorm(abs(zvalue)))
 	if (is.numeric(pvalue) == TRUE && is.nan(pvalue) == FALSE) {
 		if (pvalue > alpha) {
@@ -503,7 +524,7 @@ DQ1 <- function(X, alpha = 0.01) {
 	    if (value < 0) {sign <- "-"}		  	
 		}
 	} else {sign <- "?"}
-	return(list(value, zvalue, sign))
+	return(list(value, zvalue, sign, ci))
 }
 
 DQ2 <- function(X, alpha = 0.01) {
@@ -511,6 +532,7 @@ DQ2 <- function(X, alpha = 0.01) {
 	R <- n(X, "ABAAB") + n(X, "BABBA")
 	value <- as.numeric((L - R)/(L + R))
 	zvalue <- (L - R)/sqrt(L + R)
+	ci <- qnorm(1 - 0.5*alpha)*sqrt(4*L*R/(L + R)**3)
 	pvalue <- 2*as.numeric(1 - pnorm(abs(zvalue)))
 	if (is.numeric(pvalue) == TRUE && is.nan(pvalue) == FALSE) {
 		if (pvalue > alpha) {
@@ -520,7 +542,7 @@ DQ2 <- function(X, alpha = 0.01) {
 	    if (value < 0) {sign <- "-"}		  	
 		}
 	} else {sign <- "?"}
-	return(list(value, zvalue, sign))
+	return(list(value, zvalue, sign, ci))
 }
 
 DQ3 <- function(X, alpha = 0.01) {
@@ -528,6 +550,7 @@ DQ3 <- function(X, alpha = 0.01) {
 	R <- n(X, "ABABA") + n(X, "BABAB")
 	value <- as.numeric((L - R)/(L + R))
 	zvalue <- (L - R)/sqrt(L + R)
+	ci <- qnorm(1 - 0.5*alpha)*sqrt(4*L*R/(L + R)**3)
 	pvalue <- 2*as.numeric(1 - pnorm(abs(zvalue)))
 	if (is.numeric(pvalue) == TRUE && is.nan(pvalue) == FALSE) {
 		if (pvalue > alpha) {
@@ -537,7 +560,7 @@ DQ3 <- function(X, alpha = 0.01) {
 	    if (value < 0) {sign <- "-"}		  	
 		}
 	} else {sign <- "?"}
-	return(list(value, zvalue, sign))
+	return(list(value, zvalue, sign, ci))
 }
 
 DQ4 <- function(X, alpha = 0.01) {
@@ -545,6 +568,7 @@ DQ4 <- function(X, alpha = 0.01) {
 	R <- n(X, "ABAAB") + n(X, "BABBA")
 	value <- as.numeric((L - R)/(L + R))
 	zvalue <- (L - R)/sqrt(L + R)
+	ci <- qnorm(1 - 0.5*alpha)*sqrt(4*L*R/(L + R)**3)
 	pvalue <- 2*as.numeric(1 - pnorm(abs(zvalue)))
 	if (is.numeric(pvalue) == TRUE && is.nan(pvalue) == FALSE) {
 		if (pvalue > alpha) {
@@ -554,7 +578,7 @@ DQ4 <- function(X, alpha = 0.01) {
 	    if (value < 0) {sign <- "-"}		  	
 		}
 	} else {sign <- "?"}
-	return(list(value, zvalue, sign))
+	return(list(value, zvalue, sign, ci))
 }
 
 DQ5 <- function(X, alpha = 0.01) {
@@ -562,6 +586,7 @@ DQ5 <- function(X, alpha = 0.01) {
 	R <- n(X, "ABBAA") + n(X, "BAABB")
 	value <- as.numeric((L - R)/(L + R))
 	zvalue <- (L - R)/sqrt(L + R)
+	ci <- qnorm(1 - 0.5*alpha)*sqrt(4*L*R/(L + R)**3)
 	pvalue <- 2*as.numeric(1 - pnorm(abs(zvalue)))
 	if (is.numeric(pvalue) == TRUE && is.nan(pvalue) == FALSE) {
 		if (pvalue > alpha) {
@@ -571,7 +596,7 @@ DQ5 <- function(X, alpha = 0.01) {
 	    if (value < 0) {sign <- "-"}		  	
 		}
 	} else {sign <- "?"}
-	return(list(value, zvalue, sign))
+	return(list(value, zvalue, sign, ci))
 }
 
 DQ6 <- function(X, alpha = 0.01) {
@@ -579,6 +604,7 @@ DQ6 <- function(X, alpha = 0.01) {
 	R <- n(X, "AABAB") + n(X, "BBABA")
 	value <- as.numeric((L - R)/(L + R))
 	zvalue <- (L - R)/sqrt(L + R)
+	ci <- qnorm(1 - 0.5*alpha)*sqrt(4*L*R/(L + R)**3)
 	pvalue <- 2*as.numeric(1 - pnorm(abs(zvalue)))
 	if (is.numeric(pvalue) == TRUE && is.nan(pvalue) == FALSE) {
 		if (pvalue > alpha) {
@@ -588,7 +614,7 @@ DQ6 <- function(X, alpha = 0.01) {
 	    if (value < 0) {sign <- "-"}		  	
 		}
 	} else {sign <- "?"}
-	return(list(value, zvalue, sign))
+	return(list(value, zvalue, sign, ci))
 }
 
 DQ7 <- function(X, alpha = 0.01) {
@@ -596,6 +622,7 @@ DQ7 <- function(X, alpha = 0.01) {
 	R <- n(X, "ABAAA") + n(X, "BABBB")
 	value <- as.numeric((L - R)/(L + R))
 	zvalue <- (L - R)/sqrt(L + R)
+	ci <- qnorm(1 - 0.5*alpha)*sqrt(4*L*R/(L + R)**3)
 	pvalue <- 2*as.numeric(1 - pnorm(abs(zvalue)))
 	if (is.numeric(pvalue) == TRUE && is.nan(pvalue) == FALSE) {
 		if (pvalue > alpha) {
@@ -605,7 +632,7 @@ DQ7 <- function(X, alpha = 0.01) {
 	    if (value < 0) {sign <- "-"}		  	
 		}
 	} else {sign <- "?"}
-	return(list(value, zvalue, sign))
+	return(list(value, zvalue, sign, ci))
 }
 
 DQ8 <- function(X, alpha = 0.01) {
@@ -613,6 +640,7 @@ DQ8 <- function(X, alpha = 0.01) {
 	R <- n(X, "AAAAB") + n(X, "BBBBA")
 	value <- as.numeric((L - R)/(L + R))
 	zvalue <- (L - R)/sqrt(L + R)
+	ci <- qnorm(1 - 0.5*alpha)*sqrt(4*L*R/(L + R)**3)
 	pvalue <- 2*as.numeric(1 - pnorm(abs(zvalue)))
 	if (is.numeric(pvalue) == TRUE && is.nan(pvalue) == FALSE) {
 		if (pvalue > alpha) {
@@ -622,7 +650,7 @@ DQ8 <- function(X, alpha = 0.01) {
 	    if (value < 0) {sign <- "-"}		  	
 		}
 	} else {sign <- "?"}
-	return(list(value, zvalue, sign))
+	return(list(value, zvalue, sign, ci))
 }
 
 DS16 <- function(X, alpha = 0.01) {
@@ -630,6 +658,7 @@ DS16 <- function(X, alpha = 0.01) {
 	R <- n(X, "BAABA") + n(X, "ABBAB") + n(X, "AABAB") + n(X, "BBABA")
 	value <- as.numeric((L - R)/(L + R))
 	zvalue <- (L - R)/sqrt(L + R)
+	ci <- qnorm(1 - 0.5*alpha)*sqrt(4*L*R/(L + R)**3)
 	pvalue <- 2*as.numeric(1 - pnorm(abs(zvalue)))
 	if (is.numeric(pvalue) == TRUE && is.nan(pvalue) == FALSE) {
 		if (pvalue > alpha) {
@@ -639,7 +668,7 @@ DS16 <- function(X, alpha = 0.01) {
 	    if (value < 0) {sign <- "-"}		  	
 		}
 	} else {sign <- "?"}
-	return(list(value, zvalue, sign))
+	return(list(value, zvalue, sign, ci))
 }
 
 DS26 <- function(X, alpha = 0.01) {
@@ -647,6 +676,7 @@ DS26 <- function(X, alpha = 0.01) {
 	R <- n(X, "ABABA") + n(X, "BABAB") + n(X, "AABAB") + n(X, "BBABA")
 	value <- as.numeric((L - R)/(L + R))
 	zvalue <- (L - R)/sqrt(L + R)
+	ci <- qnorm(1 - 0.5*alpha)*sqrt(4*L*R/(L + R)**3)
 	pvalue <- 2*as.numeric(1 - pnorm(abs(zvalue)))
 	if (is.numeric(pvalue) == TRUE && is.nan(pvalue) == FALSE) {
 		if (pvalue > alpha) {
@@ -656,7 +686,7 @@ DS26 <- function(X, alpha = 0.01) {
 	    if (value < 0) {sign <- "-"}		  	
 		}
 	} else {sign <- "?"}
-	return(list(value, zvalue, sign))
+	return(list(value, zvalue, sign, ci))
 }
 
 DS35 <- function(X, alpha = 0.01) {
@@ -664,6 +694,7 @@ DS35 <- function(X, alpha = 0.01) {
 	R <- n(X, "ABBAA") + n(X, "BAABB") + n(X, "BAAAB") + n(X, "ABBBA")
 	value <- as.numeric((L - R)/(L + R))
 	zvalue <- (L - R)/sqrt(L + R)
+	ci <- qnorm(1 - 0.5*alpha)*sqrt(4*L*R/(L + R)**3)
 	pvalue <- 2*as.numeric(1 - pnorm(abs(zvalue)))
 	if (is.numeric(pvalue) == TRUE && is.nan(pvalue) == FALSE) {
 		if (pvalue > alpha) {
@@ -673,7 +704,7 @@ DS35 <- function(X, alpha = 0.01) {
 	    if (value < 0) {sign <- "-"}		  	
 		}
 	} else {sign <- "?"}
-	return(list(value, zvalue, sign))
+	return(list(value, zvalue, sign, ci))
 }
 
 DS45 <- function(X, alpha = 0.01) {
@@ -681,6 +712,7 @@ DS45 <- function(X, alpha = 0.01) {
 	R <- n(X, "ABABA") + n(X, "BABAB") + n(X, "BAAAB") + n(X, "ABBBA")
 	value <- as.numeric((L - R)/(L + R))
 	zvalue <- (L - R)/sqrt(L + R)
+	ci <- qnorm(1 - 0.5*alpha)*sqrt(4*L*R/(L + R)**3)
 	pvalue <- 2*as.numeric(1 - pnorm(abs(zvalue)))
 	if (is.numeric(pvalue) == TRUE && is.nan(pvalue) == FALSE) {
 		if (pvalue > alpha) {
@@ -690,7 +722,7 @@ DS45 <- function(X, alpha = 0.01) {
 	    if (value < 0) {sign <- "-"}		  	
 		}
 	} else {sign <- "?"}
-	return(list(value, zvalue, sign))
+	return(list(value, zvalue, sign, ci))
 }
 
 DS57 <- function(X, alpha = 0.01) {
@@ -698,6 +730,7 @@ DS57 <- function(X, alpha = 0.01) {
 	R <- n(X, "ABAAB") + n(X, "BABBA") + n(X, "ABAAA") + n(X, "BABBB")
 	value <- as.numeric((L - R)/(L + R))
 	zvalue <- (L - R)/sqrt(L + R)
+	ci <- qnorm(1 - 0.5*alpha)*sqrt(4*L*R/(L + R)**3)
 	pvalue <- 2*as.numeric(1 - pnorm(abs(zvalue)))
 	if (is.numeric(pvalue) == TRUE && is.nan(pvalue) == FALSE) {
 		if (pvalue > alpha) {
@@ -707,7 +740,7 @@ DS57 <- function(X, alpha = 0.01) {
 	    if (value < 0) {sign <- "-"}		  	
 		}
 	} else {sign <- "?"}
-	return(list(value, zvalue, sign))
+	return(list(value, zvalue, sign, ci))
 }
 
 DS68 <- function(X, alpha = 0.01) {
@@ -715,6 +748,7 @@ DS68 <- function(X, alpha = 0.01) {
 	R <- n(X, "AAABB") + n(X, "BBBAA") + n(X, "AAABA") + n(X, "BBBAB")
 	value <- as.numeric((L - R)/(L + R))
 	zvalue <- (L - R)/sqrt(L + R)
+	ci <- qnorm(1 - 0.5*alpha)*sqrt(4*L*R/(L + R)**3)
 	pvalue <- 2*as.numeric(1 - pnorm(abs(zvalue)))
 	if (is.numeric(pvalue) == TRUE && is.nan(pvalue) == FALSE) {
 		if (pvalue > alpha) {
@@ -724,7 +758,7 @@ DS68 <- function(X, alpha = 0.01) {
 	    if (value < 0) {sign <- "-"}		  	
 		}
 	} else {sign <- "?"}
-	return(list(value, zvalue, sign))
+	return(list(value, zvalue, sign, ci))
 }
 
 DS3457 <- function(X, alpha = 0.01) {
@@ -732,6 +766,7 @@ DS3457 <- function(X, alpha = 0.01) {
 	R <- n(X, "ABBAA") + n(X, "BAABB") + n(X, "ABABA") + n(X, "BABAB") + n(X, "BAAAB") + n(X, "ABBBA") + n(X, "ABAAA") + n(X, "BABBB")
 	value <- as.numeric((L - R)/(L + R))
 	zvalue <- (L - R)/sqrt(L + R)
+	ci <- qnorm(1 - 0.5*alpha)*sqrt(4*L*R/(L + R)**3)
 	pvalue <- 2*as.numeric(1 - pnorm(abs(zvalue)))
 	if (is.numeric(pvalue) == TRUE && is.nan(pvalue) == FALSE) {
 		if (pvalue > alpha) {
@@ -741,7 +776,7 @@ DS3457 <- function(X, alpha = 0.01) {
 	    if (value < 0) {sign <- "-"}		  	
 		}
 	} else {sign <- "?"}
-	return(list(value, zvalue, sign))
+	return(list(value, zvalue, sign, ci))
 }
 
 DS1268 <- function(X, alpha = 0.01) {
@@ -749,6 +784,7 @@ DS1268 <- function(X, alpha = 0.01) {
 	R <- n(X, "BAABA") + n(X, "ABBAB") + n(X, "ABABA") + n(X, "BABAB") + n(X, "AABAB") + n(X, "BBABA") + n(X, "AAABA") + n(X, "BBBAB")
 	value <- as.numeric((L - R)/(L + R))
 	zvalue <- (L - R)/sqrt(L + R)
+	ci <- qnorm(1 - 0.5*alpha)*sqrt(4*L*R/(L + R)**3)
 	pvalue <- 2*as.numeric(1 - pnorm(abs(zvalue)))
 	if (is.numeric(pvalue) == TRUE && is.nan(pvalue) == FALSE) {
 		if (pvalue > alpha) {
@@ -758,7 +794,7 @@ DS1268 <- function(X, alpha = 0.01) {
 	    if (value < 0) {sign <- "-"}		  	
 		}
 	} else {sign <- "?"}
-	return(list(value, zvalue, sign))
+	return(list(value, zvalue, sign, ci))
 }
 
 DA12 <- function(X, alpha = 0.01) {
@@ -766,6 +802,7 @@ DA12 <- function(X, alpha = 0.01) {
 	R <- n(X, "ABBAA") + n(X, "BAABB") + n(X, "BAABA") + n(X, "ABBAB")
 	value <- as.numeric((L - R)/(L + R))
 	zvalue <- (L - R)/sqrt(L + R)
+	ci <- qnorm(1 - 0.5*alpha)*sqrt(4*L*R/(L + R)**3)
 	pvalue <- 2*as.numeric(1 - pnorm(abs(zvalue)))
 	if (is.numeric(pvalue) == TRUE && is.nan(pvalue) == FALSE) {
 		if (pvalue > alpha) {
@@ -775,7 +812,7 @@ DA12 <- function(X, alpha = 0.01) {
 	    if (value < 0) {sign <- "-"}		  	
 		}
 	} else {sign <- "?"}
-	return(list(value, zvalue, sign))
+	return(list(value, zvalue, sign, ci))
 }
 
 DA13 <- function(X, alpha = 0.01) {
@@ -783,6 +820,7 @@ DA13 <- function(X, alpha = 0.01) {
 	R <- n(X, "ABBAA") + n(X, "BAABB") + n(X, "BAAAB") + n(X, "ABBBA")
 	value <- as.numeric((L - R)/(L + R))
 	zvalue <- (L - R)/sqrt(L + R)
+	ci <- qnorm(1 - 0.5*alpha)*sqrt(4*L*R/(L + R)**3)
 	pvalue <- 2*as.numeric(1 - pnorm(abs(zvalue)))
 	if (is.numeric(pvalue) == TRUE && is.nan(pvalue) == FALSE) {
 		if (pvalue > alpha) {
@@ -792,7 +830,7 @@ DA13 <- function(X, alpha = 0.01) {
 	    if (value < 0) {sign <- "-"}		  	
 		}
 	} else {sign <- "?"}
-	return(list(value, zvalue, sign))
+	return(list(value, zvalue, sign, ci))
 }
 
 DA23 <- function(X, alpha = 0.01) {
@@ -800,6 +838,7 @@ DA23 <- function(X, alpha = 0.01) {
 	R <- n(X, "ABABA") + n(X, "BABAB") + n(X, "BAAAB") + n(X, "ABBBA")
 	value <- as.numeric((L - R)/(L + R))
 	zvalue <- (L - R)/sqrt(L + R)
+	ci <- qnorm(1 - 0.5*alpha)*sqrt(4*L*R/(L + R)**3)
 	pvalue <- 2*as.numeric(1 - pnorm(abs(zvalue)))
 	if (is.numeric(pvalue) == TRUE && is.nan(pvalue) == FALSE) {
 		if (pvalue > alpha) {
@@ -809,7 +848,7 @@ DA23 <- function(X, alpha = 0.01) {
 	    if (value < 0) {sign <- "-"}		  	
 		}
 	} else {sign <- "?"}
-	return(list(value, zvalue, sign))
+	return(list(value, zvalue, sign, ci))
 }
 
 DA1234 <- function(X, alpha = 0.01) {
@@ -817,6 +856,7 @@ DA1234 <- function(X, alpha = 0.01) {
 	R <- n(X, "ABBAA") + n(X, "BAABB") + n(X, "ABABA") + n(X, "BABAB") + n(X, "BAAAB") + n(X, "ABBBA") + n(X, "ABAAA") + n(X, "BABBB")
 	value <- as.numeric((L - R)/(L + R))
 	zvalue <- (L - R)/sqrt(L + R)
+	ci <- qnorm(1 - 0.5*alpha)*sqrt(4*L*R/(L + R)**3)
 	pvalue <- 2*as.numeric(1 - pnorm(abs(zvalue)))
 	if (is.numeric(pvalue) == TRUE && is.nan(pvalue) == FALSE) {
 		if (pvalue > alpha) {
@@ -826,7 +866,7 @@ DA1234 <- function(X, alpha = 0.01) {
 	    if (value < 0) {sign <- "-"}		  	
 		}
 	} else {sign <- "?"}
-	return(list(value, zvalue, sign))
+	return(list(value, zvalue, sign, ci))
 }
 
 DQ16 <- function(X, alpha = 0.01) {
@@ -834,6 +874,7 @@ DQ16 <- function(X, alpha = 0.01) {
 	R <- n(X, "BAAAB") + n(X, "ABBBA") + n(X, "AABBA") + n(X, "BBAAB")
 	value <- as.numeric((L - R)/(L + R))
 	zvalue <- (L - R)/sqrt(L + R)
+	ci <- qnorm(1 - 0.5*alpha)*sqrt(4*L*R/(L + R)**3)
 	pvalue <- 2*as.numeric(1 - pnorm(abs(zvalue)))
 	if (is.numeric(pvalue) == TRUE && is.nan(pvalue) == FALSE) {
 		if (pvalue > alpha) {
@@ -843,7 +884,7 @@ DQ16 <- function(X, alpha = 0.01) {
 	    if (value < 0) {sign <- "-"}		  	
 		}
 	} else {sign <- "?"}
-	return(list(value, zvalue, sign))
+	return(list(value, zvalue, sign, ci))
 }
 
 DQ26 <- function(X, alpha = 0.01) {
@@ -851,6 +892,7 @@ DQ26 <- function(X, alpha = 0.01) {
 	R <- n(X, "ABAAB") + n(X, "BABBA") + n(X, "AABBA") + n(X, "BBAAB")
 	value <- as.numeric((L - R)/(L + R))
 	zvalue <- (L - R)/sqrt(L + R)
+	ci <- qnorm(1 - 0.5*alpha)*sqrt(4*L*R/(L + R)**3)
 	pvalue <- 2*as.numeric(1 - pnorm(abs(zvalue)))
 	if (is.numeric(pvalue) == TRUE && is.nan(pvalue) == FALSE) {
 		if (pvalue > alpha) {
@@ -860,7 +902,7 @@ DQ26 <- function(X, alpha = 0.01) {
 	    if (value < 0) {sign <- "-"}		  	
 		}
 	} else {sign <- "?"}
-	return(list(value, zvalue, sign))
+	return(list(value, zvalue, sign, ci))
 }
 
 DQ35 <- function(X, alpha = 0.01) {
@@ -868,6 +910,7 @@ DQ35 <- function(X, alpha = 0.01) {
 	R <- n(X, "ABABA") + n(X, "BABAB") + n(X, "BABAA") + n(X, "ABABB")
 	value <- as.numeric((L - R)/(L + R))
 	zvalue <- (L - R)/sqrt(L + R)
+	ci <- qnorm(1 - 0.5*alpha)*sqrt(4*L*R/(L + R)**3)
 	pvalue <- 2*as.numeric(1 - pnorm(abs(zvalue)))
 	if (is.numeric(pvalue) == TRUE && is.nan(pvalue) == FALSE) {
 		if (pvalue > alpha) {
@@ -877,7 +920,7 @@ DQ35 <- function(X, alpha = 0.01) {
 	    if (value < 0) {sign <- "-"}		  	
 		}
 	} else {sign <- "?"}
-	return(list(value, zvalue, sign))
+	return(list(value, zvalue, sign, ci))
 }
 
 DQ45 <- function(X, alpha = 0.01) {
@@ -885,6 +928,7 @@ DQ45 <- function(X, alpha = 0.01) {
 	R <- n(X, "ABAAB") + n(X, "BABBA") + n(X, "BABAA") + n(X, "ABABB")
 	value <- as.numeric((L - R)/(L + R))
 	zvalue <- (L - R)/sqrt(L + R)
+	ci <- qnorm(1 - 0.5*alpha)*sqrt(4*L*R/(L + R)**3)
 	pvalue <- 2*as.numeric(1 - pnorm(abs(zvalue)))
 	if (is.numeric(pvalue) == TRUE && is.nan(pvalue) == FALSE) {
 		if (pvalue > alpha) {
@@ -894,7 +938,7 @@ DQ45 <- function(X, alpha = 0.01) {
 	    if (value < 0) {sign <- "-"}		  	
 		}
 	} else {sign <- "?"}
-	return(list(value, zvalue, sign))
+	return(list(value, zvalue, sign, ci))
 }
 
 DQ57 <- function(X, alpha = 0.01) {
@@ -902,6 +946,7 @@ DQ57 <- function(X, alpha = 0.01) {
 	R <- n(X, "ABBAA") + n(X, "BAABB") + n(X, "ABAAA") + n(X, "BABBB")
 	value <- as.numeric((L - R)/(L + R))
 	zvalue <- (L - R)/sqrt(L + R)
+	ci <- qnorm(1 - 0.5*alpha)*sqrt(4*L*R/(L + R)**3)
 	pvalue <- 2*as.numeric(1 - pnorm(abs(zvalue)))
 	if (is.numeric(pvalue) == TRUE && is.nan(pvalue) == FALSE) {
 		if (pvalue > alpha) {
@@ -911,7 +956,7 @@ DQ57 <- function(X, alpha = 0.01) {
 	    if (value < 0) {sign <- "-"}		  	
 		}
 	} else {sign <- "?"}
-	return(list(value, zvalue, sign))
+	return(list(value, zvalue, sign, ci))
 }
 
 DQ68 <- function(X, alpha = 0.01) {
@@ -919,6 +964,7 @@ DQ68 <- function(X, alpha = 0.01) {
 	R <- n(X, "AABAB") + n(X, "BBABA") + n(X, "AAAAB") + n(X, "BBBBA")
 	value <- as.numeric((L - R)/(L + R))
 	zvalue <- (L - R)/sqrt(L + R)
+	ci <- qnorm(1 - 0.5*alpha)*sqrt(4*L*R/(L + R)**3)
 	pvalue <- 2*as.numeric(1 - pnorm(abs(zvalue)))
 	if (is.numeric(pvalue) == TRUE && is.nan(pvalue) == FALSE) {
 		if (pvalue > alpha) {
@@ -928,7 +974,7 @@ DQ68 <- function(X, alpha = 0.01) {
 	    if (value < 0) {sign <- "-"}		  	
 		}
 	} else {sign <- "?"}
-	return(list(value, zvalue, sign))
+	return(list(value, zvalue, sign, ci))
 }
 
 DQ3457 <- function(X, alpha = 0.01) {
@@ -936,6 +982,7 @@ DQ3457 <- function(X, alpha = 0.01) {
 	R <- n(X, "ABABA") + n(X, "BABAB") + n(X, "ABAAB") + n(X, "BABBA") + n(X, "BABAA") + n(X, "ABABB") + n(X, "ABAAA") + n(X, "BABBB")
 	value <- as.numeric((L - R)/(L + R))
 	zvalue <- (L - R)/sqrt(L + R)
+	ci <- qnorm(1 - 0.5*alpha)*sqrt(4*L*R/(L + R)**3)
 	pvalue <- 2*as.numeric(1 - pnorm(abs(zvalue)))
 	if (is.numeric(pvalue) == TRUE && is.nan(pvalue) == FALSE) {
 		if (pvalue > alpha) {
@@ -945,7 +992,7 @@ DQ3457 <- function(X, alpha = 0.01) {
 	    if (value < 0) {sign <- "-"}		  	
 		}
 	} else {sign <- "?"}
-	return(list(value, zvalue, sign))
+	return(list(value, zvalue, sign, ci))
 }
 
 DQ1268 <- function(X, alpha = 0.01) {
@@ -953,6 +1000,7 @@ DQ1268 <- function(X, alpha = 0.01) {
 	R <- n(X, "BAAAB") + n(X, "ABBBA") + n(X, "ABAAB") + n(X, "BABBA") + n(X, "AABBA") + n(X, "BBAAB") + n(X, "AAAAB") + n(X, "BBBBA")
 	value <- as.numeric((L - R)/(L + R))
 	zvalue <- (L - R)/sqrt(L + R)
+	ci <- qnorm(1 - 0.5*alpha)*sqrt(4*L*R/(L + R)**3)
 	pvalue <- 2*as.numeric(1 - pnorm(abs(zvalue)))
 	if (is.numeric(pvalue) == TRUE && is.nan(pvalue) == FALSE) {
 		if (pvalue > alpha) {
@@ -962,7 +1010,7 @@ DQ1268 <- function(X, alpha = 0.01) {
 	    if (value < 0) {sign <- "-"}		  	
 		}
 	} else {sign <- "?"}
-	return(list(value, zvalue, sign))
+	return(list(value, zvalue, sign, ci))
 }
 
 
