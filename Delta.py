@@ -31,26 +31,26 @@ def mymean(list):
 #		Keep in mind Python starts counting from zero and the first six columns contain other stuff, so the smallest possible index is 6.
 # left		List of patterns that contribute positively to the Delta-statistic, written as words in {A, B}^K where B is the counted allele.
 # right		List of patterns that contribute negatively to the Delta-statistic, written as words in {A, B}^K where B is the counted allele.
-# blocksize	The size of blocks used, defaults at two hundred thousands (if the parameter correction is set to True, increase this to at least two millions).
+# blocksize	The size of blocks used, defaults at two millions.
 #		A new block starts when the chromosome changes or the blocksize is reached in base pair coordinates.
 #               To suppress the use of blocks (only when the parameter correction is False), set the blocksize to 0.
-# correction	Parameter that decidces what to do with the designated blocks.
-#               The default option is False: window-wise computation of the statistics where no correction for LD is attempted, in the style of [Pease & Hahn 2015].
+# correction	Depricated parameter that does nothing, defaults at False.
+#               Program performs a window-wise computation of the statistics where no correction for LD is attempted, in the style of [Pease & Hahn 2015].
 #		The statistic within a window is simply (L - R)/(L + R) and the Z-score is simply (L - R)/sqrt(L + R).
-#               The other option True used the blocks for block jackknifing that makes the estimator and its variance estimator robust to LD in the style of [Green 2010].
+#               The program also prints on the console a single consensus statistic where inference is based in block jackknifing in the style of [Green 2010].
 #		This block jackknifing  technique [Busin 1999] is described in a file called "wjack.pdf" by Nick Patterson you can find by Googling.
-#               THIS OPTION HAS BEEN DISABLED BECAUSE OF A BUG!
 # output	The name of the file where results are printed, using one row per window if the parameter correction is False.
 #		The default value is "" - then the results are not printed.
 # progress	Whether the fuction prints progress to console or not. Defaults at True because I get restless otherwise.
 #
 # The function returns a list of lists of two numbers.
 # The first one is the estimator of the Delta-statistic, the second is the Z-score i.e. the estimator divided by its estimated standard deviation.
+# The program also prints on the console a consensus statistic and its Z-score that is based on variance estimated using a block jackknife.
 def Delta(traw,
           populations,
           left,
           right,
-          blocksize = hermes,
+          blocksize = 2000000,
 	  correction = False,
 	  output = "",
 	  progress = True):
@@ -116,62 +116,27 @@ def Delta(traw,
     if blocksize != 0:
         counts = counts[1:] # The first element is just zeroes so we remove it.
     # Compute the estimators.
-    if correction == True: # Using the same block technique as ADMIXTOOLS. This technique should reduce biases caused by LD.
-        print("THIS OPTION HAS BEEN DISABLED BECAUSE OF A BUG!")
-        DeltahatJ = "NA"
-        Zhat = "NA"
-        result = [[DeltahatJ, Zhat]]
-#        zerodivision = False
-#        LminusR = sum([counts[i][0] for i in range(len(counts))]) - sum([counts[i][1] for i in range(len(counts))])
-#        LplusR = sum([counts[i][0] for i in range(len(counts))]) + sum([counts[i][1] for i in range(len(counts))])
-#        if LplusR > 0:
-#            Deltahat = LminusR/LplusR
-#        Deltahats = []
-#        for i in range(len(counts)):
-#            rang = [i for i in range(len(counts))]
-#            del rang[i]
-#            LminusR = sum([counts[i][0] for i in rang]) - sum([counts[i][1] for i in rang])
-#            LplusR = sum([counts[i][0] for i in rang]) + sum([counts[i][1] for i in rang])
-#            if LplusR > 0:
-#                Deltahats.append(LminusR/LplusR)
-#            else:
-#                zerodivision = True
-#        if zerodivision == False:
-#            # We should remove blocks that didn't have any observations.
-#            obs = []
-#            for i in range(len(counts)):
-#                if counts[i][2] > 0:
-#                    obs.append(i)
-#            counts = [counts[i] for i in obs]
-#            Deltahats = [Deltahats[i] for i in obs]
-#            # Then just plug into formulae.
-#            N = sum([counts[i][2] for i in range(len(counts))])
-#            DeltahatJ = 0
-#            taus = []
-#            for i in range(len(counts)):
-#                DeltahatJ = DeltahatJ + Deltahat + (counts[i][2]/N - 1)*Deltahats[i]
-#                taus.append(Deltahat*N/counts[i][2] - Deltahats[i]*(N/counts[i][2] - 1))
-#            # One more round!
-#            varhat = 0
-#            for i in range(len(counts)):
-#                varhat = varhat + ((taus[i] - DeltahatJ)**2)/(N/counts[i][2] - 1)
-#            varhat = varhat/len(counts)
-#            Zhat = DeltahatJ/math.sqrt(varhat)
-#        else:
-#            DeltahatJ = "NA"
-#            Zhat = "NA"
-#        result = [[DeltahatJ, Zhat]]
-    else: # Not doing any corrections, just ignoring LD.
-        result = []
-        for i in range(len(counts)):
-            if counts[i][0] + counts[i][1] > 0:
-                result.append([(counts[i][0] - counts[i][1])/(counts[i][0] + counts[i][1]), (counts[i][0] - counts[i][1])/math.sqrt(counts[i][0] + counts[i][1])])
-            else:
-                result.append(["NA", "NA"])
+    result = []
+    for i in range(len(counts)):
+        if counts[i][0] + counts[i][1] > 0:
+            result.append([(counts[i][0] - counts[i][1])/(counts[i][0] + counts[i][1]), (counts[i][0] - counts[i][1])/math.sqrt(counts[i][0] + counts[i][1])])
+        else:
+            result.append(["NA", "NA"])
     if output != "":
         g = open(output, "w")
         for window in result:
             nothing = g.write(str(window[0]) + " " + str(window[1]) + "\n")
+    # Compute a consensus statistic using a block jackknife:
+    D = [i[0] for i in result]
+    D = [float(i) for i in D if i != "NA"]
+    meanD = sum(D)/len(D)
+    seD = 0
+    for i in range(0, len(D)):
+        sub = D[:i] + D[(i + 1):]
+        seD = seD + (meanD - sum(sub)/len(sub))**2
+    seD = math.sqrt((len(D) - 1)*seD/len(D))
+    zD = meanD/seD
+    print("Consensus statistic and its Z-score: " + str([meanD, zD]))
     return(result)
 
 ########## SHORTCUTS ################################################################################################
@@ -179,7 +144,7 @@ def Delta(traw,
 # D
 # The classic Patterson's D-statistic [Green 2010].
 # I'm not assuming the fourth population carries allele "A", that assumption can be made by filtering the data if desired.
-def D(traw, populations, blocksize = hermes, correction = False, output = "", progress = True):
+def D(traw, populations, blocksize = 2000000, correction = False, output = "", progress = True):
     left = ["BABA", "ABAB"]
     right = ["ABBA", "BAAB"]
     return(Delta(traw, populations, left, right, blocksize, correction, output, progress))
@@ -187,7 +152,7 @@ def D(traw, populations, blocksize = hermes, correction = False, output = "", pr
 # DFO
 # The D_FO-statistic from the D_FOIL -method [Pease 2015].
 # I'm not assuming the fourth population carries allele "A", that assumption can be made by filtering the data if desired.
-def DFO(traw, populations, blocksize = hermes, correction = False, output = "", progress = True):
+def DFO(traw, populations, blocksize = 2000000, correction = False, output = "", progress = True):
     left = ["BABAA", "BBBAA", "ABABA", "AAABA", "ABABB", "AAABB", "BABAB", "BBBAB"]
     right = ["BAABA", "BBABA", "ABBAA", "AABAA", "ABBAB", "AABAB", "BAABB", "BBABB"]
     return(Delta(traw, populations, left, right, blocksize, correction, output, progress))
@@ -195,7 +160,7 @@ def DFO(traw, populations, blocksize = hermes, correction = False, output = "", 
 # DIL
 # The D_IL-statistic from the D_FOIL -method [Pease 2015].
 # I'm not assuming the fourth population carries allele "A", that assumption can be made by filtering the data if desired.
-def DIL(traw, populations, blocksize = hermes, correction = False, output = "", progress = True):
+def DIL(traw, populations, blocksize = 2000000, correction = False, output = "", progress = True):
     left = ["ABBAA", "BBBAA", "BAABA", "AAABA", "BAABB", "AAABB", "ABBAB", "BBBAB"]
     right = ["ABABA", "BBABA", "BABAA", "AABAA", "BABAB", "AABAB", "ABABB", "BBABB"]
     return(Delta(traw, populations, left, right, blocksize, correction, output, progress))
@@ -203,7 +168,7 @@ def DIL(traw, populations, blocksize = hermes, correction = False, output = "", 
 # DFI
 # The D_FI-statistic from the D_FOIL -method [Pease 2015].
 # I'm not assuming the fourth population carries allele "A", that assumption can be made by filtering the data if desired.
-def DFI(traw, populations, blocksize = hermes, correction = False, output = "", progress = True):
+def DFI(traw, populations, blocksize = 2000000, correction = False, output = "", progress = True):
     left = ["BABAA", "BABBA", "ABABA", "ABAAA", "ABABB", "ABAAB", "BABAB", "BABBB"]
     right = ["ABBAA", "ABBBA", "BAABA", "BAAAA", "BAABB", "BAAAB", "ABBAB", "ABBBB"]
     return(Delta(traw, populations, left, right, blocksize, correction, output, progress))
@@ -211,7 +176,7 @@ def DFI(traw, populations, blocksize = hermes, correction = False, output = "", 
 # DOL
 # The D_OL-statistic from the D_FOIL -method [Pease 2015].
 # I'm not assuming the fourth population carries allele "A", that assumption can be made by filtering the data if desired.
-def DOL(traw, populations, blocksize = hermes, correction = False, output = "", progress = True):
+def DOL(traw, populations, blocksize = 2000000, correction = False, output = "", progress = True):
     left = ["BAABA", "BABBA", "ABBAA", "ABAAA", "ABBAB", "ABAAB", "BAABB", "BABBB"]
     right = ["ABABA", "ABBBA", "BABAA", "BAAAA", "BABAB", "BAAAB", "ABABB", "ABBBB"]
     return(Delta(traw, populations, left, right, blocksize, correction, output, progress))
@@ -219,7 +184,7 @@ def DOL(traw, populations, blocksize = hermes, correction = False, output = "", 
 # DS16
 # The ''freshman sum'' of DS1 and minus DS6.
 # I'm not assuming the fourth population carries allele "A", that assumption can be made by filtering the data if desired.
-def DS16(traw, populations, blocksize = hermes, correction = False, output = "", progress = True):
+def DS16(traw, populations, blocksize = 2000000, correction = False, output = "", progress = True):
     left = ["BABAA", "ABABB", "AAABB", "BBBAA"]
     right = ["BAABA", "ABBAB", "AABAB", "BBABA"]
     return(Delta(traw, populations, left, right, blocksize, correction, output, progress))
@@ -227,7 +192,7 @@ def DS16(traw, populations, blocksize = hermes, correction = False, output = "",
 # DS26
 # The ''freshman sum'' of DS2 and minus DS6.
 # I'm not assuming the fourth population carries allele "A", that assumption can be made by filtering the data if desired.
-def DS26(traw, populations, blocksize = hermes, correction = False, output = "", progress = True):
+def DS26(traw, populations, blocksize = 2000000, correction = False, output = "", progress = True):
     left = ["ABBAA", "BAABB", "AAABB", "BBBAA"]
     right = ["ABABA", "BABAB", "AABAB", "BBABA"]
     return(Delta(traw, populations, left, right, blocksize, correction, output, progress))
@@ -235,7 +200,7 @@ def DS26(traw, populations, blocksize = hermes, correction = False, output = "",
 # DS35
 # The ''freshman sum'' of DS3 and minus DS5.
 # I'm not assuming the fourth population carries allele "A", that assumption can be made by filtering the data if desired.
-def DS35(traw, populations, blocksize = hermes, correction = False, output = "", progress = True):
+def DS35(traw, populations, blocksize = 2000000, correction = False, output = "", progress = True):
     left = ["BABAA", "ABABB", "ABAAB", "BABBA"]
     right = ["ABBAA", "BAABB", "BAAAB", "ABBBA"]
     return(Delta(traw, populations, left, right, blocksize, correction, output, progress))
@@ -243,7 +208,7 @@ def DS35(traw, populations, blocksize = hermes, correction = False, output = "",
 # DS45
 # The ''freshman sum'' of DS4 and minus DS5.
 # I'm not assuming the fourth population carries allele "A", that assumption can be made by filtering the data if desired.
-def DS45(traw, populations, blocksize = hermes, correction = False, output = "", progress = True):
+def DS45(traw, populations, blocksize = 2000000, correction = False, output = "", progress = True):
     left = ["BAABA", "ABBAB", "ABAAB", "BABBA"]
     right = ["ABABA", "BABAB", "BAAAB", "ABBBA"]
     return(Delta(traw, populations, left, right, blocksize, correction, output, progress))
@@ -251,7 +216,7 @@ def DS45(traw, populations, blocksize = hermes, correction = False, output = "",
 # DS57
 # The ''freshman sum'' of DS5 and DS7.
 # I'm not assuming the fourth population carries allele "A", that assumption can be made by filtering the data if desired.
-def DS57(traw, populations, blocksize = hermes, correction = False, output = "", progress = True):
+def DS57(traw, populations, blocksize = 2000000, correction = False, output = "", progress = True):
     left = ["BAAAB", "ABBBA", "BAAAA", "ABBBB"]
     right = ["ABAAB", "BABBA", "ABAAA", "BABBB"]
     return(Delta(traw, populations, left, right, blocksize, correction, output, progress))
@@ -259,7 +224,7 @@ def DS57(traw, populations, blocksize = hermes, correction = False, output = "",
 # DS68
 # The ''freshman sum'' of DS6 and DS8.
 # I'm not assuming the fourth population carries allele "A", that assumption can be made by filtering the data if desired.
-def DS68(traw, populations, blocksize = hermes, correction = False, output = "", progress = True):
+def DS68(traw, populations, blocksize = 2000000, correction = False, output = "", progress = True):
     left = ["AABAB", "BBABA", "AABAA", "BBABB"]
     right = ["AAABB", "BBBAA", "AAABA", "BBBAB"]
     return(Delta(traw, populations, left, right, blocksize, correction, output, progress))
@@ -267,7 +232,7 @@ def DS68(traw, populations, blocksize = hermes, correction = False, output = "",
 # DS3457
 # The ''freshman sum'' of DS3, DS4, minus DS5 and DS7.
 # I'm not assuming the fourth population carries allele "A", that assumption can be made by filtering the data if desired.
-def DS3457(traw, populations, blocksize = hermes, correction = False, output = "", progress = True):
+def DS3457(traw, populations, blocksize = 2000000, correction = False, output = "", progress = True):
     left = ["BABAA", "ABABB", "BAABA", "ABBAB", "ABAAB", "BABBA", "BAAAA", "ABBBB"]
     right = ["ABBAA", "BAABB", "ABABA", "BABAB", "BAAAB", "ABBBA", "ABAAA", "BABBB"]
     return(Delta(traw, populations, left, right, blocksize, correction, output, progress))
@@ -275,7 +240,7 @@ def DS3457(traw, populations, blocksize = hermes, correction = False, output = "
 # DS1268
 # The ''freshman sum'' of DS1, DS2, minus DS6 and DS8.
 # I'm not assuming the fourth population carries allele "A", that assumption can be made by filtering the data if desired.
-def DS1268(traw, populations, blocksize = hermes, correction = False, output = "", progress = True):
+def DS1268(traw, populations, blocksize = 2000000, correction = False, output = "", progress = True):
     left = ["BABAA", "ABABB", "ABBAA", "BAABB", "AAABB", "BBBAA", "AABAA", "BBABB"]
     right = ["BAABA", "ABBAB", "ABABA", "BABAB", "AABAB", "BBABA", "AAABA", "BBBAB"]
     return(Delta(traw, populations, left, right, blocksize, correction, output, progress))
@@ -283,7 +248,7 @@ def DS1268(traw, populations, blocksize = hermes, correction = False, output = "
 # DA12
 # The ''freshman sum'' of DA1 and minus DA2.
 # I'm not assuming the fourth population carries allele "A", that assumption can be made by filtering the data if desired.
-def DA12(traw, populations, blocksize = hermes, correction = False, output = "", progress = True):
+def DA12(traw, populations, blocksize = 2000000, correction = False, output = "", progress = True):
     left = ["BABAA", "ABABB", "ABABA", "BABAB"]
     right = ["ABBAA", "BAABB", "BAABA", "ABBAB"]
     return(Delta(traw, populations, left, right, blocksize, correction, output, progress))
@@ -291,7 +256,7 @@ def DA12(traw, populations, blocksize = hermes, correction = False, output = "",
 # DA13
 # The ''freshman sum'' of DA1 and minus DA3.
 # I'm not assuming the fourth population carries allele "A", that assumption can be made by filtering the data if desired.
-def DA13(traw, populations, blocksize = hermes, correction = False, output = "", progress = True):
+def DA13(traw, populations, blocksize = 2000000, correction = False, output = "", progress = True):
     left = ["BABAA", "ABABB", "ABAAB", "BABBA"]
     right = ["ABBAA", "BAABB", "BAAAB", "ABBBA"]
     return(Delta(traw, populations, left, right, blocksize, correction, output, progress))
@@ -299,7 +264,7 @@ def DA13(traw, populations, blocksize = hermes, correction = False, output = "",
 # DA23
 # The ''freshman sum'' of DA2 and minus DA3.
 # I'm not assuming the fourth population carries allele "A", that assumption can be made by filtering the data if desired.
-def DA23(traw, populations, blocksize = hermes, correction = False, output = "", progress = True):
+def DA23(traw, populations, blocksize = 2000000, correction = False, output = "", progress = True):
     left = ["BAABA", "ABBAB", "ABAAB", "BABBA"]
     right = ["ABABA", "BABAB", "BAAAB", "ABBBA"]
     return(Delta(traw, populations, left, right, blocksize, correction, output, progress))
@@ -307,7 +272,7 @@ def DA23(traw, populations, blocksize = hermes, correction = False, output = "",
 # DA1234
 # The ''freshman sum'' of DA1, DA2, minus DA3 and DA4.
 # I'm not assuming the fourth population carries allele "A", that assumption can be made by filtering the data if desired.
-def DA1234(traw, populations, blocksize = hermes, correction = False, output = "", progress = True):
+def DA1234(traw, populations, blocksize = 2000000, correction = False, output = "", progress = True):
     left = ["BABAA", "ABABB", "BAABA", "ABBAB", "ABAAB", "BABBA", "BAAAA", "ABBBB"]
     right = ["ABBAA", "BAABB", "ABABA", "BABAB", "BAAAB", "ABBBA", "ABAAA", "BABBB"]
     return(Delta(traw, populations, left, right, blocksize, correction, output, progress))
@@ -315,7 +280,7 @@ def DA1234(traw, populations, blocksize = hermes, correction = False, output = "
 # DQ16
 # The ''freshman sum'' of DQ1 and minus DQ6.
 # I'm not assuming the fourth population carries allele "A", that assumption can be made by filtering the data if desired.
-def DQ16(traw, populations, blocksize = hermes, correction = False, output = "", progress = True):
+def DQ16(traw, populations, blocksize = 2000000, correction = False, output = "", progress = True):
     left = ["BAABA", "ABBAB", "AABAB", "BBABA"]
     right = ["BAAAB", "ABBBA", "AABBA", "BBAAB"]
     return(Delta(traw, populations, left, right, blocksize, correction, output, progress))
@@ -323,7 +288,7 @@ def DQ16(traw, populations, blocksize = hermes, correction = False, output = "",
 # DQ26
 # The ''freshman sum'' of DQ2 and minus DQ6.
 # I'm not assuming the fourth population carries allele "A", that assumption can be made by filtering the data if desired.
-def DQ26(traw, populations, blocksize = hermes, correction = False, output = "", progress = True):
+def DQ26(traw, populations, blocksize = 2000000, correction = False, output = "", progress = True):
     left = ["ABABA", "BABAB", "AABAB", "BBABA"]
     right = ["ABAAB", "BABBA", "AABBA", "BBAAB"]
     return(Delta(traw, populations, left, right, blocksize, correction, output, progress))
@@ -331,7 +296,7 @@ def DQ26(traw, populations, blocksize = hermes, correction = False, output = "",
 # DQ35
 # The ''freshman sum'' of DQ3 and minus DQ5.
 # I'm not assuming the fourth population carries allele "A", that assumption can be made by filtering the data if desired.
-def DQ35(traw, populations, blocksize = hermes, correction = False, output = "", progress = True):
+def DQ35(traw, populations, blocksize = 2000000, correction = False, output = "", progress = True):
     left = ["BAABA", "ABBAB", "ABBAA", "BAABB"]
     right = ["ABABA", "BABAB", "BABAA", "ABABB"]
     return(Delta(traw, populations, left, right, blocksize, correction, output, progress))
@@ -339,7 +304,7 @@ def DQ35(traw, populations, blocksize = hermes, correction = False, output = "",
 # DQ45
 # The ''freshman sum'' of DQ4 and minus DQ5.
 # I'm not assuming the fourth population carries allele "A", that assumption can be made by filtering the data if desired.
-def DQ45(traw, populations, blocksize = hermes, correction = False, output = "", progress = True):
+def DQ45(traw, populations, blocksize = 2000000, correction = False, output = "", progress = True):
     left = ["BAAAB", "ABBBA", "ABBAA", "BAABB"]
     right = ["ABAAB", "BABBA", "BABAA", "ABABB"]
     return(Delta(traw, populations, left, right, blocksize, correction, output, progress))
@@ -347,7 +312,7 @@ def DQ45(traw, populations, blocksize = hermes, correction = False, output = "",
 # DQ57
 # The ''freshman sum'' of DQ5 and DQ7.
 # I'm not assuming the fourth population carries allele "A", that assumption can be made by filtering the data if desired.
-def DQ57(traw, populations, blocksize = hermes, correction = False, output = "", progress = True):
+def DQ57(traw, populations, blocksize = 2000000, correction = False, output = "", progress = True):
     left = ["BABAA", "ABABB", "BAAAA", "ABBBB"]
     right = ["ABBAA", "BAABB", "ABAAA", "BABBB"]
     return(Delta(traw, populations, left, right, blocksize, correction, output, progress))
@@ -355,7 +320,7 @@ def DQ57(traw, populations, blocksize = hermes, correction = False, output = "",
 # DQ68
 # The ''freshman sum'' of DQ6 and DQ8.
 # I'm not assuming the fourth population carries allele "A", that assumption can be made by filtering the data if desired.
-def DQ68(traw, populations, blocksize = hermes, correction = False, output = "", progress = True):
+def DQ68(traw, populations, blocksize = 2000000, correction = False, output = "", progress = True):
     left = ["AABBA", "BBAAB", "AAABA", "BBBAB"]
     right = ["AABAB", "BBABA", "AAAAB", "BBBBA"]
     return(Delta(traw, populations, left, right, blocksize, correction, output, progress))
@@ -363,7 +328,7 @@ def DQ68(traw, populations, blocksize = hermes, correction = False, output = "",
 # DQ3457
 # The ''freshman sum'' of DQ3, DQ4, minus DQ5 and DQ7.
 # I'm not assuming the fourth population carries allele "A", that assumption can be made by filtering the data if desired.
-def DQ3457(traw, populations, blocksize = hermes, correction = False, output = "", progress = True):
+def DQ3457(traw, populations, blocksize = 2000000, correction = False, output = "", progress = True):
     left = ["BAABA", "ABBAB", "BAAAB", "ABBBA", "ABBAA", "BAABB", "BAAAA", "ABBBB"]
     right = ["ABABA", "BABAB", "ABAAB", "BABBA", "BABAA", "ABABB", "ABAAA", "BABBB"]
     return(Delta(traw, populations, left, right, blocksize, correction, output, progress))
@@ -371,7 +336,7 @@ def DQ3457(traw, populations, blocksize = hermes, correction = False, output = "
 # DQ1268
 # The ''freshman sum'' of DQ1, DQ2, minus DQ6 and DQ8.
 # I'm not assuming the fourth population carries allele "A", that assumption can be made by filtering the data if desired.
-def DQ1268(traw, populations, blocksize = hermes, correction = False, output = "", progress = True):
+def DQ1268(traw, populations, blocksize = 2000000, correction = False, output = "", progress = True):
     left = ["BAABA", "ABBAB", "ABABA", "BABAB", "AABAB", "BBABA", "AAABA", "BBBAB"]
     right = ["BAAAB", "ABBBA", "ABAAB", "BABBA", "AABBA", "BBAAB", "AAAAB", "BBBBA"]
     return(Delta(traw, populations, left, right, blocksize, correction, output, progress))
